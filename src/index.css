@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Print optimizations for formal RFQ quotation printing */
+@media print {
+  header,
+  footer,
+  aside,
+  button,
+  a[href^="https://wa.me"] {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  pre {
+    border: 1px solid #ccc !important;
+    background: #fdfdfd !important;
+    color: #111 !important;
+    white-space: pre-wrap !important;
+    font-size: 11pt !important;
+  }
+}

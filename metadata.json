@@ -1,0 +1,6 @@
+{
+  "name": "Proquanic (Pvt) Ltd",
+  "description": "B2B industrial procurement and supply catalogue for steel products, cutting tools, machinery, and engineering equipment across Zimbabwe and Southern Africa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
