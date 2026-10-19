@@ -52,12 +52,12 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Main Top Bar: 3-Zone Contract */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 min-h-[72px] sm:min-h-[80px] py-2 sm:py-2.5 flex items-center justify-between gap-4 lg:gap-8">
-        {/* Zone 1: Official Brand Identity & Wordmark */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4 lg:gap-8">
+        {/* Zone 1: Official Brand Wordmark (standalone P logo completely removed, shifted left) */}
         <div className="shrink-0 flex items-center">
           <Link
             href="/"
-            className="inline-flex items-center group focus:outline-none"
+            className="inline-block group focus:outline-none"
             aria-label="Proquanic (Pvt) Ltd — Home"
           >
             <BrandWordmark size="header" />
