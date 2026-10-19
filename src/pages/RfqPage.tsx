@@ -168,7 +168,7 @@ export const RfqPage: React.FC = () => {
     }
 
     lines.push(`======================================================`);
-    lines.push(`Sent via Proquanic B2B Procurement Desk (proquanic@gmail.com)`);
+    lines.push(`Sent via Proquanic B2B Procurement Desk (${COMPANY.contact.email})`);
     lines.push(`Address: 7010 Gwabalanda, Bulawayo, Zimbabwe`);
     return lines.join("\n");
   };
@@ -294,7 +294,7 @@ export const RfqPage: React.FC = () => {
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold transition-colors shadow-xs"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>Send to WhatsApp Desk (+263 79 042 0836)</span>
+                <span>Send to WhatsApp Desk (+263 790 420 836)</span>
               </a>
 
               <a
@@ -803,7 +803,7 @@ export const RfqPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold transition-colors shadow-xs"
               >
-                <span>Chat on WhatsApp (+263 79 042 0836)</span>
+                <span>Chat on WhatsApp (+263 790 420 836)</span>
               </a>
             </div>
 
@@ -819,7 +819,7 @@ export const RfqPage: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-1.5">
                   <span className="text-amber-500 font-bold">✓</span>
-                  <span><strong>Cut-to-Length:</strong> Steel bars and billets can be quoted in cut lengths to reduce your workshop machining scrap.</span>
+                  <span><strong>Specification Matching:</strong> Engineering steels, tools and machinery sourced to verified dimensional standards and grades.</span>
                 </li>
                 <li className="flex items-start gap-1.5">
                   <span className="text-amber-500 font-bold">✓</span>

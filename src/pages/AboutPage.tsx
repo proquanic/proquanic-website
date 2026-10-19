@@ -85,8 +85,8 @@ export const AboutPage: React.FC = () => {
                 7010 Gwabalanda, Bulawayo, Zimbabwe
               </p>
               <div className="pt-2 text-xs font-mono text-slate-400 border-t border-slate-800 flex justify-between">
-                <span>Call: +263 79 042 0836</span>
-                <span>Email: proquanic@gmail.com</span>
+                <span>Call: {COMPANY.contact.phoneDisplay}</span>
+                <span>Email: {COMPANY.contact.email}</span>
               </div>
             </div>
           </div>

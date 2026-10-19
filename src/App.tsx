@@ -12,6 +12,8 @@ import { RfqPage } from "./pages/RfqPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
+import { IndustriesPage } from "./pages/IndustriesPage";
+import { SiteDeliveryPage } from "./pages/SiteDeliveryPage";
 import { CATEGORIES } from "./data/categories";
 
 const AppContent: React.FC = () => {
@@ -46,6 +48,14 @@ const AppContent: React.FC = () => {
       title = "Request a Quotation (RFQ) — Proquanic (Pvt) Ltd";
       metaDescription =
         "Submit product lists, engineering drawings, steel specifications, or machinery requirements for itemized quotation.";
+    } else if (currentPath === "/industries") {
+      title = "Industries We Serve — Proquanic (Pvt) Ltd";
+      metaDescription =
+        "Serving mining, manufacturing, machine shops, steel fabrication, construction, and agriculture across Zimbabwe and Southern Africa.";
+    } else if (currentPath === "/site-delivery") {
+      title = "Site Delivery Arrangements — Proquanic (Pvt) Ltd";
+      metaDescription =
+        "Direct-to-site delivery arrangements confirmed according to order requirements, cargo weight, and destination across Zimbabwe.";
     } else if (currentPath === "/about") {
       title = "About Proquanic (Pvt) Ltd — Bulawayo, Zimbabwe";
       metaDescription =
@@ -53,7 +63,7 @@ const AppContent: React.FC = () => {
     } else if (currentPath === "/contact") {
       title = "Contact Procurement Desk — Proquanic (Pvt) Ltd";
       metaDescription =
-        "Direct contact details: Phone +263 79 042 0836, WhatsApp, and 7010 Gwabalanda, Bulawayo, Zimbabwe.";
+        "Direct contact details: Phone +263 790 420 836, WhatsApp, and 7010 Gwabalanda, Bulawayo, Zimbabwe.";
     } else if (currentPath === "/privacy-policy") {
       title = "Privacy Policy — Proquanic (Pvt) Ltd";
       metaDescription =
@@ -88,6 +98,14 @@ const AppContent: React.FC = () => {
 
     if (currentPath === "/request-a-quotation") {
       return <RfqPage />;
+    }
+
+    if (currentPath === "/industries") {
+      return <IndustriesPage />;
+    }
+
+    if (currentPath === "/site-delivery") {
+      return <SiteDeliveryPage />;
     }
 
     if (currentPath === "/about") {

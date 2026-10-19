@@ -87,8 +87,8 @@ export const PrivacyPolicyPage: React.FC = () => {
           <div className="bg-slate-50 p-4 rounded border border-slate-200 space-y-1 font-mono text-xs text-slate-800">
             <p><strong>Proquanic (Pvt) Ltd</strong></p>
             <p>Address: 7010 Gwabalanda, Bulawayo, Zimbabwe</p>
-            <p>Email: proquanic@gmail.com</p>
-            <p>Phone: +263 79 042 0836</p>
+            <p>Email: {COMPANY.contact.email}</p>
+            <p>Phone: {COMPANY.contact.phoneDisplay}</p>
           </div>
         </section>
       </div>

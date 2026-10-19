@@ -221,7 +221,7 @@ export const MachineryPage: React.FC = () => {
             className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded shadow transition-colors flex items-center gap-2"
           >
             <MessageSquare className="w-4 h-4" />
-            <span>Chat With Machinery Desk (+263 79 042 0836)</span>
+            <span>Chat With Machinery Desk (+263 790 420 836)</span>
           </a>
         </div>
       </section>

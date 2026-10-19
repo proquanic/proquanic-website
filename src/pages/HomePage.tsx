@@ -87,7 +87,7 @@ export const HomePage: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                 <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
-                <span>Cut-to-Size Steel Available</span>
+                <span>Order Sourcing to Spec</span>
               </div>
             </div>
           </div>
@@ -455,7 +455,7 @@ export const HomePage: React.FC = () => {
               rel="noopener noreferrer"
               className="w-full py-3 px-6 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded text-center flex items-center justify-center gap-2 transition-colors"
             >
-              <span>Instant Chat on WhatsApp (+263 79 042 0836)</span>
+              <span>Instant Chat on WhatsApp (+263 790 420 836)</span>
             </a>
           </div>
         </div>

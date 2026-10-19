@@ -5,20 +5,23 @@
  * - Company: Proquanic (Pvt) Ltd
  * - Business: B2B industrial procurement and supply, including machinery and industrial equipment
  * - Address: 7010 Gwabalanda, Bulawayo, Zimbabwe
- * - Email: proquanic@gmail.com
- * - Call: +263 79 042 0836
- * - WhatsApp: +263 79 042 0836
+ * - Email: sales@proquanic.co.zw
+ * - Call: +263 790 420 836
+ * - WhatsApp: +263 790 420 836
+ * - Website: https://proquanic.co.zw
  * - Tagline: If you need it. We will find it.
  */
 
 export const COMPANY = {
   name: "Proquanic (Pvt) Ltd",
-  shortName: "Proquanic",
+  shortName: "ProQuanic",
   legalName: "Proquanic (Pvt) Ltd",
   tagline: "If you need it. We will find it.",
+  subtitle: "INDUSTRIAL SUPPLIES & ENGINEERING SOLUTIONS",
   headline: "Industrial Supplies, Machinery and Engineering Solutions",
   subheadline:
     "B2B industrial procurement and supply for engineering facilities, workshops, mines, and industrial operations across Zimbabwe and Southern Africa.",
+  website: "https://proquanic.co.zw",
   
   // Physical and contact details
   address: {
@@ -29,52 +32,67 @@ export const COMPANY = {
   },
   
   contact: {
-    email: "proquanic@gmail.com",
-    phoneDisplay: "+263 79 042 0836",
+    email: "sales@proquanic.co.zw",
+    phoneDisplay: "+263 790 420 836",
     phoneTel: "+263790420836",
-    whatsappDisplay: "+263 79 042 0836",
+    whatsappDisplay: "+263 790 420 836",
     whatsappNumber: "263790420836",
     whatsappDefaultText:
-      "Hello Proquanic, I would like to enquire about an industrial product or equipment requirement. Please assist me with a quotation.",
+      "Hello Proquanic, I would like to enquire about your industrial products, engineering supplies, machinery and equipment. Please assist me with product information and a quotation. My requirements are:",
   },
 
   /**
-   * PROVISIONAL DESIGN PALETTE:
-   * Brand identity: 'Pro' and 'Quanic' must be on the same baseline as one continuous word.
-   * Pro: Primary brand colour (Deep Precision Navy)
-   * Quanic: Secondary brand colour (Precision Industrial Amber)
-   * Centralised here so they can be changed without editing component markup.
+   * Refined Industrial Brand Palette:
+   * - Dominant: Deep Industrial Navy Blue (#0B192C / #0F172A)
+   * - Accent: Vivid Industrial Orange (#EA580C / #F97316)
+   * - WhatsApp: Authentic Green (#25D366)
    */
   branding: {
     proColor: "#0F172A", // Deep Industrial Slate Navy
     proTextColorClass: "text-slate-900",
-    quanicColor: "#D97706", // Precision Industrial Amber / Gold
-    quanicTextColorClass: "text-amber-600",
+    quanicColor: "#EA580C", // Vivid Industrial Orange
+    quanicTextColorClass: "text-orange-600",
+    navyDark: "#0B192C",
+    navyBackground: "#08111F",
+    orangeAccent: "#F97316",
+    whatsappGreen: "#25D366",
   },
 
   /**
-   * Verified social media status:
-   * Configured centrally. Only publish verified handles.
+   * Verified social media accounts:
    */
   socialMedia: [
     {
       platform: "LinkedIn",
-      url: "",
-      status: "pending_verification",
-      note: "Company profile in verification",
+      url: "https://linkedin.com/in/proquanic",
+      handle: "proquanic",
     },
     {
       platform: "Facebook",
-      url: "",
-      status: "pending_verification",
-      note: "Business page in verification",
+      url: "https://www.facebook.com/proquanic",
+      handle: "proquanic",
     },
     {
-      platform: "WhatsApp Direct",
-      url: "https://wa.me/263790420836",
-      status: "verified",
-      note: "Active B2B Procurement Desk",
+      platform: "Instagram",
+      url: "https://www.instagram.com/proquanic",
+      handle: "proquanic",
     },
+  ],
+
+  /**
+   * Target Customer Industries
+   */
+  industries: [
+    "Mining and mineral processing",
+    "Manufacturing and industrial production",
+    "Engineering and machine shops",
+    "Metal fabrication and steel processing",
+    "Construction and infrastructure",
+    "Agriculture and agricultural machinery",
+    "Transport, fleet maintenance and automotive workshops",
+    "Power generation and utilities",
+    "Industrial maintenance, repair and operations (MRO)",
+    "Procurement departments, contractors and industrial distributors",
   ],
 
   /**
@@ -82,4 +100,10 @@ export const COMPANY = {
    */
   scopeStatement:
     "The products shown are illustrative examples of our industrial supply capabilities, not an exhaustive catalogue. If you cannot find the product, specification or equipment you need, contact us with your requirements for assessment and quotation.",
+
+  /**
+   * Sourcing and Procurement Statement
+   */
+  procurementStatement:
+    "Proquanic (Pvt) Ltd supplies industrial products, engineering materials, precision tools, machinery and equipment to businesses across Zimbabwe. We support industrial procurement by sourcing suitable products from reputable suppliers, primarily in South Africa, in response to customer requirements.",
 };
