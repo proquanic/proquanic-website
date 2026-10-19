@@ -14,7 +14,7 @@
 
 export const COMPANY = {
   name: "Proquanic (Pvt) Ltd",
-  shortName: "ProQuanic",
+  shortName: "Proquanic",
   legalName: "Proquanic (Pvt) Ltd",
   tagline: "If you need it. We will find it.",
   subtitle: "INDUSTRIAL SUPPLIES & ENGINEERING SOLUTIONS",
@@ -43,14 +43,14 @@ export const COMPANY = {
 
   /**
    * Refined Industrial Brand Palette:
-   * - Dominant: Deep Industrial Navy Blue (#0B192C / #0F172A)
-   * - Accent: Vivid Industrial Orange (#EA580C / #F97316)
+   * - Dominant: Deep Industrial Navy Blue (#0C2340)
+   * - Accent: Vivid Engineering Orange (#EA580C / #E65100)
    * - WhatsApp: Authentic Green (#25D366)
    */
   branding: {
-    proColor: "#0F172A", // Deep Industrial Slate Navy
-    proTextColorClass: "text-slate-900",
-    quanicColor: "#EA580C", // Vivid Industrial Orange
+    proColor: "#0C2340", // Deep Industrial Navy Blue
+    proTextColorClass: "text-[#0C2340]",
+    quanicColor: "#EA580C", // Vivid Engineering Orange
     quanicTextColorClass: "text-orange-600",
     navyDark: "#0B192C",
     navyBackground: "#08111F",

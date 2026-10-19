@@ -29,16 +29,19 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
     <div className={`inline-flex flex-col ${className}`}>
       {/* Connected Brand Name Wordmark on same baseline */}
       <span
-        className={`font-black tracking-tight inline-flex items-baseline select-none ${sizeClasses[size]}`}
-        style={{ letterSpacing: "-0.03em" }}
-        aria-label="ProQuanic"
+        className={`font-black tracking-tight inline-flex items-baseline select-none whitespace-nowrap leading-none ${sizeClasses[size]}`}
+        style={{
+          fontFamily: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
+          letterSpacing: "-0.03em",
+        }}
+        aria-label="Proquanic"
       >
         <span style={{ color: proColor }}>Pro</span>
-        <span style={{ color: quanicColor }}>Quanic</span>
+        <span style={{ color: quanicColor }}>quanic</span>
       </span>
 
       {withSubtitle && (
-        <div className="mt-1 space-y-0.5">
+        <div className="mt-1.5 space-y-0.5">
           <span
             className={`block text-[10px] sm:text-[11px] font-bold tracking-widest uppercase ${
               variant === "light" ? "text-orange-400" : "text-orange-600"
