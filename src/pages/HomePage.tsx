@@ -34,14 +34,15 @@ export const HomePage: React.FC = () => {
               <span>Bulawayo, Zimbabwe · Southern African B2B Supply</span>
             </div>
 
-            <div className="space-y-3">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                <span className="block mb-2">
-                  <BrandWordmark size="hero" variant="light" />
-                </span>
-                <span className="block text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-100">
-                  {COMPANY.headline}
-                </span>
+            <div className="space-y-4">
+              {/* Refined Brand Identifier Lockup */}
+              <div className="inline-block">
+                <BrandWordmark size="hero" variant="light" />
+              </div>
+
+              {/* Primary Descriptive Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                {COMPANY.headline}
               </h1>
             </div>
 

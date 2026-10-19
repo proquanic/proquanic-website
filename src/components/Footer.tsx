@@ -92,15 +92,13 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
           {/* Column 1 — Official Proquanic Branding & Corporate Identity */}
           <div className="space-y-4 lg:col-span-1">
-            <div className="space-y-2">
+            <div className="space-y-3">
               <Link
                 href="/"
-                className="inline-block group focus:outline-none"
+                className="inline-block group focus:outline-none transition-opacity hover:opacity-90"
                 aria-label="Proquanic (Pvt) Ltd — Home"
               >
-                <div className="bg-white p-3.5 sm:p-4 rounded-lg shadow-sm border border-slate-200/50 inline-block group-hover:border-orange-500/50 transition-colors">
-                  <BrandWordmark size="footer" />
-                </div>
+                <BrandWordmark size="footer" variant="light" />
               </Link>
               <p className="text-xs text-white italic font-medium tracking-wide">
                 “{COMPANY.tagline}”

@@ -9,10 +9,10 @@ export interface BrandWordmarkProps {
 }
 
 /**
- * Official Proquanic Stylised Capital 'P' Logo Symbol
- * Based on the official Cutting & Machining Tools catalogue branding:
- * - Main Body: Solid Dark Navy Blue (#0C2340)
- * - Distinctive Angled Accent: Bright Industrial Orange (#EA580C)
+ * Official Proquanic Geometric Capital 'P' Logo Symbol
+ * Faithful to the official catalogue branding:
+ * - Main Body: Solid Dark Navy Blue (#0C2340) in standard mode, Clean White (#FFFFFF) in light mode
+ * - Precise Upper-Right Shoulder Accent: Bright Industrial Orange (#EA580C)
  */
 export const ProquanicSymbol: React.FC<{
   className?: string;
@@ -29,14 +29,14 @@ export const ProquanicSymbol: React.FC<{
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* Dark Navy Capital P Main Body with internal counter */}
+      {/* Capital P Main Body with inner counter cutout */}
       <path
-        d="M 14 10 H 74 C 82.8 10 90 17.2 90 26 V 42 C 90 50.8 82.8 58 74 58 H 36 V 90 H 14 V 10 Z M 36 26 H 66 C 70.4 26 74 29.6 74 34 C 74 38.4 70.4 42 66 42 H 36 V 26 Z"
+        d="M 12 10 H 72 C 81 10 88 17 88 26 V 38 C 88 47 81 54 72 54 H 34 V 90 H 12 V 10 Z M 34 25 H 64 C 68 25 71 27.5 71 31.5 C 71 35.5 68 38 64 38 H 34 V 25 Z"
         fill={mainFill}
       />
-      {/* Distinctive Bright Industrial Orange Angled Accent on Upper-Right Shoulder */}
+      {/* Precise Industrial Orange Angled Accent on Upper-Right Shoulder */}
       <path
-        d="M 54 10 H 74 C 82.8 10 90 17.2 90 26 V 44 L 54 10 Z"
+        d="M 54 10 H 72 C 81 10 88 17 88 26 V 44 L 54 10 Z"
         fill={accentFill}
       />
     </svg>
@@ -51,50 +51,56 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
 }) => {
   const isHeader = size === "header" || size === "md";
   const isFooter = size === "footer" || size === "lg";
+  const isHero = size === "hero" || size === "xl";
 
   const symbolClass = isHeader
-    ? "w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12"
+    ? "w-8 h-8 sm:w-10 sm:h-10"
     : isFooter
-    ? "w-10 h-10 sm:w-11 sm:h-11"
-    : size === "hero"
-    ? "w-12 h-12 sm:w-16 sm:h-16"
+    ? "w-9 h-9 sm:w-10 sm:h-10"
+    : isHero
+    ? "w-10 h-10 sm:w-12 sm:h-12"
     : "w-8 h-8";
 
   const wordmarkClass = isHeader
-    ? "text-lg sm:text-2xl lg:text-[26px]"
+    ? "text-base sm:text-xl lg:text-[22px]"
     : isFooter
-    ? "text-xl sm:text-2xl"
-    : size === "hero"
-    ? "text-3xl sm:text-5xl"
-    : "text-lg sm:text-xl";
+    ? "text-lg sm:text-xl"
+    : isHero
+    ? "text-xl sm:text-2xl lg:text-[26px]"
+    : "text-base sm:text-lg";
 
   const suffixClass = isHeader
-    ? "text-[8px] sm:text-[9.5px] lg:text-[10px]"
+    ? "text-[7.5px] sm:text-[8.5px] lg:text-[9px]"
     : isFooter
+    ? "text-[8px] sm:text-[8.5px]"
+    : isHero
     ? "text-[8.5px] sm:text-[9.5px]"
-    : "text-[8px] sm:text-[9px]";
+    : "text-[7.5px] sm:text-[8px]";
 
   const descriptorClass = isHeader
-    ? "text-[6.5px] sm:text-[8px] lg:text-[8.5px]"
+    ? "text-[5.5px] sm:text-[7px] lg:text-[7.5px]"
     : isFooter
+    ? "text-[6.5px] sm:text-[7px]"
+    : isHero
     ? "text-[7px] sm:text-[8px]"
-    : "text-[7px]";
+    : "text-[6px] sm:text-[6.5px]";
 
   const textColor = variant === "light" ? "#FFFFFF" : "#0C2340";
+  const descriptorColor = variant === "light" ? "#CBD5E1" : "#0C2340";
 
   return (
-    <div className={`inline-flex items-center gap-2.5 sm:gap-3.5 select-none ${className}`}>
-      {/* Stylised P Symbol (Two-colour navy and orange) */}
+    <div className={`inline-flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
+      {/* 1. Official Geometric P Symbol */}
       <ProquanicSymbol className={symbolClass} variant={variant} />
 
-      {/* Official Corporate Typography Stack */}
-      <div className="flex flex-col justify-center text-left">
-        {/* Company Name: Solid Dark Navy Blue PROQUANIC (never two colours, never mixed case) */}
+      {/* 2. Coherent Corporate Typography Lockup */}
+      <div className="flex flex-col items-center justify-center text-center">
+        {/* Company Name: Solid single-colour PROQUANIC (never split, never mixed-case) */}
         <span
           className={`font-black tracking-tight leading-none uppercase ${wordmarkClass}`}
           style={{
             fontFamily: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
-            letterSpacing: "-0.025em",
+            letterSpacing: "-0.02em",
             color: textColor,
           }}
           aria-label="PROQUANIC (PVT) LTD"
@@ -102,7 +108,7 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
           PROQUANIC
         </span>
 
-        {/* Company Suffix: (PVT) LTD in carefully spaced uppercase lettering */}
+        {/* Company Suffix: (PVT) LTD centred directly beneath wordmark */}
         <span
           className={`font-bold tracking-[0.24em] leading-tight uppercase mt-0.5 sm:mt-1 ${suffixClass}`}
           style={{
@@ -113,13 +119,13 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
           (PVT) LTD
         </span>
 
-        {/* Supporting Descriptor: INDUSTRIAL SUPPLIES & ENGINEERING SOLUTIONS in smaller, widely spaced lettering */}
+        {/* Supporting Descriptor: INDUSTRIAL SUPPLIES & ENGINEERING SOLUTIONS */}
         <span
-          className={`font-bold tracking-[0.14em] sm:tracking-[0.18em] leading-none uppercase mt-0.5 whitespace-nowrap ${descriptorClass}`}
+          className={`font-semibold tracking-[0.14em] sm:tracking-[0.16em] leading-none uppercase mt-0.5 whitespace-nowrap ${descriptorClass}`}
           style={{
             fontFamily: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
-            color: variant === "light" ? "rgba(255, 255, 255, 0.85)" : "#0C2340",
-            opacity: 0.9,
+            color: descriptorColor,
+            opacity: variant === "light" ? 0.9 : 0.85,
           }}
         >
           {COMPANY.subtitle}
