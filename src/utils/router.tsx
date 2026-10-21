@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface RouterContextType {
@@ -10,47 +11,64 @@ const RouterContext = createContext<RouterContextType>({
   navigate: () => {},
 });
 
-export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const getInitialPath = () => {
-    if (typeof window === "undefined") return "/";
-    const path = window.location.pathname;
-    // Handle hash fallback if someone navigated with #/path
-    if (window.location.hash && window.location.hash.startsWith("#/")) {
-      return window.location.hash.slice(1);
-    }
-    return path || "/";
-  };
+const BASE_PATH = "/proquanic-website";
 
-  const [currentPath, setCurrentPath] = useState<string>(getInitialPath);
+const getBasePath = () => {
+  return window.location.hostname === "proquanic.github.io"
+    ? BASE_PATH
+    : "";
+};
+
+const getRoute = () => {
+  if (typeof window === "undefined") return "/";
+
+  const hash = window.location.hash;
+  if (hash.startsWith("#/")) return hash.slice(1);
+
+  let path = window.location.pathname;
+  const base = getBasePath();
+
+  if (base && path.startsWith(base)) {
+    path = path.slice(base.length) || "/";
+  }
+
+  if (!path.startsWith("/")) path = `/${path}`;
+
+  return path;
+};
+
+export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [currentPath, setCurrentPath] = useState<string>(getRoute);
 
   useEffect(() => {
-    const handlePopState = () => {
-      let path = window.location.pathname;
-      if (window.location.hash && window.location.hash.startsWith("#/")) {
-        path = window.location.hash.slice(1);
-      }
-      setCurrentPath(path || "/");
+    const handleLocationChange = () => {
+      setCurrentPath(getRoute());
     };
 
-    window.addEventListener("popstate", handlePopState);
-    window.addEventListener("hashchange", handlePopState);
+    window.addEventListener("popstate", handleLocationChange);
+    window.addEventListener("hashchange", handleLocationChange);
 
     return () => {
-      window.removeEventListener("popstate", handlePopState);
-      window.removeEventListener("hashchange", handlePopState);
+      window.removeEventListener("popstate", handleLocationChange);
+      window.removeEventListener("hashchange", handleLocationChange);
     };
   }, []);
 
   const navigate = (path: string) => {
     if (currentPath === path) return;
+
+    const base = getBasePath();
+    const destination = `${base}${path.startsWith("/") ? path : `/${path}`}`;
+
     try {
-      window.history.pushState(null, "", path);
-      setCurrentPath(path);
+      window.history.pushState(null, "", destination);
+      setCurrentPath(path.startsWith("/") ? path : `/${path}`);
       window.scrollTo({ top: 0, behavior: "instant" });
     } catch {
-      // Fallback for sandboxed environments
       window.location.hash = path;
-      setCurrentPath(path);
+      setCurrentPath(path.startsWith("/") ? path : `/${path}`);
       window.scrollTo({ top: 0, behavior: "instant" });
     }
   };
@@ -70,20 +88,30 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   className?: string;
 }
 
-export const Link: React.FC<LinkProps> = ({ href, children, className, onClick, ...props }) => {
+export const Link: React.FC<LinkProps> = ({
+  href,
+  children,
+  className,
+  onClick,
+  ...props
+}) => {
   const { navigate } = useRouter();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (onClick) onClick(e);
-    // Don't intercept mailto:, tel:, or external protocols
+    onClick?.(e);
+
     if (
+      e.defaultPrevented ||
       href.startsWith("http://") ||
       href.startsWith("https://") ||
       href.startsWith("mailto:") ||
       href.startsWith("tel:") ||
       href.startsWith("//") ||
       e.ctrlKey ||
-      e.metaKey
+      e.metaKey ||
+      e.shiftKey ||
+      e.altKey ||
+      (e.currentTarget.target && e.currentTarget.target !== "_self")
     ) {
       return;
     }
