@@ -6,6 +6,8 @@ export interface BrandWordmarkProps {
   className?: string;
   variant?: "standard" | "light";
   withSubtitle?: boolean;
+  showDescriptor?: boolean;
+  orangeQ?: boolean;
 }
 
 /**
@@ -13,40 +15,51 @@ export interface BrandWordmarkProps {
  * 
  * Strict compliance with brand specifications:
  * - Standalone P logo/icon completely removed
- * - Three-line left-aligned lockup:
- *     Line 1: PROQUANIC (one cohesive wordmark in solid deep navy blue on light bg / white on dark bg)
+ * - Left-aligned lockup:
+ *     Line 1: PROQUANIC (navy blue with accent Q in header, solid in footer/hero)
  *     Line 2: (PVT) LTD (directly beneath in neatly tracked uppercase lettering)
- *     Line 3: INDUSTRIAL SUPPLIES & ENGINEERING SOLUTIONS (smaller uppercase text, balanced tracking)
- * - Clean, compact, professional, vertically centred in header
+ *     Line 3: INDUSTRIAL SUPPLIES & ENGINEERING SOLUTIONS (smaller uppercase text, present in footer, absent in header/hero)
+ * - Clean, compact, professional
  * - Never "ProQuanic"
  */
 export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
   size = "md",
   className = "",
   variant = "standard",
+  withSubtitle,
+  showDescriptor,
+  orangeQ,
 }) => {
   const isHeader = size === "header" || size === "md";
   const isFooter = size === "footer" || size === "lg";
   const isHero = size === "hero" || size === "xl";
   const isSm = size === "sm";
 
-  // Sizing definitions tuned for clean balance and zero clipping/overflow
+  // Descriptor appears in footer only, omitted in header and hero
+  const shouldRenderDescriptor =
+    showDescriptor !== undefined
+      ? showDescriptor
+      : withSubtitle !== undefined
+      ? withSubtitle
+      : !isHero && !isHeader;
+
+  // Header wordmark enlarged by 15-20%
   const wordmarkClass = isHeader
-    ? "text-lg xs:text-xl sm:text-[22px] lg:text-[23px]"
+    ? "text-[28px] xs:text-[30px] sm:text-4xl lg:text-[38px]"
     : isFooter
     ? "text-xl sm:text-2xl"
     : isHero
-    ? "text-2xl sm:text-3xl lg:text-[34px]"
+    ? "text-4xl xs:text-5xl sm:text-6xl lg:text-7xl xl:text-[76px]"
     : isSm
     ? "text-base"
     : "text-lg";
 
   const suffixClass = isHeader
-    ? "text-[8px] xs:text-[8.5px] sm:text-[9.5px] lg:text-[10px]"
+    ? "text-[10.5px] xs:text-[11.5px] sm:text-[13px] lg:text-[14px] tracking-[0.24em] sm:tracking-[0.28em]"
     : isFooter
     ? "text-[8.5px] sm:text-[9.5px]"
     : isHero
-    ? "text-[10px] sm:text-[11px]"
+    ? "text-[11px] xs:text-xs sm:text-sm lg:text-base tracking-[0.26em] sm:tracking-[0.3em]"
     : isSm
     ? "text-[7.5px]"
     : "text-[8.5px]";
@@ -56,23 +69,26 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
     : isFooter
     ? "text-[6.5px] sm:text-[7.5px]"
     : isHero
-    ? "text-[8px] sm:text-[9px]"
+    ? "text-[8px] xs:text-[9.5px] sm:text-xs lg:text-[13px] tracking-[0.14em] sm:tracking-[0.18em]"
     : isSm
     ? "text-[5.5px]"
     : "text-[6.5px]";
 
   // Colours: Solid single-colour PROQUANIC wordmark
-  // Deep Navy (#0C2340) for standard light backgrounds, Pure White (#FFFFFF) for dark navy footer
+  // Deep Navy (#0C2340) for standard light backgrounds, Pure White (#FFFFFF) for dark navy footer/hero
   const primaryColor = variant === "light" ? "#FFFFFF" : "#0C2340";
   const suffixColor = variant === "light" ? "#E2E8F0" : "#0C2340";
   const descriptorColor = variant === "light" ? "#94A3B8" : "#0C2340";
+
+  const shouldOrangeQ = orangeQ !== undefined ? orangeQ : isHeader;
+  const qColor = COMPANY.branding.quanicColor;
 
   return (
     <div
       className={`inline-flex flex-col items-start text-left select-none ${className}`}
       style={{ fontFamily: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" }}
     >
-      {/* Line 1: Single cohesive company name wordmark */}
+      {/* Line 1: Company name wordmark (with orange Q for header) */}
       <span
         className={`font-black tracking-tight leading-none uppercase ${wordmarkClass}`}
         style={{
@@ -81,12 +97,18 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
         }}
         aria-label="PROQUANIC"
       >
-        PROQUANIC
+        {shouldOrangeQ ? (
+          <>
+            PRO<span style={{ color: qColor }}>Q</span>UANIC
+          </>
+        ) : (
+          "PROQUANIC"
+        )}
       </span>
 
       {/* Line 2: Company suffix directly beneath */}
       <span
-        className={`font-bold tracking-[0.24em] leading-tight uppercase ${suffixClass} mt-0.5 sm:mt-1`}
+        className={`font-bold leading-tight uppercase ${suffixClass} ${isHero ? "mt-1 sm:mt-2" : "mt-0.5 sm:mt-1 tracking-[0.24em]"}`}
         style={{
           color: suffixColor,
           opacity: variant === "light" ? 0.95 : 0.9,
@@ -95,16 +117,18 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
         (PVT) LTD
       </span>
 
-      {/* Line 3: Supporting descriptor */}
-      <span
-        className={`font-semibold tracking-[0.12em] xs:tracking-[0.14em] sm:tracking-[0.16em] leading-none uppercase ${descriptorClass} mt-0.5 sm:mt-1 whitespace-nowrap`}
-        style={{
-          color: descriptorColor,
-          opacity: variant === "light" ? 0.85 : 0.8,
-        }}
-      >
-        {COMPANY.subtitle}
-      </span>
+      {/* Line 3: Supporting descriptor (only when enabled; absent in hero) */}
+      {shouldRenderDescriptor && (
+        <span
+          className={`font-semibold leading-none uppercase ${descriptorClass} ${isHero ? "mt-1 sm:mt-2" : "mt-0.5 sm:mt-1 tracking-[0.12em] xs:tracking-[0.14em] sm:tracking-[0.16em]"} whitespace-nowrap`}
+          style={{
+            color: descriptorColor,
+            opacity: variant === "light" ? 0.85 : 0.8,
+          }}
+        >
+          {COMPANY.subtitle}
+        </span>
+      )}
     </div>
   );
 };

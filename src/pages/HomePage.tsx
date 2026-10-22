@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "../utils/router";
-import { BrandWordmark } from "../components/BrandWordmark";
 import { SafeImage } from "../components/SafeImage";
 import { COMPANY } from "../config/company";
 import { CATEGORIES } from "../data/categories";
@@ -28,24 +27,39 @@ export const HomePage: React.FC = () => {
       <section className="relative bg-slate-900 text-white overflow-hidden border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Hero Text */}
-          <div className="lg:col-span-7 space-y-6 z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-800 border border-slate-700 rounded text-xs text-slate-300">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-7 z-10">
+            {/* 1. Location and Southern African B2B supply badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-slate-800/90 border border-slate-700/80 rounded-full text-xs font-medium text-slate-300 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-amber-500" />
               <span>Bulawayo, Zimbabwe · Southern African B2B Supply</span>
             </div>
 
-            <div className="space-y-4">
-              {/* Refined Brand Identifier Lockup */}
-              <div className="inline-block">
-                <BrandWordmark size="hero" variant="light" />
+            {/* 2. Dominant Brand Name Lockup & 3. Supporting Headline */}
+            <div className="space-y-4 sm:space-y-5">
+              {/* 2. Hero Brand Lockup: Large PROQUANIC wordmark with (PVT) LTD directly beneath */}
+              <div
+                className="inline-flex flex-col items-start text-left select-none"
+                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" }}
+              >
+                <span
+                  className="font-black tracking-tight leading-none uppercase text-4xl xs:text-5xl sm:text-6xl lg:text-7xl xl:text-[76px] text-white"
+                  style={{ letterSpacing: "-0.025em" }}
+                  aria-label="PROQUANIC"
+                >
+                  PROQUANIC
+                </span>
+                <span className="font-bold leading-tight uppercase text-[11px] xs:text-xs sm:text-sm lg:text-base tracking-[0.26em] sm:tracking-[0.3em] text-slate-200 opacity-95 mt-1 sm:mt-2">
+                  (PVT) LTD
+                </span>
               </div>
 
-              {/* Primary Descriptive Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              {/* 3. Supporting headline — prominent yet clearly secondary to the brand name */}
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-slate-100 leading-snug sm:leading-tight max-w-2xl">
                 {COMPANY.headline}
               </h1>
             </div>
 
+            {/* 4. Concise introductory paragraph */}
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
               Specialized procurement and supply of engineering steels, precision cutting tools, machine tooling, and industrial workshop machinery for manufacturing, mining, and fabrication operations.
             </p>
