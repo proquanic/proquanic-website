@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
 
       {/* Main Top Bar: 3-Zone Contract */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-22 flex items-center justify-between gap-3 sm:gap-4 lg:gap-8">
-        {/* Zone 1: Official Brand Wordmark (Enlarged 15–20% with orange Q and (PVT) LTD only) */}
+        {/* Zone 1: Official Brand Wordmark (Enlarged +10-12% with orange Q and centered — (PVT) LTD —) */}
         <div className="shrink-0 flex items-center">
           <Link
             href="/"
@@ -60,18 +60,18 @@ export const Navbar: React.FC = () => {
             aria-label="Proquanic (Pvt) Ltd — Home"
           >
             <div
-              className="inline-flex flex-col items-start text-left select-none"
+              className="inline-flex flex-col items-center text-center select-none"
               style={{ fontFamily: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" }}
             >
               <span
-                className="font-black tracking-tight leading-none uppercase text-[28px] xs:text-[30px] sm:text-4xl lg:text-[38px] text-[#0C2340] group-hover:text-[#08182B] transition-colors"
+                className="font-black tracking-tight leading-none uppercase text-[31px] xs:text-[34px] sm:text-[40px] lg:text-[43px] text-[#0C2340] group-hover:text-[#08182B] transition-colors whitespace-nowrap"
                 style={{ letterSpacing: "-0.025em" }}
                 aria-label="PROQUANIC"
               >
                 PRO<span style={{ color: COMPANY.branding.quanicColor }}>Q</span>UANIC
               </span>
-              <span className="font-bold leading-tight uppercase text-[10.5px] xs:text-[11.5px] sm:text-[13px] lg:text-[14px] tracking-[0.24em] sm:tracking-[0.28em] text-[#0C2340] opacity-90 mt-0.5 sm:mt-1">
-                (PVT) LTD
+              <span className="font-semibold leading-tight uppercase text-[8px] xs:text-[8.5px] sm:text-[9.5px] lg:text-[10px] tracking-[0.24em] sm:tracking-[0.28em] text-[#0C2340] opacity-80 mt-1 whitespace-nowrap">
+                — (PVT) LTD —
               </span>
             </div>
           </Link>

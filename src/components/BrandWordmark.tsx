@@ -43,9 +43,9 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
       ? withSubtitle
       : !isHero && !isHeader;
 
-  // Header wordmark enlarged by 15-20%
+  // Header wordmark enlarged by another 10-12%
   const wordmarkClass = isHeader
-    ? "text-[28px] xs:text-[30px] sm:text-4xl lg:text-[38px]"
+    ? "text-[31px] xs:text-[34px] sm:text-[40px] lg:text-[43px]"
     : isFooter
     ? "text-xl sm:text-2xl"
     : isHero
@@ -55,7 +55,7 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
     : "text-lg";
 
   const suffixClass = isHeader
-    ? "text-[10.5px] xs:text-[11.5px] sm:text-[13px] lg:text-[14px] tracking-[0.24em] sm:tracking-[0.28em]"
+    ? "text-[8px] xs:text-[8.5px] sm:text-[9.5px] lg:text-[10px] tracking-[0.24em] sm:tracking-[0.28em]"
     : isFooter
     ? "text-[8.5px] sm:text-[9.5px]"
     : isHero
@@ -85,7 +85,7 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
 
   return (
     <div
-      className={`inline-flex flex-col items-start text-left select-none ${className}`}
+      className={`inline-flex flex-col ${isHeader ? "items-center text-center" : "items-start text-left"} select-none ${className}`}
       style={{ fontFamily: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" }}
     >
       {/* Line 1: Company name wordmark (with orange Q for header) */}
@@ -114,7 +114,7 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
           opacity: variant === "light" ? 0.95 : 0.9,
         }}
       >
-        (PVT) LTD
+        {isHeader ? "— (PVT) LTD —" : "(PVT) LTD"}
       </span>
 
       {/* Line 3: Supporting descriptor (only when enabled; absent in hero) */}
