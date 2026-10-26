@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Layers,
   Wrench,
+  BookOpen,
 } from "lucide-react";
 
 interface CategoryPageProps {
@@ -165,6 +166,131 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
         <strong className="text-amber-900">Catalogue Notice: </strong>
         {COMPANY.scopeStatement}
       </div>
+
+      {/* Featured Engineering Technical Guide (Steel Products) */}
+      {category.slug === "steel-products" && (
+        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-6 sm:p-8 border border-slate-700 shadow-md">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-wider">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Featured Engineering Guide</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                EN8 vs EN19 Steel: Differences, Applications & How to Choose
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Need to specify steel for shafts, pins, axles, or gears? Read our comprehensive comparison on chemical composition, mechanical properties, heat-treatment response, and ordering best practices in Zimbabwe.
+              </p>
+            </div>
+            <Link
+              href="/guides/en8-vs-en19-steel"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded shadow transition-colors whitespace-nowrap shrink-0"
+            >
+              <span>Read Selection Guide</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Featured Engineering Technical Guides (Cutting & Machining Tools) */}
+      {category.slug === "cutting-machining-tools" && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-5 border border-slate-700 shadow-md flex flex-col justify-between space-y-3">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-bold uppercase tracking-wider">
+                <BookOpen className="w-3 h-3" />
+                <span>Milling Troubleshooting Guide</span>
+              </div>
+              <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
+                Why Do End Mills Break? 7 Machining Mistakes That Can Destroy Cutting Tools
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                End mills chipping or breaking? Learn seven causes involving tool selection, cutting conditions, chip evacuation and setup rigidity.
+              </p>
+            </div>
+            <Link
+              href="/blog/why-end-mills-break"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 transition-colors pt-1"
+            >
+              <span>Read End Mill Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-5 border border-slate-700 shadow-md flex flex-col justify-between space-y-3">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-bold uppercase tracking-wider">
+                <BookOpen className="w-3 h-3" />
+                <span>Drilling Troubleshooting Guide</span>
+              </div>
+              <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
+                Why Does Your Drill Bit Keep Burning or Breaking? 6 Mistakes to Check
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                Drill bits overheating or failing? Learn 6 root causes across cutting speed, feed pressure, chip evacuation, tool selection, and clamping.
+              </p>
+            </div>
+            <Link
+              href="/blog/why-drill-bits-burn-or-break"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 transition-colors pt-1"
+            >
+              <span>Read Drill Bit Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-5 border border-slate-700 shadow-md flex flex-col justify-between space-y-3">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-bold uppercase tracking-wider">
+                <BookOpen className="w-3 h-3" />
+                <span>Punching Tooling Guide</span>
+              </div>
+              <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
+                HSS Punches Explained: 7 Mistakes to Avoid When Choosing a Replacement
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                Replacing punches for CNC turret presses, stamping dies, or ironworkers? Calculate die clearance and verify shank geometry.
+              </p>
+            </div>
+            <Link
+              href="/blog/hss-punches-how-to-choose-replacement"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 transition-colors pt-1"
+            >
+              <span>Read Punch Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Featured Technical Troubleshooting Guide (Sawing Products — Bandsaw Blades) */}
+      {category.slug === "sawing-products" && (
+        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-6 sm:p-8 border border-slate-700 shadow-md">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-wider">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Featured Technical Troubleshooting Guide</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Why Does Your Metal-Cutting Bandsaw Blade Keep Breaking? 6 Causes to Check
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                When blades lose teeth, wander from the cut line, or break prematurely, replacing without investigating becomes expensive. Review our 6-point diagnostic guide and replacement ordering checklist for workshop saws in Zimbabwe.
+              </p>
+            </div>
+            <Link
+              href="/blog/why-metal-cutting-bandsaw-blade-breaks"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded shadow transition-colors whitespace-nowrap shrink-0"
+            >
+              <span>Read Bandsaw Guide</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      )}
 
       {/* Product Families Breakdown */}
       <section className="space-y-6">

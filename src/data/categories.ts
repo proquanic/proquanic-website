@@ -153,6 +153,15 @@ export const CATEGORIES: Category[] = [
         representativeItems: ["Cobalt HSS-Co5 Drill Bits (DIN 338)", "Morse Taper Shank Drills (DIN 345)", "Spiral Flute Blind Hole Machine Taps", "Spiral Point Through Hole Machine Taps"],
         typicalSpecs: "Metric M2 to M36; Unified UNC/UNF; British BSP/BSPT threads.",
       },
+      {
+        id: "punching-tools",
+        name: "Punching & Piercing Tools",
+        slug: "punching-tools",
+        description:
+          "Precision HSS and PM tool steel punches, ejector pins, die bushings, and retainer assemblies for stamping dies, CNC turret presses, and ironworkers.",
+        representativeItems: ["DIN 9861 Headed Punches (Form A & B)", "ISO 8020 Cylindrical Headed Punches", "Thick Turret Punch & Die Assemblies", "Ironworker Round & Slotted Tool Sets"],
+        typicalSpecs: "Diameters 1.0mm to 35.0mm; M2 HSS & PM grades; 60–64 HRC; TiCN/AlTiN coatings.",
+      },
     ],
     sampleProducts: [
       {
@@ -172,6 +181,25 @@ export const CATEGORIES: Category[] = [
         },
         commonGradesOrSizes: ["Ø 3mm", "Ø 6mm", "Ø 8mm", "Ø 10mm", "Ø 12mm", "Ø 16mm", "Ø 20mm"],
         applications: ["CNC vertical machining centers", "Heavy shoulder milling", "Pocketing in engineering steels", "Die and mold machining"],
+        unitOfMeasure: "Piece / Set",
+      },
+      {
+        id: "prod-hss-headed-punch",
+        name: "HSS Precision Headed Punch & Die Sets (DIN 9861 / ISO 8020)",
+        code: "CUT-PUNCH-HSS",
+        family: "Punching & Piercing Tools",
+        categorySlug: "cutting-machining-tools",
+        shortDescription:
+          "High-Speed Steel (M2 / 1.3343) precision ground punches for sheet metal stamping, CNC turret punch presses, and structural ironworkers.",
+        specifications: {
+          "Material Grade": "AISI M2 (1.3343) / Powder Metallurgy HSS",
+          "Hardness": "Body 62 – 64 HRC; Head tempered to 45 – 52 HRC",
+          "Retention Styles": "DIN 9861 (Form D), ISO 8020, Ball-Lock, Thick Turret",
+          "Available Diameters": "Point Ø 1.5mm to 32mm; Shanks Ø 3mm to 32mm",
+          "Surface Treatment": "Bright ground or TiCN / AlTiN wear coating",
+        },
+        commonGradesOrSizes: ["Round Ø 4mm – Ø 25mm", "Oblong / Slot 6x15mm to 14x28mm", "Square 10x10mm to 20x20mm", "Custom lengths 71mm, 80mm, 100mm"],
+        applications: ["Sheet metal stamping dies", "CNC thick turret punch stations", "Structural beam & angle ironworkers", "Automotive & agricultural component piercing"],
         unitOfMeasure: "Piece / Set",
       },
       {

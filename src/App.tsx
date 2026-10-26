@@ -14,6 +14,12 @@ import { ContactPage } from "./pages/ContactPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { IndustriesPage } from "./pages/IndustriesPage";
 import { SiteDeliveryPage } from "./pages/SiteDeliveryPage";
+import { En8VsEn19GuidePage } from "./pages/En8VsEn19GuidePage";
+import { HssPunchesGuidePage } from "./pages/HssPunchesGuidePage";
+import { BandsawBladeGuidePage } from "./pages/BandsawBladeGuidePage";
+import { DrillBitsGuidePage } from "./pages/DrillBitsGuidePage";
+import { EndMillsGuidePage } from "./pages/EndMillsGuidePage";
+import { BlogIndexPage } from "./pages/BlogIndexPage";
 import { CATEGORIES } from "./data/categories";
 
 const AppContent: React.FC = () => {
@@ -68,6 +74,63 @@ const AppContent: React.FC = () => {
       title = "Privacy Policy — Proquanic (Pvt) Ltd";
       metaDescription =
         "Confidentiality and privacy terms for technical drawings, customer requisition specifications, and quotation data.";
+    } else if (
+      currentPath === "/guides/en8-vs-en19-steel" ||
+      currentPath === "/guides/en8-vs-en19" ||
+      currentPath === "/resources/en8-vs-en19-steel" ||
+      currentPath === "/blog/en8-vs-en19-steel"
+    ) {
+      title = "EN8 vs EN19 Steel: Differences, Applications & How to Choose — Proquanic";
+      metaDescription =
+        "Comprehensive technical guide comparing EN8 (080M40) and EN19 (708M40/709M40) engineering steels for shafts, pins, gears, and machine components in Zimbabwe.";
+    } else if (
+      currentPath === "/blog/hss-punches-how-to-choose-replacement" ||
+      currentPath === "/guides/hss-punches-how-to-choose-replacement" ||
+      currentPath === "/resources/hss-punches-how-to-choose-replacement" ||
+      currentPath === "/guides/hss-punches" ||
+      currentPath === "/blog/hss-punches"
+    ) {
+      title = "HSS Punches: 7 Replacement Mistakes to Avoid | Proquanic";
+      metaDescription =
+        "Learn how to identify HSS punches, verify dimensions and tooling compatibility, avoid common replacement mistakes and prepare a better industrial tooling enquiry.";
+    } else if (
+      currentPath === "/blog/why-metal-cutting-bandsaw-blade-breaks" ||
+      currentPath === "/guides/why-metal-cutting-bandsaw-blade-breaks" ||
+      currentPath === "/resources/why-metal-cutting-bandsaw-blade-breaks" ||
+      currentPath === "/blog/bandsaw-blade-breaking" ||
+      currentPath === "/guides/bandsaw-blade-breaking"
+    ) {
+      title = "Why Metal-Cutting Bandsaw Blades Break: 6 Causes | Proquanic";
+      metaDescription =
+        "Discover 6 critical causes of metal-cutting bandsaw blade breakage, tooth stripping, and cut wandering. Diagnostic guide and replacement ordering checklist for workshops.";
+    } else if (
+      currentPath === "/blog/why-drill-bits-burn-or-break" ||
+      currentPath === "/guides/why-drill-bits-burn-or-break" ||
+      currentPath === "/resources/why-drill-bits-burn-or-break" ||
+      currentPath === "/blog/drill-bits-burning-breaking" ||
+      currentPath === "/guides/drill-bits-burning-breaking"
+    ) {
+      title = "Why Drill Bits Burn or Break: 6 Causes | Proquanic";
+      metaDescription =
+        "Drill bits overheating, wearing quickly or breaking? Learn six possible causes, what to inspect and how to choose a suitable replacement for your workshop.";
+    } else if (
+      currentPath === "/blog/why-end-mills-break" ||
+      currentPath === "/guides/why-end-mills-break" ||
+      currentPath === "/resources/why-end-mills-break" ||
+      currentPath === "/blog/end-mills-breakage" ||
+      currentPath === "/guides/end-mills-breakage"
+    ) {
+      title = "Why End Mills Break: 7 Causes to Check | Proquanic";
+      metaDescription =
+        "End mills chipping or breaking during machining? Learn seven possible causes involving tool selection, cutting conditions, chip evacuation and machine setup.";
+    } else if (
+      currentPath === "/blog" ||
+      currentPath === "/guides" ||
+      currentPath === "/resources"
+    ) {
+      title = "Technical Articles & Engineering Guides — Proquanic (Pvt) Ltd";
+      metaDescription =
+        "In-depth technical guides on engineering steels (EN8 vs EN19), HSS tooling punches, bandsaw blade troubleshooting, drill bits, end mills, and industrial procurement in Zimbabwe.";
     }
 
     document.title = title;
@@ -90,6 +153,63 @@ const AppContent: React.FC = () => {
     if (currentPath.startsWith("/products/")) {
       const categorySlug = currentPath.replace("/products/", "").split("/")[0];
       return <CategoryPage slug={categorySlug} />;
+    }
+
+    if (
+      currentPath === "/guides/en8-vs-en19-steel" ||
+      currentPath === "/guides/en8-vs-en19" ||
+      currentPath === "/resources/en8-vs-en19-steel" ||
+      currentPath === "/blog/en8-vs-en19-steel"
+    ) {
+      return <En8VsEn19GuidePage />;
+    }
+
+    if (
+      currentPath === "/blog/hss-punches-how-to-choose-replacement" ||
+      currentPath === "/guides/hss-punches-how-to-choose-replacement" ||
+      currentPath === "/resources/hss-punches-how-to-choose-replacement" ||
+      currentPath === "/guides/hss-punches" ||
+      currentPath === "/blog/hss-punches"
+    ) {
+      return <HssPunchesGuidePage />;
+    }
+
+    if (
+      currentPath === "/blog/why-metal-cutting-bandsaw-blade-breaks" ||
+      currentPath === "/guides/why-metal-cutting-bandsaw-blade-breaks" ||
+      currentPath === "/resources/why-metal-cutting-bandsaw-blade-breaks" ||
+      currentPath === "/blog/bandsaw-blade-breaking" ||
+      currentPath === "/guides/bandsaw-blade-breaking"
+    ) {
+      return <BandsawBladeGuidePage />;
+    }
+
+    if (
+      currentPath === "/blog/why-drill-bits-burn-or-break" ||
+      currentPath === "/guides/why-drill-bits-burn-or-break" ||
+      currentPath === "/resources/why-drill-bits-burn-or-break" ||
+      currentPath === "/blog/drill-bits-burning-breaking" ||
+      currentPath === "/guides/drill-bits-burning-breaking"
+    ) {
+      return <DrillBitsGuidePage />;
+    }
+
+    if (
+      currentPath === "/blog/why-end-mills-break" ||
+      currentPath === "/guides/why-end-mills-break" ||
+      currentPath === "/resources/why-end-mills-break" ||
+      currentPath === "/blog/end-mills-breakage" ||
+      currentPath === "/guides/end-mills-breakage"
+    ) {
+      return <EndMillsGuidePage />;
+    }
+
+    if (
+      currentPath === "/blog" ||
+      currentPath === "/guides" ||
+      currentPath === "/resources"
+    ) {
+      return <BlogIndexPage />;
     }
 
     if (currentPath === "/machinery-equipment") {

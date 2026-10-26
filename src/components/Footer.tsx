@@ -236,6 +236,60 @@ export const Footer: React.FC = () => {
                   <span>Privacy Policy</span>
                 </Link>
               </li>
+              <li className="pt-1.5 border-t border-slate-800">
+                <Link
+                  href="/blog/why-end-mills-break"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: Why End Mills Break</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/why-drill-bits-burn-or-break"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: Drill Bits Burning/Breaking</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/why-metal-cutting-bandsaw-blade-breaks"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: Bandsaw Blade Breakage</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/hss-punches-how-to-choose-replacement"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: HSS Punches (7 Mistakes)</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/guides/en8-vs-en19-steel"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: EN8 vs EN19 Steel</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="text-slate-300 hover:text-orange-400 transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500/60 text-[10px]">›</span>
+                  <span>All Technical Guides</span>
+                </Link>
+              </li>
             </ul>
 
             <div className="pt-3 border-t border-slate-800 text-[11px] text-slate-400 leading-relaxed">
