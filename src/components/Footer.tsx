@@ -238,6 +238,24 @@ export const Footer: React.FC = () => {
               </li>
               <li className="pt-1.5 border-t border-slate-800">
                 <Link
+                  href="/blog/en8-en19-mild-steel-comparison"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: EN8, EN19 or Mild Steel?</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/steel-buying-checklist-engineering-workshop"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: Steel Buying Checklist</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog/why-end-mills-break"
                   className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
                 >
@@ -284,10 +302,10 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/blog"
-                  className="text-slate-300 hover:text-orange-400 transition-colors flex items-center gap-1.5"
+                  className="text-white hover:text-orange-400 font-semibold transition-colors flex items-center gap-1.5"
                 >
-                  <span className="text-orange-500/60 text-[10px]">›</span>
-                  <span>All Technical Guides</span>
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Blog & Engineering Guides</span>
                 </Link>
               </li>
             </ul>

@@ -23,6 +23,7 @@ import {
   ArrowLeft,
   BookOpen
 } from "lucide-react";
+import { RelatedArticles } from "../components/RelatedArticles";
 
 export const En8VsEn19GuidePage: React.FC = () => {
   const { navigate } = useRouter();
@@ -130,8 +131,8 @@ export const En8VsEn19GuidePage: React.FC = () => {
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link href="/products" className="hover:text-slate-900 transition-colors">
-            Products
+          <Link href="/blog" className="hover:text-slate-900 transition-colors font-medium text-orange-600">
+            Blog
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <Link href="/products/steel-products" className="hover:text-slate-900 transition-colors">
@@ -149,8 +150,16 @@ export const En8VsEn19GuidePage: React.FC = () => {
               <span>Engineering Steel Technical Guide</span>
             </div>
 
-            {/* Actions: Share & Print */}
+            {/* Actions: Back to Blog, Share & Print */}
             <div className="flex items-center gap-2">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded transition-colors"
+                title="Return to Blog & Technical Articles"
+              >
+                <ArrowLeft className="w-3.5 h-3.5 text-orange-500" />
+                <span>Back to Blog</span>
+              </Link>
               <button
                 onClick={handleShare}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded transition-colors"
@@ -999,6 +1008,9 @@ export const En8VsEn19GuidePage: React.FC = () => {
             </div>
           </aside>
         </div>
+
+        {/* Related Technical Articles */}
+        <RelatedArticles currentSlug="/guides/en8-vs-en19-steel" />
       </div>
     </div>
   );

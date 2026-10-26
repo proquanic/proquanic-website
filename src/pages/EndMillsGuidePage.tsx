@@ -20,8 +20,10 @@ import {
   Sparkles,
   MapPin,
   ExternalLink,
-  BookOpen
+  BookOpen,
+  ArrowLeft
 } from "lucide-react";
+import { RelatedArticles } from "../components/RelatedArticles";
 
 export const EndMillsGuidePage: React.FC = () => {
   const { navigate } = useRouter();
@@ -221,18 +223,26 @@ export const EndMillsGuidePage: React.FC = () => {
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-slate-500">
             <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link href="/products" className="hover:text-slate-900 transition-colors">Products</Link>
+            <Link href="/blog" className="hover:text-slate-900 transition-colors font-medium text-orange-600">Blog</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <Link href="/products/cutting-machining-tools" className="hover:text-slate-900 transition-colors">
               Cutting & Machining Tools
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-900 font-semibold truncate max-w-[200px] sm:max-w-none">
-              End Mill Breakage Troubleshooting
+              Why Do End Mills Break?
             </span>
           </nav>
 
           <div className="flex items-center gap-2">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded border border-slate-200 transition-colors font-medium"
+              title="Return to Blog & Technical Articles"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 text-orange-500" />
+              <span>Back to Blog</span>
+            </Link>
             <button
               onClick={handleShare}
               className="inline-flex items-center gap-1.5 px-2.5 py-1 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded border border-slate-200 transition-colors"
@@ -1023,6 +1033,9 @@ export const EndMillsGuidePage: React.FC = () => {
             </li>
           </ul>
         </section>
+
+        {/* Related Technical Articles */}
+        <RelatedArticles currentSlug="/blog/why-end-mills-break" />
 
         {/* Action / Requisition Footer */}
         <div className="bg-white p-6 sm:p-8 rounded-lg border border-slate-200 text-center space-y-4">

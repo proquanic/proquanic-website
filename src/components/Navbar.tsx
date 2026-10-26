@@ -12,9 +12,22 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { label: "Products", href: "/products" },
     { label: "Machinery & Equipment", href: "/machinery-equipment" },
+    { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
+
+  const isLinkActive = (href: string) => {
+    if (href === "/blog") {
+      return (
+        currentPath === "/blog" ||
+        currentPath.startsWith("/blog/") ||
+        currentPath.startsWith("/guides") ||
+        currentPath.startsWith("/resources")
+      );
+    }
+    return currentPath === href || (href !== "/" && currentPath.startsWith(href));
+  };
 
   const handleLinkClick = (href: string) => {
     setMobileMenuOpen(false);
@@ -80,7 +93,7 @@ export const Navbar: React.FC = () => {
         {/* Zone 2: Navigation Links (single-line, clean text) */}
         <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-700">
           {navLinks.map((link) => {
-            const isActive = currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href));
+            const isActive = isLinkActive(link.href);
             return (
               <Link
                 key={link.href}
@@ -161,7 +174,7 @@ export const Navbar: React.FC = () => {
               Home
             </button>
             {navLinks.map((link) => {
-              const isActive = currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href));
+              const isActive = isLinkActive(link.href);
               return (
                 <button
                   key={link.href}

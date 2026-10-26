@@ -85,4 +85,44 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://proquanic.netlify.app/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://proquanic.netlify.app/blog/en8-en19-mild-steel-comparison</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proquanic.netlify.app/blog/steel-buying-checklist-engineering-workshop</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proquanic.netlify.app/blog/why-end-mills-break</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proquanic.netlify.app/blog/why-drill-bits-burn-or-break</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proquanic.netlify.app/blog/why-metal-cutting-bandsaw-blade-breaks</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proquanic.netlify.app/blog/hss-punches-how-to-choose-replacement</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proquanic.netlify.app/guides/en8-vs-en19-steel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -19,6 +19,8 @@ import { HssPunchesGuidePage } from "./pages/HssPunchesGuidePage";
 import { BandsawBladeGuidePage } from "./pages/BandsawBladeGuidePage";
 import { DrillBitsGuidePage } from "./pages/DrillBitsGuidePage";
 import { EndMillsGuidePage } from "./pages/EndMillsGuidePage";
+import { SteelBuyingChecklistPage } from "./pages/SteelBuyingChecklistPage";
+import { SteelComparisonPage } from "./pages/SteelComparisonPage";
 import { BlogIndexPage } from "./pages/BlogIndexPage";
 import { CATEGORIES } from "./data/categories";
 
@@ -124,13 +126,33 @@ const AppContent: React.FC = () => {
       metaDescription =
         "End mills chipping or breaking during machining? Learn seven possible causes involving tool selection, cutting conditions, chip evacuation and machine setup.";
     } else if (
+      currentPath === "/blog/steel-buying-checklist-engineering-workshop" ||
+      currentPath === "/guides/steel-buying-checklist-engineering-workshop" ||
+      currentPath === "/resources/steel-buying-checklist-engineering-workshop" ||
+      currentPath === "/blog/steel-buying-checklist" ||
+      currentPath === "/guides/steel-buying-checklist"
+    ) {
+      title = "Buying Engineering Steel: 8 Checks Before You Order | Proquanic";
+      metaDescription =
+        "Buying engineering steel for your workshop? Check the grade, dimensions, material condition, certification and other details before confirming your order.";
+    } else if (
+      currentPath === "/blog/en8-en19-mild-steel-comparison" ||
+      currentPath === "/guides/en8-en19-mild-steel-comparison" ||
+      currentPath === "/resources/en8-en19-mild-steel-comparison" ||
+      currentPath === "/blog/en8-vs-en19-vs-mild-steel" ||
+      currentPath === "/guides/en8-vs-en19-vs-mild-steel"
+    ) {
+      title = "EN8 vs EN19 vs Mild Steel: Which Should You Choose? | Proquanic";
+      metaDescription =
+        "Compare EN8, EN19 and mild steel for engineering applications. Learn what to check before choosing a material for shafts, brackets and machined components.";
+    } else if (
       currentPath === "/blog" ||
       currentPath === "/guides" ||
       currentPath === "/resources"
     ) {
-      title = "Technical Articles & Engineering Guides — Proquanic (Pvt) Ltd";
+      title = "Insights for Engineering and Industry | Proquanic Blog";
       metaDescription =
-        "In-depth technical guides on engineering steels (EN8 vs EN19), HSS tooling punches, bandsaw blade troubleshooting, drill bits, end mills, and industrial procurement in Zimbabwe.";
+        "Practical technical insights, tooling troubleshooting, material selection guides, and procurement specifications for engineering workshops and manufacturing in Zimbabwe.";
     }
 
     document.title = title;
@@ -202,6 +224,26 @@ const AppContent: React.FC = () => {
       currentPath === "/guides/end-mills-breakage"
     ) {
       return <EndMillsGuidePage />;
+    }
+
+    if (
+      currentPath === "/blog/steel-buying-checklist-engineering-workshop" ||
+      currentPath === "/guides/steel-buying-checklist-engineering-workshop" ||
+      currentPath === "/resources/steel-buying-checklist-engineering-workshop" ||
+      currentPath === "/blog/steel-buying-checklist" ||
+      currentPath === "/guides/steel-buying-checklist"
+    ) {
+      return <SteelBuyingChecklistPage />;
+    }
+
+    if (
+      currentPath === "/blog/en8-en19-mild-steel-comparison" ||
+      currentPath === "/guides/en8-en19-mild-steel-comparison" ||
+      currentPath === "/resources/en8-en19-mild-steel-comparison" ||
+      currentPath === "/blog/en8-vs-en19-vs-mild-steel" ||
+      currentPath === "/guides/en8-vs-en19-vs-mild-steel"
+    ) {
+      return <SteelComparisonPage />;
     }
 
     if (
