@@ -148,7 +148,7 @@ export const HssPunchesGuidePage: React.FC = () => {
     "description":
       "Learn how to identify HSS punches, verify dimensions and tooling compatibility, avoid common replacement mistakes and prepare a better industrial tooling enquiry.",
     "image": [
-      "https://www.proquanic.co.zw/src/assets/images/hss_punches_hero_1793003218607.jpg"
+      "https://www.proquanic.co.zw/images/blog/hss-punches-how-to-choose-replacement.jpg"
     ],
     "datePublished": "2026-03-15T08:00:00+02:00",
     "dateModified": "2026-03-15T08:00:00+02:00",
@@ -297,7 +297,7 @@ export const HssPunchesGuidePage: React.FC = () => {
         <figure className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs">
           <div className="relative aspect-16/9 bg-slate-900 overflow-hidden">
             <img
-              src="/src/assets/images/hss_punches_hero_1793003218607.jpg"
+              src="/images/blog/hss-punches-how-to-choose-replacement.jpg"
               alt="Toolmaker inspecting high-speed steel punches on an engineering inspection bench."
               className="w-full h-full object-cover"
               loading="eager"

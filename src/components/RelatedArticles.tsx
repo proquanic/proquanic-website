@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "../utils/router";
 import { getRelatedArticles, ArticleRecord } from "../data/articles";
 import { BookOpen, ArrowRight, Calendar, Clock, ChevronRight } from "lucide-react";
+import { ArticleImage } from "./ArticleImage";
 
 interface RelatedArticlesProps {
   currentSlug: string;
@@ -55,10 +56,11 @@ export const RelatedArticles: React.FC<RelatedArticlesProps> = ({
           >
             <div>
               <Link href={art.slug} className="block relative aspect-16/9 overflow-hidden bg-slate-200">
-                <img
+                <ArticleImage
                   src={art.image}
                   alt={art.imageAlt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  category={art.category}
+                  aspectClassName="aspect-16/9"
                   loading="lazy"
                 />
                 <div className="absolute top-2 left-2 bg-slate-900/90 text-white text-[10px] font-mono px-2 py-0.5 rounded">

@@ -193,7 +193,7 @@ export const ContactPage: React.FC = () => {
                 <div className="space-y-1">
                   <span className="font-bold text-slate-900 text-sm block">Registered Entity</span>
                   <p>Proquanic (Pvt) Ltd</p>
-                  <p className="italic text-slate-500">Tagline: "{COMPANY.tagline}"</p>
+                  <p className="italic text-slate-500">"{COMPANY.tagline}"</p>
                 </div>
               </div>
             </div>

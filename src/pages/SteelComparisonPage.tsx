@@ -146,7 +146,7 @@ export const SteelComparisonPage: React.FC = () => {
     "description":
       "Compare EN8, EN19 and mild steel for engineering applications. Learn what to check before choosing a material for shafts, brackets and machined components.",
     "image": [
-      "https://www.proquanic.co.zw/src/assets/images/steel_forms_inspection_1793010996496.jpg"
+      "https://www.proquanic.co.zw/images/blog/en8-en19-mild-steel-comparison.jpg"
     ],
     "datePublished": "2026-03-26T09:00:00+02:00",
     "dateModified": "2026-03-26T09:00:00+02:00",
@@ -280,7 +280,7 @@ export const SteelComparisonPage: React.FC = () => {
           {/* Hero Image */}
           <div className="relative rounded-lg overflow-hidden border border-slate-200 bg-slate-100 aspect-video">
             <img
-              src="/src/assets/images/steel_forms_inspection_1793010996496.jpg"
+              src="/images/blog/en8-en19-mild-steel-comparison.jpg"
               alt="Engineering steel round bar, flat bar and plate arranged for dimensional inspection."
               className="w-full h-full object-cover"
               loading="eager"

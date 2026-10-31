@@ -143,7 +143,7 @@ export const DrillBitsGuidePage: React.FC = () => {
     "description":
       "Drill bits overheating, wearing quickly or breaking? Learn six possible causes, what to inspect and how to choose a suitable replacement for your workshop.",
     "image": [
-      "https://www.proquanic.co.zw/src/assets/images/drill_bit_inspection_1793004830548.jpg"
+      "https://www.proquanic.co.zw/images/blog/why-drill-bits-burn-or-break.jpg"
     ],
     "datePublished": "2026-03-24T08:00:00+02:00",
     "dateModified": "2026-03-24T08:00:00+02:00",
@@ -299,7 +299,7 @@ export const DrillBitsGuidePage: React.FC = () => {
         <figure className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs">
           <div className="relative aspect-16/9 bg-slate-900 overflow-hidden">
             <img
-              src="/src/assets/images/drill_bit_inspection_1793004830548.jpg"
+              src="/images/blog/why-drill-bits-burn-or-break.jpg"
               alt="Machinist inspecting a metal drill bit at an engineering workshop bench."
               className="w-full h-full object-cover"
               loading="eager"

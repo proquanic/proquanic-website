@@ -143,7 +143,7 @@ export const BandsawBladeGuidePage: React.FC = () => {
     "description":
       "A metal-cutting bandsaw blade should run steadily and deliver a reasonable service life. Discover 6 critical causes of repeated blade breakage, wandering cuts, and tooth stripping, with diagnostics and an ordering checklist.",
     "image": [
-      "https://www.proquanic.co.zw/src/assets/images/bandsaw_blade_breakage_1793004061855.jpg"
+      "https://www.proquanic.co.zw/images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg"
     ],
     "datePublished": "2026-03-20T08:00:00+02:00",
     "dateModified": "2026-03-20T08:00:00+02:00",
@@ -296,7 +296,7 @@ export const BandsawBladeGuidePage: React.FC = () => {
         <figure className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs">
           <div className="relative aspect-16/9 bg-slate-900 overflow-hidden">
             <img
-              src="/src/assets/images/bandsaw_blade_breakage_1793004061855.jpg"
+              src="/images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg"
               alt="Machinist inspecting horizontal metal-cutting bandsaw blade, guide bearings, and coolant system during industrial cutting operation."
               className="w-full h-full object-cover"
               loading="eager"

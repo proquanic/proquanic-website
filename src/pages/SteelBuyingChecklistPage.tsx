@@ -217,7 +217,7 @@ export const SteelBuyingChecklistPage: React.FC = () => {
     "description":
       "Buying engineering steel for your workshop? Check the grade, dimensions, material condition, certification and other details before confirming your order.",
     "image": [
-      "https://www.proquanic.co.zw/src/assets/images/steel_inspection_hero_1793010587617.jpg"
+      "https://www.proquanic.co.zw/images/blog/steel-buying-checklist.jpg"
     ],
     "datePublished": "2026-03-26T08:00:00+02:00",
     "dateModified": "2026-03-26T08:00:00+02:00",
@@ -352,7 +352,7 @@ export const SteelBuyingChecklistPage: React.FC = () => {
           {/* Hero Image */}
           <div className="relative rounded-lg overflow-hidden border border-slate-200 bg-slate-100 aspect-video">
             <img
-              src="/src/assets/images/steel_inspection_hero_1793010587617.jpg"
+              src="/images/blog/steel-buying-checklist.jpg"
               alt="Engineering workshop professional measuring steel bar diameter with precision calipers in Bulawayo machine shop"
               className="w-full h-full object-cover"
               loading="eager"

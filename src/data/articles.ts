@@ -32,7 +32,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Compare EN8, EN19 and mild steel for engineering applications. Learn what to check before choosing a material for shafts, brackets and machined components.",
     readTime: "8 min read",
     date: "March 2026",
-    image: "/src/assets/images/steel_forms_inspection_1793010996496.jpg",
+    image: "/images/blog/en8-en19-mild-steel-comparison.jpg",
     imageAlt: "Engineering steel round bar, flat bar and plate arranged for dimensional inspection.",
     tags: [
       "EN8 (080M40)",
@@ -65,7 +65,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Buying engineering steel for your workshop? Check the grade, dimensions, material condition, certification and other details before confirming your order.",
     readTime: "7 min read",
     date: "March 2026",
-    image: "/src/assets/images/steel_inspection_hero_1793010587617.jpg",
+    image: "/images/blog/steel-buying-checklist.jpg",
     imageAlt: "Workshop engineer inspecting engineering steel round bar dimensions with vernier calipers",
     tags: [
       "Engineering Steels",
@@ -98,7 +98,7 @@ export const ARTICLES: ArticleRecord[] = [
       "End mills chipping or breaking during machining? Learn seven possible causes involving tool selection, cutting conditions, chip evacuation, tool overhang, and machine setup.",
     readTime: "8 min read",
     date: "March 2026",
-    image: "/src/assets/images/end_mill_inspection_1793005644754.jpg",
+    image: "/images/blog/why-end-mills-break.jpg",
     imageAlt: "Machinist inspecting solid carbide end mill wear and cutting flute integrity under workshop lighting",
     tags: [
       "End Mills",
@@ -131,7 +131,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Drill bits overheating, wearing quickly or breaking? Learn six possible causes, what to inspect on cutting lips and margins, and how to choose a suitable replacement for your workshop.",
     readTime: "7 min read",
     date: "March 2026",
-    image: "/src/assets/images/drill_bit_inspection_1793004830548.jpg",
+    image: "/images/blog/why-drill-bits-burn-or-break.jpg",
     imageAlt: "Close-up inspection of HSS and cobalt drill bit cutting lips, chisel edge, and margin wear",
     tags: [
       "Drill Bits",
@@ -164,7 +164,7 @@ export const ARTICLES: ArticleRecord[] = [
       "When metal-cutting blades keep breaking, stripping teeth, or wandering off cut lines, replacing blades without investigating the cause is an expensive cycle. Check tooth pitch, break-in, tension, and feed rates.",
     readTime: "8 min read",
     date: "March 2026",
-    image: "/src/assets/images/bandsaw_blade_breakage_1793004061855.jpg",
+    image: "/images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg",
     imageAlt: "Horizontal metal-cutting bandsaw blade tooth pitch and guide roller inspection",
     tags: [
       "Bandsaw Blades",
@@ -197,7 +197,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Avoid 7 costly tooling errors when replacing HSS punches. Learn how to verify machine mounting compatibility, calculate die clearance, select suitable tool steel grades, and specify custom punch profiles.",
     readTime: "9 min read",
     date: "March 2026",
-    image: "/src/assets/images/hss_punches_hero_1793003218607.jpg",
+    image: "/images/blog/hss-punches-how-to-choose-replacement.jpg",
     imageAlt: "Precision machined HSS punching tools, ironworker dies, and CNC turret tooling on inspection granite",
     tags: [
       "HSS Punches",
@@ -229,8 +229,8 @@ export const ARTICLES: ArticleRecord[] = [
       "A comprehensive technical comparison between EN8 (080M40) unalloyed medium carbon steel and EN19 (708M40/709M40) chromium-molybdenum alloy steel for shafts, pins, gears, and machine components.",
     readTime: "12 min read",
     date: "February 2026",
-    image: "/images/categories/steel-products.jpg",
-    imageAlt: "Solid steel round bars, shafts, and engineering steel stock in warehouse racking",
+    image: "/images/blog/en8-vs-en19-steel.jpg",
+    imageAlt: "Identifiable engineering steel round bars, turned shafts, splines and gears on workshop inspection bench",
     tags: [
       "EN8 (080M40)",
       "EN19 (708M40)",

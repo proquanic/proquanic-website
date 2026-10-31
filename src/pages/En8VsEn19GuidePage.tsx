@@ -198,6 +198,19 @@ export const En8VsEn19GuidePage: React.FC = () => {
             </p>
           </div>
 
+          {/* Hero Image */}
+          <div className="relative rounded-lg overflow-hidden border border-slate-200 bg-slate-100 aspect-video">
+            <img
+              src="/images/blog/en8-vs-en19-steel.jpg"
+              alt="Identifiable engineering steel round bars, turned shafts, splines and gears on workshop inspection bench"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-4 text-white text-xs">
+              <span>Engineering steel stock, turned shafts, splines, and gears inspected on granite surface bench</span>
+            </div>
+          </div>
+
           <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
             <div className="flex items-center gap-4">
               <span>

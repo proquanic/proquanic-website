@@ -835,8 +835,8 @@ export const RfqPage: React.FC = () => {
                 <p>7010 Gwabalanda, Bulawayo, Zimbabwe</p>
                 <p>Telephone: <a href={`tel:${COMPANY.contact.phoneTel}`} className="text-amber-700 font-mono font-semibold">{COMPANY.contact.phoneDisplay}</a></p>
                 <p>Email: <a href={`mailto:${COMPANY.contact.email}`} className="text-amber-700 font-semibold">{COMPANY.contact.email}</a></p>
-                <p className="text-[11px] text-slate-500 pt-1 border-t border-slate-100">
-                  Tagline: "{COMPANY.tagline}"
+                <p className="text-[11px] text-slate-500 pt-1 border-t border-slate-100 italic">
+                  "{COMPANY.tagline}"
                 </p>
               </div>
             </div>

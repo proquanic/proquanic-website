@@ -143,7 +143,7 @@ export const EndMillsGuidePage: React.FC = () => {
     "description":
       "End mills chipping or breaking during machining? Learn seven possible causes involving tool selection, cutting conditions, chip evacuation and machine setup.",
     "image": [
-      "https://www.proquanic.co.zw/src/assets/images/end_mill_inspection_1793005644754.jpg"
+      "https://www.proquanic.co.zw/images/blog/why-end-mills-break.jpg"
     ],
     "datePublished": "2026-03-26T08:00:00+02:00",
     "dateModified": "2026-03-26T08:00:00+02:00",
@@ -301,7 +301,7 @@ export const EndMillsGuidePage: React.FC = () => {
         <figure className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs">
           <div className="relative aspect-16/9 bg-slate-900 overflow-hidden">
             <img
-              src="/src/assets/images/end_mill_inspection_1793005644754.jpg"
+              src="/images/blog/why-end-mills-break.jpg"
               alt="Machinist inspecting an end mill and securely clamped workpiece in a milling workshop."
               className="w-full h-full object-cover"
               loading="eager"

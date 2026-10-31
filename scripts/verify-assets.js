@@ -27,6 +27,14 @@ const REQUIRED_IMAGES = [
   'images/categories/mechanical-components.jpg',
   'images/categories/other-industrial-supplies.jpg',
   'images/categories/machinery-equipment.jpg',
+  // Blog article featured images
+  'images/blog/en8-en19-mild-steel-comparison.jpg',
+  'images/blog/steel-buying-checklist.jpg',
+  'images/blog/why-end-mills-break.jpg',
+  'images/blog/why-drill-bits-burn-or-break.jpg',
+  'images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg',
+  'images/blog/hss-punches-how-to-choose-replacement.jpg',
+  'images/blog/en8-vs-en19-steel.jpg',
 ];
 
 console.log('--- Proquanic Asset Integrity Verification ---');

@@ -18,6 +18,7 @@ import {
   Send,
   BookOpen,
 } from "lucide-react";
+import { ArticleImage } from "../components/ArticleImage";
 
 export const HomePage: React.FC = () => {
   return (
@@ -465,10 +466,11 @@ export const HomePage: React.FC = () => {
           <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
             <div>
               <Link href="/blog/why-end-mills-break" className="block relative aspect-16/9 bg-slate-900 overflow-hidden group">
-                <img
-                  src="/src/assets/images/end_mill_inspection_1793005644754.jpg"
+                <ArticleImage
+                  src="/images/blog/why-end-mills-break.jpg"
                   alt="Machinist inspecting an end mill and securely clamped workpiece in a milling workshop."
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  category="Milling Tools"
+                  aspectClassName="aspect-16/9"
                 />
                 <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
                   Milling Tools
@@ -501,10 +503,11 @@ export const HomePage: React.FC = () => {
           <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
             <div>
               <Link href="/blog/why-drill-bits-burn-or-break" className="block relative aspect-16/9 bg-slate-900 overflow-hidden group">
-                <img
-                  src="/src/assets/images/drill_bit_inspection_1793004830548.jpg"
+                <ArticleImage
+                  src="/images/blog/why-drill-bits-burn-or-break.jpg"
                   alt="Machinist inspecting a metal drill bit at an engineering workshop bench."
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  category="Drilling Tools"
+                  aspectClassName="aspect-16/9"
                 />
                 <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
                   Drilling Tools
@@ -533,14 +536,15 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* Article 2: Bandsaw Blades */}
+          {/* Article 3: Bandsaw Blades */}
           <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
             <div>
               <Link href="/blog/why-metal-cutting-bandsaw-blade-breaks" className="block relative aspect-16/9 bg-slate-900 overflow-hidden group">
-                <img
-                  src="/src/assets/images/bandsaw_blade_breakage_1793004061855.jpg"
+                <ArticleImage
+                  src="/images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg"
                   alt="Metal-cutting bandsaw blade breakage troubleshooting"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  category="Sawing Products"
+                  aspectClassName="aspect-16/9"
                 />
                 <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
                   Sawing Products
@@ -569,14 +573,15 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* Article 3: HSS Punches */}
+          {/* Article 4: HSS Punches */}
           <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
             <div>
               <Link href="/blog/hss-punches-how-to-choose-replacement" className="block relative aspect-16/9 bg-slate-900 overflow-hidden group">
-                <img
-                  src="/src/assets/images/hss_punches_hero_1793003218607.jpg"
+                <ArticleImage
+                  src="/images/blog/hss-punches-how-to-choose-replacement.jpg"
                   alt="Toolmaker inspecting HSS punches on engineering inspection bench"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  category="Punching Tools"
+                  aspectClassName="aspect-16/9"
                 />
                 <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
                   Punching Tools

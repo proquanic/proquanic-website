@@ -15,6 +15,7 @@ import {
   Layers,
   ArrowUpRight,
 } from "lucide-react";
+import { ArticleImage } from "../components/ArticleImage";
 
 export const BlogIndexPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -196,10 +197,11 @@ export const BlogIndexPage: React.FC = () => {
                     href={article.slug}
                     className="block relative aspect-16/10 bg-slate-100 overflow-hidden"
                   >
-                    <img
+                    <ArticleImage
                       src={article.image}
                       alt={article.imageAlt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      category={article.category}
+                      aspectClassName="aspect-16/10"
                       loading="lazy"
                     />
                     <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-xs text-white text-[11px] font-mono font-semibold px-2.5 py-1 rounded shadow-xs">
