@@ -117,7 +117,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
             {category.commonStandards && (
               <div className="space-y-1.5 pt-2">
                 <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
-                  Applicable Specifications & Grades:
+                  {category.standardsSectionTitle || "Applicable Specifications & Grades:"}
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {category.commonStandards.map((std) => (
@@ -133,9 +133,14 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
             )}
 
             {category.procurementNote && (
-              <p className="text-xs text-slate-500 italic pt-1">
-                Note: {category.procurementNote}
-              </p>
+              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-700 space-y-1">
+                <span className="font-bold text-slate-900 block text-[11px] uppercase tracking-wider">
+                  Technical Selection Note:
+                </span>
+                <p className="leading-relaxed">
+                  {category.procurementNote}
+                </p>
+              </div>
             )}
           </div>
 
@@ -167,6 +172,46 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
         {COMPANY.scopeStatement}
       </div>
 
+      {/* Relevant Tool Standards and Designations Section */}
+      {category.standardsList && category.standardsList.length > 0 && (
+        <section className="bg-slate-50 border border-slate-200 rounded-lg p-6 sm:p-8 space-y-5">
+          <div className="border-b border-slate-200 pb-3">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              Tool Standards & Specifications
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1">
+              {category.standardsSectionTitle || "RELEVANT TOOL STANDARDS AND DESIGNATIONS"}
+            </h2>
+            <p className="text-xs text-slate-600 mt-1">
+              Established international standards governing cutting tool designations, geometries, shanks and tolerances:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+            {category.standardsList.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white border border-slate-200 rounded-lg p-4 space-y-1.5 shadow-2xs"
+              >
+                <div className="font-mono text-xs font-bold text-slate-900 bg-slate-100 px-2.5 py-1 rounded inline-block border border-slate-200">
+                  {item.standard}
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed pt-1">
+                  {item.designation}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {category.standardsNotice && (
+            <div className="p-4 bg-amber-500/10 border border-amber-500/30 rounded text-xs text-slate-800 leading-relaxed">
+              <strong className="text-amber-900">Important: </strong>
+              {category.standardsNotice.replace(/^Important:\s*/i, "")}
+            </div>
+          )}
+        </section>
+      )}
+
       {/* Featured Engineering Technical Guide (Steel Products) */}
       {category.slug === "steel-products" && (
         <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-6 sm:p-8 border border-slate-700 shadow-md">
@@ -196,7 +241,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
 
       {/* Featured Engineering Technical Guides (Cutting & Machining Tools) */}
       {category.slug === "cutting-machining-tools" && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-5 border border-slate-700 shadow-md flex flex-col justify-between space-y-3">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-bold uppercase tracking-wider">
@@ -237,28 +282,6 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
               className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 transition-colors pt-1"
             >
               <span>Read Drill Bit Guide</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-5 border border-slate-700 shadow-md flex flex-col justify-between space-y-3">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-bold uppercase tracking-wider">
-                <BookOpen className="w-3 h-3" />
-                <span>Punching Tooling Guide</span>
-              </div>
-              <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
-                HSS Punches Explained: 7 Mistakes to Avoid When Choosing a Replacement
-              </h3>
-              <p className="text-xs text-slate-300 leading-relaxed line-clamp-3">
-                Replacing punches for CNC turret presses, stamping dies, or ironworkers? Calculate die clearance and verify shank geometry.
-              </p>
-            </div>
-            <Link
-              href="/blog/hss-punches-how-to-choose-replacement"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 transition-colors pt-1"
-            >
-              <span>Read Punch Guide</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

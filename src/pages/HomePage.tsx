@@ -114,18 +114,18 @@ export const HomePage: React.FC = () => {
             <div className="relative rounded-lg overflow-hidden border border-slate-700 shadow-2xl bg-slate-800">
               <SafeImage
                 src="/images/hero/hero-industrial.jpg"
-                alt="Proquanic Industrial Warehouse and Engineering Procurement Facility"
+                alt="Black Zimbabwean procurement and engineering professionals reviewing machinery catalogues and technical specifications"
                 aspectRatioClass="aspect-4/3"
-                fallbackTitle="Industrial Engineering Facility"
+                fallbackTitle="Industrial Procurement & Supply"
                 priority={true}
               />
               <div className="p-4 bg-slate-900 border-t border-slate-800">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-semibold text-white">Central Operations</span>
-                  <span className="font-mono text-amber-400">7010 Gwabalanda, Bulawayo</span>
+                  <span className="font-semibold text-white">Industrial Procurement & Supply</span>
+                  <span className="font-mono text-amber-400">Bulawayo, Zimbabwe</span>
                 </div>
                 <p className="text-[11px] text-slate-400 mt-1">
-                  Coordinating industrial supply and machinery logistics for engineering enterprises.
+                  Connecting businesses with quality industrial machinery, engineering materials and workshop supplies through trusted procurement and supply channels.
                 </p>
               </div>
             </div>
@@ -425,10 +425,10 @@ export const HomePage: React.FC = () => {
 
                 <div className="p-5 pt-0">
                   <Link
-                    href={`/request-a-quotation`}
+                    href={`/request-a-quotation?product=${encodeURIComponent((machine.brand ? machine.brand + ' ' : '') + machine.title)}&brand=${encodeURIComponent(machine.brand || '')}&model=${encodeURIComponent(machine.modelSeries || '')}`}
                     className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 hover:bg-slate-600 text-white rounded text-xs font-semibold transition-colors"
                   >
-                    <span>Enquire About This Machine Class</span>
+                    <span>Enquire About This Machine</span>
                     <ArrowRight className="w-3 h-3 text-amber-400" />
                   </Link>
                 </div>

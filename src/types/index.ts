@@ -22,6 +22,11 @@ export interface ProductFamily {
   typicalSpecs: string;
 }
 
+export interface ToolStandardItem {
+  standard: string;
+  designation: string;
+}
+
 export interface Category {
   order: number;
   id: string;
@@ -34,18 +39,31 @@ export interface Category {
   sampleProducts: ProductRecord[];
   commonStandards?: string[];
   procurementNote?: string;
+  standardsSectionTitle?: string;
+  standardsNotice?: string;
+  standardsList?: ToolStandardItem[];
 }
 
 export interface MachineryItem {
   id: string;
   slug: string;
   title: string;
+  brand?: string;
+  modelSeries?: string;
   category: string;
   description: string;
   typicalCapacity: string;
   specifications: Record<string, string>;
   keyCapabilities: string[];
+  applications?: string[];
   image: string;
+  imageCaption?: string;
+  sourcingChannels?: string;
+  isFeaturedManufacturer?: boolean;
+  industryRelevance?: string[];
+  materialsProcessed?: string[];
+  selectionConsiderations?: string[];
+  rfqRequirements?: string[];
 }
 
 export interface RfqItem {

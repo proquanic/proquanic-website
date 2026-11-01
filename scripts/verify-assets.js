@@ -35,6 +35,31 @@ const REQUIRED_IMAGES = [
   'images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg',
   'images/blog/hss-punches-how-to-choose-replacement.jpg',
   'images/blog/en8-vs-en19-steel.jpg',
+  // Machinery & workshop equipment catalogue images
+  'images/machinery/dahlih-mcv-cnc-machining-centre.jpg',
+  'images/machinery/mazak-vcn-cnc-machining-centre.jpg',
+  'images/machinery/sanco-heavy-duty-bed-mill.jpg',
+  'images/machinery/accutex-au500ia-wire-cut-edm.jpg',
+  'images/machinery/harp-precision-surface-grinder.jpg',
+  'images/machinery/universal-cylindrical-grinding-machine.jpg',
+  'images/machinery/powersaw-industrial-horizontal-bandsaw.jpg',
+  'images/machinery/heavy-duty-centre-lathe.jpg',
+  'images/machinery/conventional-turret-milling-machine.jpg',
+  'images/machinery/radial-arm-drilling-machine.jpg',
+  'images/machinery/geared-head-pedestal-drill.jpg',
+  'images/machinery/hydraulic-workshop-press.jpg',
+  'images/machinery/hydraulic-press-brake-guillotine.jpg',
+  // Representative Zimbabwean workshop documentary images
+  'images/machinery/zim_machinist_lathe.jpg',
+  'images/machinery/zim_cnc_technician.jpg',
+  'images/machinery/zim_engineers_inspection.jpg',
+  'images/machinery/zim_bandsaw_operator.jpg',
+  'images/machinery/zim_surface_grinder.jpg',
+  'images/machinery/zim_edm_operator.jpg',
+  'images/machinery/zim_turret_mill.jpg',
+  'images/machinery/zim_radial_drill.jpg',
+  'images/machinery/zim_hydraulic_press.jpg',
+  'images/machinery/zim_press_brake.jpg',
 ];
 
 console.log('--- Proquanic Asset Integrity Verification ---');

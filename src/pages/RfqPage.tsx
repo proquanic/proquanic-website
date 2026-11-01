@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRfq } from "../context/RfqContext";
 import { COMPANY } from "../config/company";
 import { RfqFormData, RfqItem } from "../types";
@@ -50,6 +50,29 @@ export const RfqPage: React.FC = () => {
   const [submittedPayload, setSubmittedPayload] = useState<string>("");
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<"standard" | "multi">("standard");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const search = window.location.search;
+      if (search) {
+        const params = new URLSearchParams(search);
+        const product = params.get("product");
+        const brand = params.get("brand");
+        const model = params.get("model");
+        const specs = params.get("specs");
+
+        if (product || brand || model || specs) {
+          setFormData((prev) => ({
+            ...prev,
+            productRequired: product || prev.productRequired,
+            brandOrManufacturer: brand || prev.brandOrManufacturer,
+            partNumberOrModel: model || prev.partNumberOrModel,
+            specifications: specs || prev.specifications,
+          }));
+        }
+      }
+    }
+  }, []);
 
   // Temporary single item state for quick addition to list
   const [quickItem, setQuickItem] = useState({
