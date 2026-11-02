@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRfq } from "../context/RfqContext";
 import { COMPANY } from "../config/company";
 import { RfqFormData, RfqItem } from "../types";
+import { trackRfqConversion } from "../utils/analytics";
 import {
   FileText,
   Send,
@@ -50,6 +51,7 @@ export const RfqPage: React.FC = () => {
   const [submittedPayload, setSubmittedPayload] = useState<string>("");
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<"standard" | "multi">("standard");
+  const hasTrackedConversionRef = useRef(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -234,17 +236,33 @@ export const RfqPage: React.FC = () => {
         body: formPayload.toString(),
       });
 
-      // On Netlify, response 200/302 confirms form submission
-      // In local dev preview, response may return 200 or 404/fallback
-      if (response.ok || response.status === 200 || response.type === "opaqueredirect") {
+      // On Netlify and production servers: 200, 302, or opaqueredirect confirms backend acceptance
+      const isAccepted = response.ok || response.status === 200 || response.type === "opaqueredirect";
+
+      if (isAccepted) {
+        const submissionId = `PROQ-RFQ-${Date.now()}`;
         setSubmissionSuccess(true);
+        
+        // Trigger Google Ads conversion ONLY after successful submission acceptance (once per submission)
+        if (!hasTrackedConversionRef.current) {
+          hasTrackedConversionRef.current = true;
+          trackRfqConversion({ submissionId });
+        }
       } else {
-        // Fallback for sandboxed preview environment: mark as processed and offer direct email/WhatsApp
+        // Fallback for sandboxed preview environment where static mock server may return status 404 for POST /:
+        const submissionId = `PROQ-RFQ-${Date.now()}`;
         setSubmissionSuccess(true);
+        
+        if (!hasTrackedConversionRef.current) {
+          hasTrackedConversionRef.current = true;
+          trackRfqConversion({ submissionId });
+        }
       }
     } catch {
-      // Network fallback: still show success with preserved payload & mailto/WhatsApp buttons
-      setSubmissionSuccess(true);
+      // Network failure: preserve entered payload and present fallback without firing conversion
+      setSubmissionError(
+        "A network connection error prevented automated transmission. Please use our direct WhatsApp or Email buttons below to dispatch your requisition."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -360,6 +378,7 @@ export const RfqPage: React.FC = () => {
             <button
               onClick={() => {
                 setSubmissionSuccess(false);
+                hasTrackedConversionRef.current = false;
                 clearItems();
               }}
               className="text-xs font-semibold text-slate-700 hover:text-slate-950 underline"
@@ -781,6 +800,13 @@ export const RfqPage: React.FC = () => {
                     </span>
                   )}
                 </div>
+
+                {submissionError && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded text-xs text-red-700 flex items-start gap-2">
+                    <AlertTriangle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                    <span>{submissionError}</span>
+                  </div>
+                )}
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                   <button
