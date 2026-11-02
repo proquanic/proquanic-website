@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "../utils/router";
 import { useRfq } from "../context/RfqContext";
 import { COMPANY } from "../config/company";
 import { RfqFormData, RfqItem } from "../types";
@@ -23,6 +24,7 @@ import {
 } from "lucide-react";
 
 export const RfqPage: React.FC = () => {
+  const { navigate } = useRouter();
   const { items: cartItems, removeItem, clearItems, updateQuantity, addItem } = useRfq();
 
   const [formData, setFormData] = useState<RfqFormData>({
@@ -239,29 +241,43 @@ export const RfqPage: React.FC = () => {
       // On Netlify and production servers: 200, 302, or opaqueredirect confirms backend acceptance
       const isAccepted = response.ok || response.status === 200 || response.type === "opaqueredirect";
 
-      if (isAccepted) {
-        const submissionId = `PROQ-RFQ-${Date.now()}`;
-        setSubmissionSuccess(true);
+      if (isAccepted || import.meta.env.DEV) {
+        const referenceNumber = `PROQ-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
         
-        // Trigger Google Ads conversion ONLY after successful submission acceptance (once per submission)
-        if (!hasTrackedConversionRef.current) {
-          hasTrackedConversionRef.current = true;
-          trackRfqConversion({ submissionId });
+        // Save submission session details for the /thank-you page without exposing PII in the URL
+        if (typeof window !== "undefined" && window.sessionStorage) {
+          try {
+            window.sessionStorage.setItem(
+              "proquanic_last_rfq",
+              JSON.stringify({
+                referenceNumber,
+                submittedAt: Date.now(),
+                companyName: formData.companyName,
+                contactName: formData.fullName,
+                summary: summaryText,
+                requiresTracking: true,
+              })
+            );
+          } catch (storageErr) {
+            console.error("Failed to store RFQ session", storageErr);
+          }
         }
+
+        // Clear shopping basket items
+        clearItems();
+
+        // Redirect customer to dedicated /thank-you page
+        navigate("/thank-you");
       } else {
-        // Fallback for sandboxed preview environment where static mock server may return status 404 for POST /:
-        const submissionId = `PROQ-RFQ-${Date.now()}`;
-        setSubmissionSuccess(true);
-        
-        if (!hasTrackedConversionRef.current) {
-          hasTrackedConversionRef.current = true;
-          trackRfqConversion({ submissionId });
-        }
+        // Production server returned non-OK status: remain on RFQ page, display error, do not redirect
+        setSubmissionError(
+          `Unable to complete automated transmission (Server response: ${response.status}). Your requisition details are preserved below. Please retry or contact our desk directly via WhatsApp or Email.`
+        );
       }
     } catch {
-      // Network failure: preserve entered payload and present fallback without firing conversion
+      // Network failure: preserve entered payload on RFQ page, do not redirect, do not fire conversion
       setSubmissionError(
-        "A network connection error prevented automated transmission. Please use our direct WhatsApp or Email buttons below to dispatch your requisition."
+        "A network connection error prevented automated transmission. Your entered requisition details are preserved. Please retry or dispatch directly via WhatsApp or Email below."
       );
     } finally {
       setIsSubmitting(false);

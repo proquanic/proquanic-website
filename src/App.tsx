@@ -22,6 +22,7 @@ import { EndMillsGuidePage } from "./pages/EndMillsGuidePage";
 import { SteelBuyingChecklistPage } from "./pages/SteelBuyingChecklistPage";
 import { SteelComparisonPage } from "./pages/SteelComparisonPage";
 import { BlogIndexPage } from "./pages/BlogIndexPage";
+import { ThankYouPage } from "./pages/ThankYouPage";
 import { CATEGORIES } from "./data/categories";
 
 const AppContent: React.FC = () => {
@@ -56,6 +57,10 @@ const AppContent: React.FC = () => {
       title = "Request a Quotation (RFQ) — Proquanic (Pvt) Ltd";
       metaDescription =
         "Submit product lists, engineering drawings, steel specifications, or machinery requirements for itemized quotation.";
+    } else if (currentPath === "/thank-you") {
+      title = "Thank You | Proquanic (Pvt) Ltd";
+      metaDescription =
+        "Thank you for submitting your Request for Quotation (RFQ). Our procurement team will review your requirements and prepare a formal quotation.";
     } else if (currentPath === "/industries") {
       title = "Industries We Serve — Proquanic (Pvt) Ltd";
       metaDescription =
@@ -159,6 +164,21 @@ const AppContent: React.FC = () => {
     const metaTag = document.querySelector('meta[name="description"]');
     if (metaTag) {
       metaTag.setAttribute("content", metaDescription);
+    }
+
+    // Prevent search engines from indexing the confirmation page
+    let robotsMeta = document.querySelector('meta[name="robots"]');
+    if (currentPath === "/thank-you") {
+      if (!robotsMeta) {
+        robotsMeta = document.createElement("meta");
+        robotsMeta.setAttribute("name", "robots");
+        document.head.appendChild(robotsMeta);
+      }
+      robotsMeta.setAttribute("content", "noindex, nofollow");
+    } else {
+      if (robotsMeta) {
+        robotsMeta.setAttribute("content", "index, follow");
+      }
     }
   }, [currentPath]);
 
@@ -280,6 +300,10 @@ const AppContent: React.FC = () => {
 
     if (currentPath === "/privacy-policy") {
       return <PrivacyPolicyPage />;
+    }
+
+    if (currentPath === "/thank-you") {
+      return <ThankYouPage />;
     }
 
     // 404 Fallback
