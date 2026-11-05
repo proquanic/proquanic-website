@@ -91,6 +91,16 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://proquanic.netlify.app/blog/how-to-choose-milling-machine-vice</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://proquanic.netlify.app/blog/hss-cobalt-carbide-drills</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://proquanic.netlify.app/blog/en8-en19-mild-steel-comparison</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -315,6 +315,33 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
         </div>
       )}
 
+      {/* Featured Technical Buying Guide (Machine Tooling & Workholding — Milling Vices) */}
+      {category.slug === "machine-tooling-workholding" && (
+        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-xl p-6 sm:p-8 border border-slate-700 shadow-md">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-wider">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Featured Technical Buying Guide</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                How to Choose the Right Milling Machine Vice: A Practical Buying Guide
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Choosing a milling machine vice involves more than checking its jaw opening. Learn how to evaluate jaw width, clamping capacity, AngLock pull-down mechanisms, bed parallelism tolerances, and machine mounting requirements.
+              </p>
+            </div>
+            <Link
+              href="/blog/how-to-choose-milling-machine-vice"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded shadow transition-colors whitespace-nowrap shrink-0"
+            >
+              <span>Read Vice Buying Guide</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Product Families Breakdown */}
       <section className="space-y-6">
         <div className="border-b border-slate-200 pb-3">

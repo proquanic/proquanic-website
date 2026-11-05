@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Link } from "../utils/router";
-import { ARTICLES, BLOG_CATEGORIES, ArticleRecord } from "../data/articles";
+import { ARTICLES, BLOG_CATEGORIES, ArticleRecord, getSortedArticles } from "../data/articles";
 import {
   BookOpen,
   ArrowRight,
@@ -33,7 +33,8 @@ export const BlogIndexPage: React.FC = () => {
   }, []);
 
   const filteredArticles = useMemo(() => {
-    return ARTICLES.filter((article) => {
+    const sorted = getSortedArticles();
+    return sorted.filter((article) => {
       const matchesCategory =
         selectedCategory === "All" || article.category === selectedCategory;
 
@@ -52,7 +53,8 @@ export const BlogIndexPage: React.FC = () => {
   }, [selectedCategory, searchQuery]);
 
   const featuredArticle = useMemo(() => {
-    return ARTICLES.find((a) => a.featured) || ARTICLES[0];
+    const sorted = getSortedArticles();
+    return sorted.find((a) => a.featured) || sorted[0];
   }, []);
 
   const resetFilters = () => {

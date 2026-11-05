@@ -23,6 +23,7 @@ import { SteelBuyingChecklistPage } from "./pages/SteelBuyingChecklistPage";
 import { SteelComparisonPage } from "./pages/SteelComparisonPage";
 import { BlogIndexPage } from "./pages/BlogIndexPage";
 import { DrillSelectionGuidePage } from "./pages/DrillSelectionGuidePage";
+import { MillingViceGuidePage } from "./pages/MillingViceGuidePage";
 import { ThankYouPage } from "./pages/ThankYouPage";
 import { CATEGORIES } from "./data/categories";
 
@@ -132,6 +133,15 @@ const AppContent: React.FC = () => {
       metaDescription =
         "End mills chipping or breaking during machining? Learn seven possible causes involving tool selection, cutting conditions, chip evacuation and machine setup.";
     } else if (
+      currentPath === "/blog/how-to-choose-milling-machine-vice" ||
+      currentPath === "/guides/how-to-choose-milling-machine-vice" ||
+      currentPath === "/resources/how-to-choose-milling-machine-vice" ||
+      currentPath === "/blog/milling-machine-vice-guide"
+    ) {
+      title = "How to Choose a Milling Machine Vice | Proquanic";
+      metaDescription =
+        "Learn how to choose a milling machine vice by jaw width, opening capacity, clamping force, accuracy, mounting and machining requirements.";
+    } else if (
       currentPath === "/blog/hss-cobalt-carbide-drills" ||
       currentPath === "/guides/hss-cobalt-carbide-drills" ||
       currentPath === "/resources/hss-cobalt-carbide-drills" ||
@@ -224,6 +234,15 @@ const AppContent: React.FC = () => {
       currentPath === "/blog/hss-punches"
     ) {
       return <HssPunchesGuidePage />;
+    }
+
+    if (
+      currentPath === "/blog/how-to-choose-milling-machine-vice" ||
+      currentPath === "/guides/how-to-choose-milling-machine-vice" ||
+      currentPath === "/resources/how-to-choose-milling-machine-vice" ||
+      currentPath === "/blog/milling-machine-vice-guide"
+    ) {
+      return <MillingViceGuidePage />;
     }
 
     if (

@@ -19,6 +19,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { ArticleImage } from "../components/ArticleImage";
+import { getLatestArticles } from "../data/articles";
 
 export const HomePage: React.FC = () => {
   return (
@@ -439,18 +440,21 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          TECHNICAL GUIDES & KNOWLEDGE BASE SHOWCASE
+          LATEST ENGINEERING INSIGHTS & KNOWLEDGE BASE
           ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold text-orange-600 uppercase tracking-wider mb-1">
               <BookOpen className="w-4 h-4" />
-              <span>Proquanic Technical Knowledge Base</span>
+              <span>Proquanic Technical Knowledge Hub</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Featured Industrial Guides & Technical Articles
+              Latest Engineering Insights
             </h2>
+            <p className="text-sm text-slate-600 mt-1 max-w-2xl">
+              Practical technical insights, tooling troubleshooting, material selection guides, and procurement specifications for manufacturing and engineering operations.
+            </p>
           </div>
           <Link
             href="/blog"
@@ -461,190 +465,50 @@ export const HomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Article 1: End Mills */}
-          <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div>
-              <Link href="/blog/why-end-mills-break" className="block relative aspect-16/9 bg-slate-900 overflow-hidden group">
-                <ArticleImage
-                  src="/images/blog/why-end-mills-break.jpg"
-                  alt="Machinist inspecting an end mill and securely clamped workpiece in a milling workshop."
-                  category="Milling Tools"
-                  aspectClassName="aspect-16/9"
-                />
-                <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
-                  Milling Tools
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {getLatestArticles(3).map((article) => (
+            <div
+              key={article.id}
+              className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+            >
+              <div>
+                <Link
+                  href={article.slug}
+                  className="block relative aspect-16/9 bg-slate-900 overflow-hidden group"
+                >
+                  <ArticleImage
+                    src={article.image}
+                    alt={article.imageAlt}
+                    category={article.category}
+                    aspectClassName="aspect-16/9"
+                  />
+                  <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
+                    {article.category}
+                  </div>
+                </Link>
+                <div className="p-4 space-y-2">
+                  <span className="text-[11px] font-mono text-slate-500">
+                    {article.readTime} · {article.date}
+                  </span>
+                  <h3 className="font-bold text-slate-900 text-sm hover:text-orange-600 transition-colors leading-snug line-clamp-2">
+                    <Link href={article.slug}>{article.title}</Link>
+                  </h3>
+                  <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                    {article.description}
+                  </p>
                 </div>
-              </Link>
-              <div className="p-4 space-y-2">
-                <span className="text-[11px] font-mono text-slate-500">8 min read · March 2026</span>
-                <h3 className="font-bold text-slate-900 text-sm hover:text-orange-600 transition-colors leading-snug line-clamp-2">
-                  <Link href="/blog/why-end-mills-break">
-                    Why Do End Mills Break? 7 Machining Mistakes That Can Destroy Cutting Tools
-                  </Link>
-                </h3>
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                  End mills chipping or breaking? Learn seven causes involving tool selection, cutting conditions, chip evacuation and setup rigidity.
-                </p>
+              </div>
+              <div className="px-4 pb-4 pt-1 border-t border-slate-100">
+                <Link
+                  href={article.slug}
+                  className="text-xs font-bold text-orange-600 hover:text-orange-500 inline-flex items-center gap-1.5"
+                >
+                  <span>Read Technical Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
-            <div className="px-4 pb-4 pt-1 border-t border-slate-100">
-              <Link
-                href="/blog/why-end-mills-break"
-                className="text-xs font-bold text-orange-600 hover:text-orange-500 inline-flex items-center gap-1.5"
-              >
-                <span>Read Troubleshooting Guide</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Article 2: Drill Bits */}
-          <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div>
-              <Link href="/blog/why-drill-bits-burn-or-break" className="block relative aspect-16/9 bg-slate-900 overflow-hidden group">
-                <ArticleImage
-                  src="/images/blog/why-drill-bits-burn-or-break.jpg"
-                  alt="Machinist inspecting a metal drill bit at an engineering workshop bench."
-                  category="Drilling Tools"
-                  aspectClassName="aspect-16/9"
-                />
-                <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
-                  Drilling Tools
-                </div>
-              </Link>
-              <div className="p-4 space-y-2">
-                <span className="text-[11px] font-mono text-slate-500">7 min read · March 2026</span>
-                <h3 className="font-bold text-slate-900 text-sm hover:text-orange-600 transition-colors leading-snug line-clamp-2">
-                  <Link href="/blog/why-drill-bits-burn-or-break">
-                    Why Does Your Drill Bit Keep Burning or Breaking? 6 Mistakes to Check
-                  </Link>
-                </h3>
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                  Drill bits overheating or breaking? Investigate cutting speeds, feed pressure, chip packing, tool material, and clamping alignment.
-                </p>
-              </div>
-            </div>
-            <div className="px-4 pb-4 pt-1 border-t border-slate-100">
-              <Link
-                href="/blog/why-drill-bits-burn-or-break"
-                className="text-xs font-bold text-orange-600 hover:text-orange-500 inline-flex items-center gap-1.5"
-              >
-                <span>Read Troubleshooting Guide</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Article 3: Bandsaw Blades */}
-          <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div>
-              <Link href="/blog/why-metal-cutting-bandsaw-blade-breaks" className="block relative aspect-16/9 bg-slate-900 overflow-hidden group">
-                <ArticleImage
-                  src="/images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg"
-                  alt="Metal-cutting bandsaw blade breakage troubleshooting"
-                  category="Sawing Products"
-                  aspectClassName="aspect-16/9"
-                />
-                <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
-                  Sawing Products
-                </div>
-              </Link>
-              <div className="p-4 space-y-2">
-                <span className="text-[11px] font-mono text-slate-500">8 min read · March 2026</span>
-                <h3 className="font-bold text-slate-900 text-sm hover:text-orange-600 transition-colors leading-snug line-clamp-2">
-                  <Link href="/blog/why-metal-cutting-bandsaw-blade-breaks">
-                    Why Does Your Metal-Cutting Bandsaw Blade Keep Breaking? 6 Causes to Check
-                  </Link>
-                </h3>
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                  When blades lose teeth or wander from the cut line, review tooth pitch, feed rates, break-in, and clamping diagnostics.
-                </p>
-              </div>
-            </div>
-            <div className="px-4 pb-4 pt-1 border-t border-slate-100">
-              <Link
-                href="/blog/why-metal-cutting-bandsaw-blade-breaks"
-                className="text-xs font-bold text-orange-600 hover:text-orange-500 inline-flex items-center gap-1.5"
-              >
-                <span>Read Troubleshooting Guide</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Article 4: HSS Punches */}
-          <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div>
-              <Link href="/blog/hss-punches-how-to-choose-replacement" className="block relative aspect-16/9 bg-slate-900 overflow-hidden group">
-                <ArticleImage
-                  src="/images/blog/hss-punches-how-to-choose-replacement.jpg"
-                  alt="Toolmaker inspecting HSS punches on engineering inspection bench"
-                  category="Punching Tools"
-                  aspectClassName="aspect-16/9"
-                />
-                <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
-                  Punching Tools
-                </div>
-              </Link>
-              <div className="p-4 space-y-2">
-                <span className="text-[11px] font-mono text-slate-500">9 min read · March 2026</span>
-                <h3 className="font-bold text-slate-900 text-sm hover:text-orange-600 transition-colors leading-snug line-clamp-2">
-                  <Link href="/blog/hss-punches-how-to-choose-replacement">
-                    HSS Punches Explained: 7 Mistakes to Avoid When Choosing a Replacement
-                  </Link>
-                </h3>
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                  Verify tool steel grades (M2 vs D2 vs PM), shank dimensions, die clearances, and ordering specifications.
-                </p>
-              </div>
-            </div>
-            <div className="px-4 pb-4 pt-1 border-t border-slate-100">
-              <Link
-                href="/blog/hss-punches-how-to-choose-replacement"
-                className="text-xs font-bold text-orange-600 hover:text-orange-500 inline-flex items-center gap-1.5"
-              >
-                <span>Read Selection Guide</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Article 4: EN8 vs EN19 */}
-          <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div>
-              <Link href="/guides/en8-vs-en19-steel" className="block relative aspect-16/9 bg-slate-100 overflow-hidden group">
-                <img
-                  src="/images/categories/steel-products.jpg"
-                  alt="EN8 vs EN19 engineering steel selection guide"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-2.5 left-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-semibold px-2 py-0.5 rounded">
-                  Steel Products
-                </div>
-              </Link>
-              <div className="p-4 space-y-2">
-                <span className="text-[11px] font-mono text-slate-500">12 min read · February 2026</span>
-                <h3 className="font-bold text-slate-900 text-sm hover:text-orange-600 transition-colors leading-snug line-clamp-2">
-                  <Link href="/guides/en8-vs-en19-steel">
-                    EN8 vs EN19 Steel: Differences, Applications & How to Choose
-                  </Link>
-                </h3>
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                  Engineering comparison between 080M40 carbon steel and 708M40/709M40 Cr-Mo alloy steel for shafts and gears.
-                </p>
-              </div>
-            </div>
-            <div className="px-4 pb-4 pt-1 border-t border-slate-100">
-              <Link
-                href="/guides/en8-vs-en19-steel"
-                className="text-xs font-bold text-orange-600 hover:text-orange-500 inline-flex items-center gap-1.5"
-              >
-                <span>Read Steel Guide</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 

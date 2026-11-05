@@ -8,6 +8,7 @@ export interface ArticleRecord {
   description: string;
   readTime: string;
   date: string;
+  publishDate: string; // ISO format YYYY-MM-DD for reliable chronological sorting
   image: string;
   imageAlt: string;
   tags: string[];
@@ -16,6 +17,72 @@ export interface ArticleRecord {
 }
 
 export const ARTICLES: ArticleRecord[] = [
+  {
+    id: "how-to-choose-milling-machine-vice",
+    title: "How to Choose the Right Milling Machine Vice: A Practical Buying Guide",
+    slug: "/blog/how-to-choose-milling-machine-vice",
+    aliases: [
+      "/guides/how-to-choose-milling-machine-vice",
+      "/resources/how-to-choose-milling-machine-vice",
+      "/blog/milling-machine-vice-guide",
+    ],
+    category: "Machine Tooling and Workholding",
+    categorySlug: "/products/machine-tooling-workholding",
+    description:
+      "Learn how to choose a milling machine vice by jaw width, opening capacity, clamping force, accuracy, mounting and machining requirements.",
+    readTime: "10 min read",
+    date: "November 2026",
+    publishDate: "2026-11-05",
+    image: "/images/categories/machine-tooling-workholding.jpg",
+    imageAlt: "Precision milling machine vice and workholding tooling set up for workshop machining",
+    tags: [
+      "Milling Machine Vice",
+      "Machine Vise",
+      "Workholding",
+      "CNC Machining",
+      "Milling",
+      "Workshop Equipment",
+    ],
+    featured: true,
+    relatedSlugs: [
+      "/products/machine-tooling-workholding",
+      "/blog/why-end-mills-break",
+      "/blog/hss-cobalt-carbide-drills",
+      "/products/cutting-machining-tools",
+    ],
+  },
+  {
+    id: "hss-cobalt-carbide-drills",
+    title: "HSS, Cobalt or Carbide Drills? Understanding the Differences and Choosing the Right Drill for Steel",
+    slug: "/blog/hss-cobalt-carbide-drills",
+    aliases: [
+      "/guides/hss-cobalt-carbide-drills",
+      "/resources/hss-cobalt-carbide-drills",
+      "/blog/drill-selection-guide",
+    ],
+    category: "Cutting and Machining Tools",
+    categorySlug: "/products/cutting-machining-tools",
+    description:
+      "Understanding the differences between HSS, cobalt-alloyed, and solid carbide drills for industrial metalworking applications.",
+    readTime: "7 min read",
+    date: "November 2026",
+    publishDate: "2026-11-01",
+    image: "/images/blog/hss-cobalt-carbide-drills.jpg",
+    imageAlt: "Comparative arrangement of HSS, cobalt-alloyed and solid carbide drill bits on a workshop bench",
+    tags: [
+      "Drill Bits",
+      "HSS",
+      "Cobalt",
+      "Solid Carbide",
+      "Metalworking",
+    ],
+    featured: false,
+    relatedSlugs: [
+      "/blog/why-drill-bits-burn-or-break",
+      "/products/cutting-machining-tools",
+      "/blog/why-end-mills-break",
+    ],
+  },
   {
     id: "en8-en19-mild-steel-comparison",
     title: "EN8, EN19 or Mild Steel? How to Choose the Right Material for Your Job",
@@ -32,6 +99,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Compare EN8, EN19 and mild steel for engineering applications. Learn what to check before choosing a material for shafts, brackets and machined components.",
     readTime: "8 min read",
     date: "March 2026",
+    publishDate: "2026-03-25",
     image: "/images/blog/en8-en19-mild-steel-comparison.jpg",
     imageAlt: "Engineering steel round bar, flat bar and plate arranged for dimensional inspection.",
     tags: [
@@ -42,7 +110,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Shafts & Machining",
       "Engineering Steels",
     ],
-    featured: true,
+    featured: false,
     relatedSlugs: [
       "/blog/steel-buying-checklist-engineering-workshop",
       "/guides/en8-vs-en19-steel",
@@ -65,6 +133,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Buying engineering steel for your workshop? Check the grade, dimensions, material condition, certification and other details before confirming your order.",
     readTime: "7 min read",
     date: "March 2026",
+    publishDate: "2026-03-22",
     image: "/images/blog/steel-buying-checklist.jpg",
     imageAlt: "Workshop engineer inspecting engineering steel round bar dimensions with vernier calipers",
     tags: [
@@ -98,6 +167,7 @@ export const ARTICLES: ArticleRecord[] = [
       "End mills chipping or breaking during machining? Learn seven possible causes involving tool selection, cutting conditions, chip evacuation, tool overhang, and machine setup.",
     readTime: "8 min read",
     date: "March 2026",
+    publishDate: "2026-03-18",
     image: "/images/blog/why-end-mills-break.jpg",
     imageAlt: "Machinist inspecting solid carbide end mill wear and cutting flute integrity under workshop lighting",
     tags: [
@@ -110,6 +180,7 @@ export const ARTICLES: ArticleRecord[] = [
     ],
     featured: false,
     relatedSlugs: [
+      "/blog/how-to-choose-milling-machine-vice",
       "/blog/steel-buying-checklist-engineering-workshop",
       "/blog/why-drill-bits-burn-or-break",
       "/blog/hss-punches-how-to-choose-replacement",
@@ -131,6 +202,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Drill bits overheating, wearing quickly or breaking? Learn six possible causes, what to inspect on cutting lips and margins, and how to choose a suitable replacement for your workshop.",
     readTime: "7 min read",
     date: "March 2026",
+    publishDate: "2026-03-15",
     image: "/images/blog/why-drill-bits-burn-or-break.jpg",
     imageAlt: "Close-up inspection of HSS and cobalt drill bit cutting lips, chisel edge, and margin wear",
     tags: [
@@ -143,6 +215,7 @@ export const ARTICLES: ArticleRecord[] = [
     ],
     featured: false,
     relatedSlugs: [
+      "/blog/hss-cobalt-carbide-drills",
       "/blog/why-end-mills-break",
       "/blog/why-metal-cutting-bandsaw-blade-breaks",
       "/blog/hss-punches-how-to-choose-replacement",
@@ -164,6 +237,7 @@ export const ARTICLES: ArticleRecord[] = [
       "When metal-cutting blades keep breaking, stripping teeth, or wandering off cut lines, replacing blades without investigating the cause is an expensive cycle. Check tooth pitch, break-in, tension, and feed rates.",
     readTime: "8 min read",
     date: "March 2026",
+    publishDate: "2026-03-12",
     image: "/images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg",
     imageAlt: "Horizontal metal-cutting bandsaw blade tooth pitch and guide roller inspection",
     tags: [
@@ -197,6 +271,7 @@ export const ARTICLES: ArticleRecord[] = [
       "Avoid 7 costly tooling errors when replacing HSS punches. Learn how to verify machine mounting compatibility, calculate die clearance, select suitable tool steel grades, and specify custom punch profiles.",
     readTime: "9 min read",
     date: "March 2026",
+    publishDate: "2026-03-08",
     image: "/images/blog/hss-punches-how-to-choose-replacement.jpg",
     imageAlt: "Precision machined HSS punching tools, ironworker dies, and CNC turret tooling on inspection granite",
     tags: [
@@ -229,6 +304,7 @@ export const ARTICLES: ArticleRecord[] = [
       "A comprehensive technical comparison between EN8 (080M40) unalloyed medium carbon steel and EN19 (708M40/709M40) chromium-molybdenum alloy steel for shafts, pins, gears, and machine components.",
     readTime: "12 min read",
     date: "February 2026",
+    publishDate: "2026-02-15",
     image: "/images/blog/en8-vs-en19-steel.jpg",
     imageAlt: "Identifiable engineering steel round bars, turned shafts, splines and gears on workshop inspection bench",
     tags: [
@@ -246,45 +322,33 @@ export const ARTICLES: ArticleRecord[] = [
       "/blog/why-drill-bits-burn-or-break",
     ],
   },
-  {
-    id: "hss-cobalt-carbide-drills",
-    title: "HSS, Cobalt or Carbide Drills? Understanding the Differences and Choosing the Right Drill for Steel",
-    slug: "/blog/hss-cobalt-carbide-drills",
-    aliases: [
-      "/guides/hss-cobalt-carbide-drills",
-      "/resources/hss-cobalt-carbide-drills",
-      "/blog/drill-selection-guide",
-    ],
-    category: "Cutting and Machining Tools",
-    categorySlug: "/products/cutting-machining-tools",
-    description:
-      "Understanding the differences between HSS, cobalt-alloyed, and solid carbide drills for industrial metalworking applications.",
-    readTime: "7 min read",
-    date: "November 2026",
-    image: "/images/blog/hss-cobalt-carbide-drills.jpg",
-    imageAlt: "Comparative arrangement of HSS, cobalt-alloyed and solid carbide drill bits on a workshop bench",
-    tags: [
-      "Drill Bits",
-      "HSS",
-      "Cobalt",
-      "Solid Carbide",
-      "Metalworking",
-    ],
-    featured: false,
-    relatedSlugs: [
-      "/blog/why-drill-bits-burn-or-break",
-      "/products/cutting-machining-tools",
-      "/blog/why-end-mills-break",
-    ],
-  },
 ];
 
 export const BLOG_CATEGORIES = [
   "All",
   "Cutting and Machining Tools",
+  "Machine Tooling and Workholding",
   "Sawing Products",
   "Steel Products",
 ] as const;
+
+/**
+ * Returns all articles sorted chronologically by publication date, newest first.
+ * Permanent system requirement.
+ */
+export function getSortedArticles(): ArticleRecord[] {
+  return [...ARTICLES].sort(
+    (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+  );
+}
+
+/**
+ * Returns the newest published articles, sorted chronologically newest first.
+ * Used by the Homepage Latest Engineering Insights section.
+ */
+export function getLatestArticles(count = 3): ArticleRecord[] {
+  return getSortedArticles().slice(0, count);
+}
 
 export function getArticleBySlug(slug: string): ArticleRecord | undefined {
   const normalized = slug.trim();
@@ -298,7 +362,7 @@ export function getArticleBySlug(slug: string): ArticleRecord | undefined {
 export function getRelatedArticles(currentSlug: string, count = 3): ArticleRecord[] {
   const current = getArticleBySlug(currentSlug);
   if (!current) {
-    return ARTICLES.slice(0, count);
+    return getLatestArticles(count);
   }
 
   // First try explicitly configured relatedSlugs
@@ -310,8 +374,8 @@ export function getRelatedArticles(currentSlug: string, count = 3): ArticleRecor
     return explicit.slice(0, count);
   }
 
-  // Fill in other articles
-  const others = ARTICLES.filter(
+  // Fill in other articles sorted newest first
+  const others = getSortedArticles().filter(
     (a) => a.slug !== current.slug && !explicit.some((e) => e.slug === a.slug)
   );
 
