@@ -22,6 +22,7 @@ import { EndMillsGuidePage } from "./pages/EndMillsGuidePage";
 import { SteelBuyingChecklistPage } from "./pages/SteelBuyingChecklistPage";
 import { SteelComparisonPage } from "./pages/SteelComparisonPage";
 import { BlogIndexPage } from "./pages/BlogIndexPage";
+import { DrillSelectionGuidePage } from "./pages/DrillSelectionGuidePage";
 import { ThankYouPage } from "./pages/ThankYouPage";
 import { CATEGORIES } from "./data/categories";
 
@@ -131,6 +132,15 @@ const AppContent: React.FC = () => {
       metaDescription =
         "End mills chipping or breaking during machining? Learn seven possible causes involving tool selection, cutting conditions, chip evacuation and machine setup.";
     } else if (
+      currentPath === "/blog/hss-cobalt-carbide-drills" ||
+      currentPath === "/guides/hss-cobalt-carbide-drills" ||
+      currentPath === "/resources/hss-cobalt-carbide-drills" ||
+      currentPath === "/blog/drill-selection-guide"
+    ) {
+      title = "HSS, Cobalt or Carbide Drills? Understanding the Differences and Choosing the Right Drill for Steel — Proquanic";
+      metaDescription =
+        "Understanding the differences between HSS, cobalt-alloyed, and solid carbide drills for industrial metalworking applications.";
+    } else if (
       currentPath === "/blog/steel-buying-checklist-engineering-workshop" ||
       currentPath === "/guides/steel-buying-checklist-engineering-workshop" ||
       currentPath === "/resources/steel-buying-checklist-engineering-workshop" ||
@@ -214,6 +224,15 @@ const AppContent: React.FC = () => {
       currentPath === "/blog/hss-punches"
     ) {
       return <HssPunchesGuidePage />;
+    }
+
+    if (
+      currentPath === "/blog/hss-cobalt-carbide-drills" ||
+      currentPath === "/guides/hss-cobalt-carbide-drills" ||
+      currentPath === "/resources/hss-cobalt-carbide-drills" ||
+      currentPath === "/blog/drill-selection-guide"
+    ) {
+      return <DrillSelectionGuidePage />;
     }
 
     if (

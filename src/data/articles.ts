@@ -243,7 +243,38 @@ export const ARTICLES: ArticleRecord[] = [
     relatedSlugs: [
       "/blog/steel-buying-checklist-engineering-workshop",
       "/blog/why-end-mills-break",
-      "/blog/why-metal-cutting-bandsaw-blade-breaks",
+      "/blog/why-drill-bits-burn-or-break",
+    ],
+  },
+  {
+    id: "hss-cobalt-carbide-drills",
+    title: "HSS, Cobalt or Carbide Drills? Understanding the Differences and Choosing the Right Drill for Steel",
+    slug: "/blog/hss-cobalt-carbide-drills",
+    aliases: [
+      "/guides/hss-cobalt-carbide-drills",
+      "/resources/hss-cobalt-carbide-drills",
+      "/blog/drill-selection-guide",
+    ],
+    category: "Cutting and Machining Tools",
+    categorySlug: "/products/cutting-machining-tools",
+    description:
+      "Understanding the differences between HSS, cobalt-alloyed, and solid carbide drills for industrial metalworking applications.",
+    readTime: "7 min read",
+    date: "November 2026",
+    image: "/images/blog/hss-cobalt-carbide-drills.jpg",
+    imageAlt: "Comparative arrangement of HSS, cobalt-alloyed and solid carbide drill bits on a workshop bench",
+    tags: [
+      "Drill Bits",
+      "HSS",
+      "Cobalt",
+      "Solid Carbide",
+      "Metalworking",
+    ],
+    featured: false,
+    relatedSlugs: [
+      "/blog/why-drill-bits-burn-or-break",
+      "/products/cutting-machining-tools",
+      "/blog/why-end-mills-break",
     ],
   },
 ];
