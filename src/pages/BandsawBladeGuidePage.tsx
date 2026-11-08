@@ -24,6 +24,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { RelatedArticles } from "../components/RelatedArticles";
+import { ArticleHashtags } from "../components/ArticleHashtags";
 
 export const BandsawBladeGuidePage: React.FC = () => {
   const { navigate } = useRouter();
@@ -886,6 +887,79 @@ export const BandsawBladeGuidePage: React.FC = () => {
             </p>
           </div>
         </section>
+
+        {/* Topic Hashtags Section */}
+        <div className="pt-2">
+          <ArticleHashtags
+            hashtags={[
+              "BandsawBlades",
+              "MetalCuttingSawing",
+              "IndustrialSuppliesZimbabwe",
+              "BiMetalM42",
+              "WorkshopMachinery",
+            ]}
+          />
+        </div>
+
+        {/* Cross-Category Navigation Links */}
+        <div className="p-6 bg-white border border-slate-200 rounded-xl space-y-4">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
+            <Wrench className="w-4 h-4 text-orange-600" />
+            <span>Related Catalogue Categories & Machinery Procurement</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <Link
+              href="/products/sawing-products"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  Sawing Products Category
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  Bi-metal bandsaw blades, power hacksaw blades, cold saw blades, and cutting lubricants.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                Explore Category <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+
+            <Link
+              href="/machinery-equipment"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  Industrial Machinery Catalogue
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  Industrial horizontal bandsaws, CNC machining centres, lathes, and workshop presses.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                View Machinery <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+
+            <Link
+              href="/products/cutting-machining-tools"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  Cutting & Machining Tools
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  Solid carbide end mills, HSS/Cobalt drills, indexable inserts, and metalworking tooling.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                Explore Category <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+          </div>
+        </div>
 
         {/* Related Technical Articles */}
         <RelatedArticles currentSlug="/blog/why-metal-cutting-bandsaw-blade-breaks" />

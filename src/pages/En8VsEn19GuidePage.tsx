@@ -24,6 +24,7 @@ import {
   BookOpen
 } from "lucide-react";
 import { RelatedArticles } from "../components/RelatedArticles";
+import { ArticleHashtags } from "../components/ArticleHashtags";
 
 export const En8VsEn19GuidePage: React.FC = () => {
   const { navigate } = useRouter();
@@ -849,6 +850,19 @@ export const En8VsEn19GuidePage: React.FC = () => {
                   <span>Explore All Steel Products</span>
                   <ArrowRight className="w-3.5 h-3.5 text-orange-600" />
                 </Link>
+              </div>
+
+              {/* Topic Hashtags Section */}
+              <div className="pt-6">
+                <ArticleHashtags
+                  hashtags={[
+                    "SteelSuppliersBulawayo",
+                    "SteelProductsZimbabwe",
+                    "EN8",
+                    "EN19",
+                    "AlloySteelZimbabwe",
+                  ]}
+                />
               </div>
             </section>
           </article>

@@ -12,6 +12,7 @@ export interface ArticleRecord {
   image: string;
   imageAlt: string;
   tags: string[];
+  hashtags: string[];
   featured?: boolean;
   relatedSlugs: string[];
 }
@@ -43,6 +44,13 @@ export const ARTICLES: ArticleRecord[] = [
       "Milling",
       "Workshop Equipment",
     ],
+    hashtags: [
+      "WorkholdingBulawayo",
+      "MillingMachineVice",
+      "CNCMachining",
+      "EngineeringSuppliesBulawayo",
+      "MachineToolingZimbabwe",
+    ],
     featured: true,
     relatedSlugs: [
       "/products/machine-tooling-workholding",
@@ -68,13 +76,20 @@ export const ARTICLES: ArticleRecord[] = [
     date: "November 2026",
     publishDate: "2026-11-01",
     image: "/images/blog/hss-cobalt-carbide-drills.jpg",
-    imageAlt: "Comparative arrangement of HSS, cobalt-alloyed and solid carbide drill bits on a workshop bench",
+    imageAlt: "Side-by-side technical comparison of HSS, cobalt-alloyed HSS-Co5, and AlTiN-coated solid carbide twist drills on a neutral industrial surface",
     tags: [
       "Drill Bits",
       "HSS",
       "Cobalt",
       "Solid Carbide",
       "Metalworking",
+    ],
+    hashtags: [
+      "MetalCuttingTools",
+      "DrillBits",
+      "EngineeringSuppliesBulawayo",
+      "HSSDrills",
+      "IndustrialSuppliesZimbabwe",
     ],
     featured: false,
     relatedSlugs: [
@@ -110,6 +125,13 @@ export const ARTICLES: ArticleRecord[] = [
       "Shafts & Machining",
       "Engineering Steels",
     ],
+    hashtags: [
+      "SteelProductsZimbabwe",
+      "SteelSuppliersBulawayo",
+      "EngineeringSteels",
+      "EN8",
+      "EN19",
+    ],
     featured: false,
     relatedSlugs: [
       "/blog/steel-buying-checklist-engineering-workshop",
@@ -144,6 +166,13 @@ export const ARTICLES: ArticleRecord[] = [
       "Machining Allowance",
       "Steel Procurement",
     ],
+    hashtags: [
+      "SteelSuppliersBulawayo",
+      "SteelProcurementZimbabwe",
+      "EngineeringSteels",
+      "WorkshopSupplies",
+      "MaterialCertification",
+    ],
     featured: false,
     relatedSlugs: [
       "/blog/en8-en19-mild-steel-comparison",
@@ -169,7 +198,7 @@ export const ARTICLES: ArticleRecord[] = [
     date: "March 2026",
     publishDate: "2026-03-18",
     image: "/images/blog/why-end-mills-break.jpg",
-    imageAlt: "Machinist inspecting solid carbide end mill wear and cutting flute integrity under workshop lighting",
+    imageAlt: "Macro technical inspection of a solid carbide end mill with severely chipped cutting flutes and broken corner edge",
     tags: [
       "End Mills",
       "Solid Carbide",
@@ -177,6 +206,13 @@ export const ARTICLES: ArticleRecord[] = [
       "Chip Evacuation",
       "CNC Milling",
       "Feeds & Speeds",
+    ],
+    hashtags: [
+      "MetalCuttingTools",
+      "CNCMachining",
+      "SolidCarbide",
+      "EndMills",
+      "EngineeringSuppliesBulawayo",
     ],
     featured: false,
     relatedSlugs: [
@@ -204,7 +240,7 @@ export const ARTICLES: ArticleRecord[] = [
     date: "March 2026",
     publishDate: "2026-03-15",
     image: "/images/blog/why-drill-bits-burn-or-break.jpg",
-    imageAlt: "Close-up inspection of HSS and cobalt drill bit cutting lips, chisel edge, and margin wear",
+    imageAlt: "Macro failure analysis of an overheated twist drill bit with thermal temper discoloration and burned cutting lips",
     tags: [
       "Drill Bits",
       "HSS & Cobalt M35",
@@ -212,6 +248,13 @@ export const ARTICLES: ArticleRecord[] = [
       "Feed Pressure",
       "Coolant & Lubrication",
       "Workpiece Clamping",
+    ],
+    hashtags: [
+      "MetalCuttingTools",
+      "DrillBits",
+      "CuttingToolsBulawayo",
+      "WorkshopTroubleshooting",
+      "ToolWear",
     ],
     featured: false,
     relatedSlugs: [
@@ -248,6 +291,13 @@ export const ARTICLES: ArticleRecord[] = [
       "Blade Tension",
       "Saw Guides",
     ],
+    hashtags: [
+      "BandsawBlades",
+      "MetalCuttingSawing",
+      "IndustrialSuppliesZimbabwe",
+      "BiMetalM42",
+      "WorkshopMachinery",
+    ],
     featured: false,
     relatedSlugs: [
       "/blog/why-end-mills-break",
@@ -282,6 +332,13 @@ export const ARTICLES: ArticleRecord[] = [
       "Ironworker Punching",
       "Tooling Profiles",
     ],
+    hashtags: [
+      "MetalworkingTools",
+      "HSSPunches",
+      "ToolSteel",
+      "DieClearance",
+      "EngineeringSuppliesBulawayo",
+    ],
     featured: false,
     relatedSlugs: [
       "/blog/why-end-mills-break",
@@ -314,6 +371,13 @@ export const ARTICLES: ArticleRecord[] = [
       "Tensile Strength",
       "Heat Treatment",
       "Shafts & Gears",
+    ],
+    hashtags: [
+      "SteelSuppliersBulawayo",
+      "SteelProductsZimbabwe",
+      "EN8",
+      "EN19",
+      "AlloySteelZimbabwe",
     ],
     featured: false,
     relatedSlugs: [
@@ -380,4 +444,32 @@ export function getRelatedArticles(currentSlug: string, count = 3): ArticleRecor
   );
 
   return [...explicit, ...others].slice(0, count);
+}
+
+/**
+ * Returns all unique topic hashtags with count of publications
+ */
+export function getAllHashtags(): { tag: string; count: number }[] {
+  const counts: Record<string, number> = {};
+  ARTICLES.forEach((art) => {
+    art.hashtags?.forEach((ht) => {
+      const clean = ht.replace(/^#/, "");
+      counts[clean] = (counts[clean] || 0) + 1;
+    });
+  });
+
+  return Object.entries(counts)
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
+}
+
+/**
+ * Returns articles matching a hashtag or tag
+ */
+export function getArticlesByHashtag(tag: string): ArticleRecord[] {
+  const clean = tag.replace(/^#/, "").toLowerCase();
+  return getSortedArticles().filter((art) =>
+    art.hashtags?.some((ht) => ht.replace(/^#/, "").toLowerCase() === clean) ||
+    art.tags?.some((t) => t.toLowerCase() === clean)
+  );
 }

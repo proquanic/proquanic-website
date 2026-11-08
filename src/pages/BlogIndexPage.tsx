@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Link } from "../utils/router";
-import { ARTICLES, BLOG_CATEGORIES, ArticleRecord, getSortedArticles } from "../data/articles";
+import { ARTICLES, BLOG_CATEGORIES, ArticleRecord, getSortedArticles, getAllHashtags } from "../data/articles";
 import {
   BookOpen,
   ArrowRight,
@@ -14,14 +14,31 @@ import {
   Sparkles,
   Layers,
   ArrowUpRight,
+  Hash,
+  Tag,
 } from "lucide-react";
 import { ArticleImage } from "../components/ArticleImage";
 
 export const BlogIndexPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedHashtag, setSelectedHashtag] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
+    // Read query params from URL (e.g. ?tag=SteelProductsZimbabwe or ?category=Steel Products)
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      const tagParam = searchParams.get("tag") || searchParams.get("hashtag");
+      const catParam = searchParams.get("category");
+
+      if (tagParam) {
+        setSelectedHashtag(tagParam.replace(/^#/, ""));
+      }
+      if (catParam && BLOG_CATEGORIES.includes(catParam as any)) {
+        setSelectedCategory(catParam);
+      }
+    }
+
     // Set canonical link
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
@@ -32,6 +49,16 @@ export const BlogIndexPage: React.FC = () => {
     canonical.setAttribute("href", "https://www.proquanic.co.zw/blog");
   }, []);
 
+  const allHashtags = useMemo(() => getAllHashtags(), []);
+
+  const handleSelectHashtag = (tag: string | null) => {
+    setSelectedHashtag(tag);
+    if (typeof window !== "undefined" && window.history) {
+      const newUrl = tag ? `/blog?tag=${encodeURIComponent(tag)}` : "/blog";
+      window.history.replaceState({}, "", newUrl);
+    }
+  };
+
   const filteredArticles = useMemo(() => {
     const sorted = getSortedArticles();
     return sorted.filter((article) => {
@@ -40,6 +67,14 @@ export const BlogIndexPage: React.FC = () => {
 
       if (!matchesCategory) return false;
 
+      if (selectedHashtag) {
+        const cleanTarget = selectedHashtag.toLowerCase();
+        const matchesHashtag =
+          article.hashtags?.some((ht) => ht.replace(/^#/, "").toLowerCase() === cleanTarget) ||
+          article.tags?.some((t) => t.toLowerCase() === cleanTarget);
+        if (!matchesHashtag) return false;
+      }
+
       if (!searchQuery.trim()) return true;
 
       const q = searchQuery.toLowerCase().trim();
@@ -47,10 +82,11 @@ export const BlogIndexPage: React.FC = () => {
       const inDesc = article.description.toLowerCase().includes(q);
       const inCategory = article.category.toLowerCase().includes(q);
       const inTags = article.tags.some((tag) => tag.toLowerCase().includes(q));
+      const inHashtags = article.hashtags?.some((ht) => ht.toLowerCase().includes(q));
 
-      return inTitle || inDesc || inCategory || inTags;
+      return inTitle || inDesc || inCategory || inTags || inHashtags;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory, selectedHashtag, searchQuery]);
 
   const featuredArticle = useMemo(() => {
     const sorted = getSortedArticles();
@@ -59,7 +95,11 @@ export const BlogIndexPage: React.FC = () => {
 
   const resetFilters = () => {
     setSelectedCategory("All");
+    setSelectedHashtag(null);
     setSearchQuery("");
+    if (typeof window !== "undefined" && window.history) {
+      window.history.replaceState({}, "", "/blog");
+    }
   };
 
   return (
@@ -166,6 +206,85 @@ export const BlogIndexPage: React.FC = () => {
             Showing {filteredArticles.length} of {ARTICLES.length} articles
           </div>
         </div>
+
+        {/* Topic Hashtags Cloud Bar */}
+        <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
+            <span className="flex items-center gap-1.5 text-orange-600">
+              <Hash className="w-3.5 h-3.5" />
+              <span>Explore Technical Topics & Focus Areas:</span>
+            </span>
+            {selectedHashtag && (
+              <button
+                onClick={() => handleSelectHashtag(null)}
+                className="text-[11px] text-orange-600 hover:text-orange-700 underline font-sans font-semibold cursor-pointer"
+              >
+                Clear Topic Filter
+              </button>
+            )}
+          </div>
+          <div className="flex flex-wrap gap-1.5 items-center pt-1">
+            {allHashtags.map(({ tag, count }) => {
+              const isActive = selectedHashtag?.toLowerCase() === tag.toLowerCase();
+              return (
+                <button
+                  key={tag}
+                  onClick={() => handleSelectHashtag(isActive ? null : tag)}
+                  className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-slate-900 text-white font-bold shadow-xs scale-105"
+                      : "bg-slate-100 hover:bg-orange-50 text-slate-700 hover:text-orange-700 border border-slate-200 hover:border-orange-300"
+                  }`}
+                  title={`Filter articles by #${tag}`}
+                >
+                  <span className={isActive ? "text-orange-400 font-bold" : "text-orange-500"}>#</span>
+                  <span>{tag}</span>
+                  <span
+                    className={`text-[10px] px-1 rounded-full ${
+                      isActive ? "bg-slate-800 text-slate-300" : "bg-white text-slate-500 border border-slate-200"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Active Filter Indicator & Contextual Category Link */}
+        {selectedHashtag && (
+          <div className="p-4 bg-orange-50 border border-orange-200 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+            <div className="flex items-center gap-2">
+              <span className="p-1.5 bg-orange-600 text-white rounded-md">
+                <Hash className="w-4 h-4" />
+              </span>
+              <div>
+                <span className="font-bold text-slate-900 block text-sm">
+                  Topic: #{selectedHashtag}
+                </span>
+                <span className="text-slate-600">
+                  Showing {filteredArticles.length} publication{filteredArticles.length === 1 ? "" : "s"} focused on this technical subject.
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+              <button
+                onClick={() => handleSelectHashtag(null)}
+                className="px-3 py-1.5 bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 rounded font-semibold transition-colors cursor-pointer"
+              >
+                Clear Topic
+              </button>
+              <Link
+                href="/products"
+                className="px-3 py-1.5 bg-orange-600 hover:bg-orange-500 text-white rounded font-bold transition-colors inline-flex items-center gap-1"
+              >
+                <span>Browse Products</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredArticles.length === 0 ? (

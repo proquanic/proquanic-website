@@ -23,60 +23,80 @@ const INDUSTRY_DETAILS = [
     icon: Pickaxe,
     description:
       "Heavy wear plates, alloy shafting steels (EN19, EN24), spherical roller bearings, conveyor drive chains, slurry pump seals, and industrial valves.",
+    categoryLink: "/products/steel-products",
+    categoryLabel: "Engineering & Alloy Steels",
   },
   {
     title: "Manufacturing and industrial production",
     icon: Factory,
     description:
       "V-belts, precision bearings, pneumatic valves, machine tool spares, transmission sprockets, electric motor couplings, and workshop consumables.",
+    categoryLink: "/products/bearings-power-transmission",
+    categoryLabel: "Bearings & Power Transmission",
   },
   {
     title: "Engineering and machine shops",
     icon: Wrench,
     description:
       "Solid carbide end mills, ISO turning and milling inserts, machine vises, ER collet sets, digital calipers, micrometers, and lathe chucks.",
+    categoryLink: "/products/cutting-machining-tools",
+    categoryLabel: "Precision Cutting Tools",
   },
   {
     title: "Metal fabrication and steel processing",
     icon: Layers,
     description:
       "Bi-metal bandsaw blade loops, cold saw blades, abrasive cutting and grinding discs, magnetic clamping tools, and structural fasteners.",
+    categoryLink: "/products/sawing-products",
+    categoryLabel: "Bandsaw Blades & Sawing",
   },
   {
     title: "Construction and infrastructure",
     icon: HardHat,
     description:
       "High-tensile Grade 8.8 and 10.9 structural bolts, threaded rods, heavy rigging hardware, lifting slings, and site maintenance tooling.",
+    categoryLink: "/products/workshop-tools",
+    categoryLabel: "Workshop & Hand Tools",
   },
   {
     title: "Agriculture and agricultural machinery",
     icon: Tractor,
     description:
       "Pillow block bearings (UCP, UCF), drive chains, agricultural implement pins, replacement shafting, hydraulic fittings, and lubricants.",
+    categoryLink: "/products/bearings-power-transmission",
+    categoryLabel: "Agricultural Bearings & Chains",
   },
   {
     title: "Transport, fleet maintenance and automotive workshops",
     icon: Truck,
     description:
       "Calibrated industrial torque wrenches, heavy-duty impact sockets, wheel bearing sets, hydraulic pullers, and workshop shop floor presses.",
+    categoryLink: "/products/workshop-tools",
+    categoryLabel: "Fleet Maintenance Tooling",
   },
   {
     title: "Power generation and utilities",
     icon: Zap,
     description:
       "High-pressure valves, pipe fittings, pump mechanical seals, vibration-resistant fasteners, and specialized electrical maintenance tooling.",
+    categoryLink: "/products/mechanical-components",
+    categoryLabel: "Mechanical Seals & Hardware",
   },
   {
     title: "Industrial maintenance, repair and operations (MRO)",
     icon: Hammer,
     description:
       "General plant maintenance consumables, semi-synthetic cutting fluids, slideway oils, EP greases, O-ring seal kits, and safety PPE.",
+    categoryLink: "/products/abrasives",
+    categoryLabel: "Abrasives & Maintenance Supplies",
   },
   {
     title: "Procurement departments, contractors and industrial distributors",
     icon: ClipboardList,
     description:
       "Consolidated multi-line requisitions, bill of materials quotation estimation, project supply scheduling, and cross-border freight coordination.",
+    categoryLink: "/machinery-equipment",
+    categoryLabel: "Industrial Machinery & Equipment",
   },
 ];
 
@@ -134,6 +154,16 @@ export const IndustriesPage: React.FC = () => {
               <p className="text-xs text-slate-600 leading-relaxed pl-1">
                 {ind.description}
               </p>
+              <div className="pt-2 pl-1 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[11px] text-slate-500 font-mono">Recommended Category:</span>
+                <Link
+                  href={ind.categoryLink}
+                  className="text-xs font-semibold text-orange-600 hover:text-orange-700 inline-flex items-center gap-1"
+                >
+                  <span>{ind.categoryLabel}</span>
+                  <ChevronRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           );
         })}

@@ -17,6 +17,7 @@ import {
   ChevronRight,
   Send,
   BookOpen,
+  MapPin,
 } from "lucide-react";
 import { ArticleImage } from "../components/ArticleImage";
 import { getLatestArticles } from "../data/articles";
@@ -509,6 +510,112 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* =========================================================================
+          LOCAL & REGIONAL INDUSTRIAL PROCUREMENT NETWORK (SEO)
+          ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 sm:p-10 space-y-8">
+          <div className="max-w-3xl space-y-2">
+            <div className="inline-flex items-center gap-2 text-xs font-bold font-mono text-orange-600 uppercase tracking-wider">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Bulawayo Hub · Nationwide Distribution Across Zimbabwe</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Industrial Suppliers in Bulawayo & Engineering Supplies Zimbabwe
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Proquanic (Pvt) Ltd operates as a dedicated B2B partner for manufacturing workshops, mines, fabrication plants, and heavy engineering facilities throughout Zimbabwe. Our procurement office in Bulawayo coordinates order sourcing to exact technical specifications with direct delivery to worksites nationwide.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-2.5">
+              <div className="w-8 h-8 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xs">
+                01
+              </div>
+              <h3 className="text-sm font-bold text-slate-900">
+                Steel Suppliers Bulawayo
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Source carbon steels, EN8 and EN19 engineering rounds, hollow bar, key steel, and pre-machined tool steel flats with material test verification.
+              </p>
+              <Link href="/products/steel-products" className="text-xs font-semibold text-orange-600 hover:text-orange-700 inline-flex items-center gap-1 pt-1">
+                <span>View steel products</span>
+                <ChevronRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-2.5">
+              <div className="w-8 h-8 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xs">
+                02
+              </div>
+              <h3 className="text-sm font-bold text-slate-900">
+                Cutting Tools Suppliers Bulawayo
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Precision HSS, cobalt (M35/M42), and solid carbide drill bits, end mills, slot drills, machine taps, and indexable milling inserts for manual and CNC machine shops.
+              </p>
+              <Link href="/products/cutting-machining-tools" className="text-xs font-semibold text-orange-600 hover:text-orange-700 inline-flex items-center gap-1 pt-1">
+                <span>Explore cutting tools</span>
+                <ChevronRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-2.5">
+              <div className="w-8 h-8 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xs">
+                03
+              </div>
+              <h3 className="text-sm font-bold text-slate-900">
+                Industrial Machinery Suppliers Zimbabwe
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Heavy-duty centre lathes, turret mills, industrial horizontal bandsaws, surface grinders, radial arm drills, wire-cut EDM, and hydraulic workshop presses.
+              </p>
+              <Link href="/machinery-equipment" className="text-xs font-semibold text-orange-600 hover:text-orange-700 inline-flex items-center gap-1 pt-1">
+                <span>Browse workshop machinery</span>
+                <ChevronRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-2.5">
+              <div className="w-8 h-8 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xs">
+                04
+              </div>
+              <h3 className="text-sm font-bold text-slate-900">
+                Industrial Procurement Zimbabwe
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Engineering supplies Bulawayo and specialized machinery procurement Zimbabwe. Send part numbers, drawing references, or bills of materials for competitive multi-line quotations.
+              </p>
+              <Link href="/request-a-quotation" className="text-xs font-semibold text-orange-600 hover:text-orange-700 inline-flex items-center gap-1 pt-1">
+                <span>Submit RFQ requisition</span>
+                <ChevronRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Delivery Network Callout */}
+          <div className="bg-white border border-slate-200 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 font-bold text-slate-900">
+                <Truck className="w-4 h-4 text-amber-500 shrink-0" />
+                <span>Zimbabwe-Wide Direct Site Delivery</span>
+              </div>
+              <p className="text-slate-600">
+                Coordinated freight and on-site delivery serving Bulawayo, Harare, Kwekwe, Gweru, Mutare, Masvingo, Hwange, and Zvishavane.
+              </p>
+            </div>
+            <Link
+              href="/site-delivery"
+              className="text-xs font-bold text-slate-900 hover:text-orange-600 inline-flex items-center gap-1 shrink-0 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded transition-colors"
+            >
+              <span>Delivery Information</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </section>
 

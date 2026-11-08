@@ -30,6 +30,7 @@ import {
   Zap,
 } from "lucide-react";
 import { RelatedArticles } from "../components/RelatedArticles";
+import { ArticleHashtags } from "../components/ArticleHashtags";
 
 export const MillingViceGuidePage: React.FC = () => {
   const { navigate } = useRouter();
@@ -1126,6 +1127,19 @@ export const MillingViceGuidePage: React.FC = () => {
               </span>
             </Link>
           </div>
+        </div>
+
+        {/* Topic Hashtags Section */}
+        <div className="pt-2">
+          <ArticleHashtags
+            hashtags={[
+              "WorkholdingBulawayo",
+              "MillingMachineVice",
+              "CNCMachining",
+              "EngineeringSuppliesBulawayo",
+              "MachineToolingZimbabwe",
+            ]}
+          />
         </div>
 
         {/* Related Articles Component */}

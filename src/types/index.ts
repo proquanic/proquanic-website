@@ -20,6 +20,7 @@ export interface ProductFamily {
   description: string;
   representativeItems: string[];
   typicalSpecs: string;
+  image?: string;
 }
 
 export interface ToolStandardItem {

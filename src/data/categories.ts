@@ -23,6 +23,7 @@ export const CATEGORIES: Category[] = [
           "High-tensile and heat-treatable alloy steels designed for shafts, gears, pins, high-stress machine components, and mechanical engineering.",
         representativeItems: ["EN8 (080M40) Carbon Steel Rounds", "EN19 / AISI 4140 Chrome-Moly Rounds", "EN24 / AISI 4340 Nickel-Chrome-Moly Rounds", "EN9 High Carbon Steel"],
         typicalSpecs: "Diameters 16mm to 450mm; normalized, annealed, or quenched & tempered condition.",
+        image: "/images/steel/engineering-alloy-steels.jpg",
       },
       {
         id: "tool-steels",
@@ -32,6 +33,7 @@ export const CATEGORIES: Category[] = [
           "Cold work and hot work tool steels engineered for punching dies, shear blades, forming rolls, injection molds, and heavy wear resistance.",
         representativeItems: ["AISI D2 / 1.2379 High Carbon High Chrome", "AISI O1 / 1.2510 Oil Hardening Steel", "Precision Ground Flat Stock (Gauge Plate)"],
         typicalSpecs: "Supplied annealed for ease of machining prior to heat treatment.",
+        image: "/images/steel/tool-die-steels.jpg",
       },
       {
         id: "structural-sections",
@@ -41,6 +43,7 @@ export const CATEGORIES: Category[] = [
           "Structural beams, channels, angles, square and rectangular hollow sections, and bright drawn mild steel for precision fabrication.",
         representativeItems: ["Bright Mild Steel Round & Hex Bar", "Hollow Structural Sections (SHS & RHS)", "Heavy Steel Plate (S275JR / S355JR)", "Checker Floor Plate"],
         typicalSpecs: "Standard mill lengths (6m / 12m) or custom cut billet pieces.",
+        image: "/images/steel/structural-bright-steels.jpg",
       },
       {
         id: "stainless-steels",
@@ -50,6 +53,7 @@ export const CATEGORIES: Category[] = [
           "Corrosion-resistant austenitic and martensitic stainless steels for food processing, chemical, mining slurry, and marine environments.",
         representativeItems: ["Grade 304 / 304L Round Bar & Sheet", "Grade 316 / 316L Acid-Resistant Bar", "Grade 410 / 420 High-Strength Stainless"],
         typicalSpecs: "Polished, peeled, or rough-turned rounds; mill finish sheet and plate.",
+        image: "/images/steel/stainless-specialty-steels.jpg",
       },
     ],
     sampleProducts: [
@@ -61,6 +65,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "steel-products",
         shortDescription:
           "Medium carbon alloy steel with chromium and molybdenum, offering high tensile strength, shock resistance, and good wear properties.",
+        image: "/images/steel/en19-alloy-steel-bars.jpg",
         specifications: {
           "Material Grade": "BS 970: 709M40 / AISI 4140 / DIN 1.7225",
           "Condition": "Supplied 'T' Condition (850-1000 N/mm²) or Annealed",
@@ -81,6 +86,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "steel-products",
         shortDescription:
           "Versatile general-purpose engineering steel with good machinability and moderate tensile properties for general engineering.",
+        image: "/images/steel/en8-carbon-steel-bars.jpg",
         specifications: {
           "Material Grade": "BS 970: 080M40 / AISI 1040 / DIN 1.0511",
           "Condition": "Normalized or As Rolled",
@@ -100,6 +106,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "steel-products",
         shortDescription:
           "Air-hardening tool steel with exceptional abrasive wear resistance, high dimensional stability, and edge-holding capability.",
+        image: "/images/steel/d2-tool-steel-flats.jpg",
         specifications: {
           "Material Grade": "AISI D2 / DIN 1.2379 / JIS SKD11",
           "Condition": "Soft Annealed max 255 HB",
@@ -109,6 +116,46 @@ export const CATEGORIES: Category[] = [
         commonGradesOrSizes: ["Flats 20x100mm to 100x300mm", "Rounds Ø 25mm to Ø 250mm"],
         applications: ["Blanking and stamping dies", "Shear blades and slitter knives", "Cold forming rolls", "Heavy-duty thread rolling dies"],
         unitOfMeasure: "Kilograms / Billet Piece",
+      },
+      {
+        id: "prod-mild-steel-sections",
+        name: "Mild Steel Structural Sections & Bright Drawn Bars (S275 / S355)",
+        code: "STL-MS-SECT",
+        family: "Structural & Bright Steels",
+        categorySlug: "steel-products",
+        shortDescription:
+          "Comprehensive structural hollow sections (SHS/RHS), channels, angle irons, flat bars, and bright drawn round and hexagonal bars for engineering fabrication.",
+        image: "/images/steel/mild-steel-structural-sections.jpg",
+        specifications: {
+          "Material Standards": "EN 10025 S275JR / S355JR, BS 4360 43A",
+          "Available Profiles": "Hollow Sections (SHS/RHS), Channels, Angles, Flat Bar, Bright Round & Hex",
+          "Condition": "Hot-Rolled Structural or Cold-Drawn Bright",
+          "Tensile Strength": "410 – 560 MPa (S275) / 470 – 630 MPa (S355)",
+          "Standard Lengths": "6m / 12m standard mill lengths or custom cut pieces",
+        },
+        commonGradesOrSizes: ["SHS 50x50 to 200x200mm", "RHS 80x40 to 250x150mm", "Flats 25x5mm to 150x20mm", "Bright Rounds Ø 12mm to 100mm", "Equal Angles 25x25 to 100x100mm"],
+        applications: ["Structural frames and trusses", "Machine baseplates and chassis", "Agricultural equipment fabrication", "Vehicle and trailer chassis", "Industrial maintenance fabrication"],
+        unitOfMeasure: "Meters / Commercial Lengths / Kilograms",
+      },
+      {
+        id: "prod-stainless-304-316",
+        name: "AISI 304 / 316 Austenitic Stainless Steel Round Bars & Plates",
+        code: "STL-SS-304-316",
+        family: "Stainless Steel & Specialty Alloys",
+        categorySlug: "steel-products",
+        shortDescription:
+          "Corrosion-resistant austenitic stainless steel round bars, turned shafts, and sheared plates engineered for food processing, mining chemical leaching, and corrosive environments.",
+        image: "/images/steel/stainless-304-316-sections.jpg",
+        specifications: {
+          "Material Grades": "AISI 304 / 304L (1.4301) & AISI 316 / 316L (1.4404)",
+          "Condition": "Solution Annealed, Cold Drawn, or Centerless Ground (h9 tolerance)",
+          "Available Profiles": "Round Bar (Ø 6mm to 200mm), Flat Bar, Sheet & Plate (0.8mm to 50mm)",
+          "Corrosion Resistance": "High (Grade 316 with 2-3% Molybdenum for acid and chloride resistance)",
+          "Tensile Strength": "500 – 700 MPa",
+        },
+        commonGradesOrSizes: ["Rounds Ø 12mm to 150mm", "Plates 3mm to 25mm thickness", "Flats 25x5mm to 100x12mm", "Custom cut pieces"],
+        applications: ["Slurry pump shafts and impellers", "Food and beverage processing plant", "Mining chemical leaching tanks", "Marine and acidic fluid handling", "Pharmaceutical fittings"],
+        unitOfMeasure: "Meters / Kilograms / Cut Plate",
       },
     ],
   },
@@ -157,6 +204,7 @@ export const CATEGORIES: Category[] = [
           "Parting and grooving tools",
         ],
         typicalSpecs: "ISO turning shanks 12x12mm to 32x32mm; internal boring bars Ø 8mm to 40mm; standard insert clamping systems.",
+        image: "/images/cutting-tools/turning-tools-family.jpg",
       },
       {
         id: "milling-tools",
@@ -173,6 +221,7 @@ export const CATEGORIES: Category[] = [
           "Chamfer and profile milling cutters",
         ],
         typicalSpecs: "Diameters 1.0mm to 160mm; 2, 3, 4 and multi-flute designs; cylindrical, Weldon flat and arbor mountings.",
+        image: "/images/cutting-tools/milling-tools-family.jpg",
       },
       {
         id: "drilling-tools",
@@ -188,6 +237,7 @@ export const CATEGORIES: Category[] = [
           "Spot drills",
         ],
         typicalSpecs: "Diameters 0.5mm to 50mm; parallel jobber series (DIN 338), long series (DIN 340) and Morse taper shanks (DIN 345).",
+        image: "/images/cutting-tools/drilling-tools-family.jpg",
       },
       {
         id: "threading-tools",
@@ -202,6 +252,7 @@ export const CATEGORIES: Category[] = [
           "Thread-cutting tools",
         ],
         typicalSpecs: "Metric coarse (M), metric fine (MF), UNC, UNF and BSP (G); straight flute, spiral point and spiral flute forms.",
+        image: "/images/cutting-tools/threading-tools-family.jpg",
       },
       {
         id: "reaming-boring-tools",
@@ -215,6 +266,7 @@ export const CATEGORIES: Category[] = [
           "Boring tools",
         ],
         typicalSpecs: "Straight and helical flute machine reamers with cylindrical or Morse taper shanks; micro-adjustable boring bars and heads.",
+        image: "/images/cutting-tools/reaming-boring-family.jpg",
       },
       {
         id: "chamfering-countersinking-tools",
@@ -228,6 +280,7 @@ export const CATEGORIES: Category[] = [
           "Deburring cutting tools",
         ],
         typicalSpecs: "60°, 90° and 120° cutting angles; single-flute and 3-flute chatter-resistant geometries; cylindrical shanks.",
+        image: "/images/cutting-tools/chamfering-countersink-family.jpg",
       },
     ],
     sampleProducts: [
@@ -239,6 +292,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "cutting-machining-tools",
         shortDescription:
           "Industry-standard negative rake indexable turning inserts with moulded chipbreaker for general turning, facing and profiling of steels and alloys.",
+        image: "/images/cutting-tools/cnmg-120408-turning-inserts.jpg",
         specifications: {
           "Standard": "ISO 1832:2017 (IC 12.7mm, Thickness 4.76mm, Nose Radius 0.8mm)",
           "Geometry": "80° Rhombic, double-sided with 8 usable cutting edges",
@@ -258,6 +312,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "cutting-machining-tools",
         shortDescription:
           "Precision micro-grain solid carbide end mill designed for shoulder milling, slotting and profiling in carbon, alloy and stainless steels.",
+        image: "/images/cutting-tools/carbide-endmill-din6527.jpg",
         specifications: {
           "Standard": "DIN 6527 (Solid hardmetal end mills with stepped parallel shank)",
           "Substrate": "Sub-micrograin tungsten carbide (0.6µm grain size)",
@@ -277,6 +332,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "cutting-machining-tools",
         shortDescription:
           "Parallel-shank 5% cobalt high-speed steel twist drill with self-centring split-point geometry for workshop and production drilling.",
+        image: "/images/cutting-tools/hss-co5-drill-din338.jpg",
         specifications: {
           "Standard": "DIN 338 (Parallel-shank twist drills, jobber series)",
           "Material Grade": "HSS-Co5 (M35 / 1.3243 with 5% Cobalt)",
@@ -296,6 +352,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "cutting-machining-tools",
         shortDescription:
           "HSS-E machine taps with reinforced shank (DIN 371) or reduced through-shank (DIN 376) for through and blind hole threading.",
+        image: "/images/cutting-tools/machine-taps-din371-376.jpg",
         specifications: {
           "Standards": "DIN 371 (reinforced shank up to M10) / DIN 376 (reduced through-shank M12+)",
           "Thread Type": "ISO Metric coarse (M) to 6H tolerance class",
@@ -315,6 +372,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "cutting-machining-tools",
         shortDescription:
           "Straight-shank precision machine reamer with unequal flute pitch for accurate hole sizing to H7 tolerance and smooth wall finishes.",
+        image: "/images/cutting-tools/machine-reamer-din212.jpg",
         specifications: {
           "Standard": "DIN 212 Form B (straight shank with left-hand slow spiral flutes)",
           "Tolerance Class": "H7 precision hole tolerance",

@@ -11,6 +11,7 @@ import {
   Building2,
   ExternalLink,
   Globe,
+  Truck,
 } from "lucide-react";
 
 const WhatsAppOfficialGlyph = () => (
@@ -189,11 +190,10 @@ export const ContactPage: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <Building2 className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+                <Truck className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                 <div className="space-y-1">
-                  <span className="font-bold text-slate-900 text-sm block">Registered Entity</span>
-                  <p>Proquanic (Pvt) Ltd</p>
-                  <p className="italic text-slate-500">"{COMPANY.tagline}"</p>
+                  <span className="font-bold text-slate-900 text-sm block">Zimbabwe-Wide Delivery</span>
+                  <p>Direct workshop and mine-site freight dispatch serving Bulawayo, Harare, Kwekwe, Gweru, Mutare, Masvingo, Hwange, and Zvishavane.</p>
                 </div>
               </div>
             </div>

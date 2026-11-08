@@ -27,168 +27,73 @@ import { MillingViceGuidePage } from "./pages/MillingViceGuidePage";
 import { ThankYouPage } from "./pages/ThankYouPage";
 import { CATEGORIES } from "./data/categories";
 
+import { getSeoForPath, buildSchemaLdJson } from "./utils/seo";
+
 const AppContent: React.FC = () => {
   const { currentPath, navigate } = useRouter();
 
-  // Dynamic SEO Title and Meta Description synchronization
+  // Dynamic SEO Title, Meta Description, OpenGraph, Canonical, and Schema.org synchronization
   useEffect(() => {
-    let title = "Proquanic (Pvt) Ltd — Industrial Supplies & Machinery";
-    let metaDescription =
-      "B2B industrial procurement and supply catalogue for steel products, cutting tools, machinery, and engineering equipment in Zimbabwe.";
+    const seo = getSeoForPath(currentPath);
 
-    if (currentPath === "/") {
-      title = "Proquanic (Pvt) Ltd — Industrial Procurement, Machinery & Steel Supply";
-      metaDescription =
-        "B2B industrial procurement for engineering steels, cutting tools, tooling, machinery, and industrial supplies in Bulawayo, Zimbabwe.";
-    } else if (currentPath === "/products") {
-      title = "Industrial Products Catalogue — Proquanic (Pvt) Ltd";
-      metaDescription =
-        "Explore all 10 industrial supply categories: engineering steels, cutting tools, sawing, abrasives, workholding, metrology, and bearings.";
-    } else if (currentPath.startsWith("/products/")) {
-      const slug = currentPath.replace("/products/", "").split("/")[0];
-      const category = CATEGORIES.find((c) => c.slug === slug);
-      if (category) {
-        title = `${category.title} — Proquanic Industrial Supply`;
-        metaDescription = category.shortDescription;
+    // 1. Document Title
+    document.title = seo.title;
+
+    // 2. Meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute("content", seo.description);
+
+    // 3. Canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", seo.canonical);
+
+    // 4. OpenGraph tags
+    const setOgTag = (property: string, content: string) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", property);
+        document.head.appendChild(tag);
       }
-    } else if (currentPath === "/machinery-equipment") {
-      title = "Machinery & Industrial Equipment Supply — Proquanic (Pvt) Ltd";
-      metaDescription =
-        "Procurement and supply of CNC lathes, machining centers, horizontal bandsaws, and sheet metal fabrication equipment.";
-    } else if (currentPath === "/request-a-quotation") {
-      title = "Request a Quotation (RFQ) — Proquanic (Pvt) Ltd";
-      metaDescription =
-        "Submit product lists, engineering drawings, steel specifications, or machinery requirements for itemized quotation.";
-    } else if (currentPath === "/thank-you") {
-      title = "Thank You | Proquanic (Pvt) Ltd";
-      metaDescription =
-        "Thank you for submitting your Request for Quotation (RFQ). Our procurement team will review your requirements and prepare a formal quotation.";
-    } else if (currentPath === "/industries") {
-      title = "Industries We Serve — Proquanic (Pvt) Ltd";
-      metaDescription =
-        "Serving mining, manufacturing, machine shops, steel fabrication, construction, and agriculture across Zimbabwe and Southern Africa.";
-    } else if (currentPath === "/site-delivery") {
-      title = "Site Delivery Arrangements — Proquanic (Pvt) Ltd";
-      metaDescription =
-        "Direct-to-site delivery arrangements confirmed according to order requirements, cargo weight, and destination across Zimbabwe.";
-    } else if (currentPath === "/about") {
-      title = "About Proquanic (Pvt) Ltd — Bulawayo, Zimbabwe";
-      metaDescription =
-        "Learn about Proquanic (Pvt) Ltd, our operational commitment 'If you need it. We will find it.', and technical supply capabilities.";
-    } else if (currentPath === "/contact") {
-      title = "Contact Procurement Desk — Proquanic (Pvt) Ltd";
-      metaDescription =
-        "Direct contact details: Phone +263 790 420 836, WhatsApp, and 7010 Gwabalanda, Bulawayo, Zimbabwe.";
-    } else if (currentPath === "/privacy-policy") {
-      title = "Privacy Policy — Proquanic (Pvt) Ltd";
-      metaDescription =
-        "Confidentiality and privacy terms for technical drawings, customer requisition specifications, and quotation data.";
-    } else if (
-      currentPath === "/guides/en8-vs-en19-steel" ||
-      currentPath === "/guides/en8-vs-en19" ||
-      currentPath === "/resources/en8-vs-en19-steel" ||
-      currentPath === "/blog/en8-vs-en19-steel"
-    ) {
-      title = "EN8 vs EN19 Steel: Differences, Applications & How to Choose — Proquanic";
-      metaDescription =
-        "Comprehensive technical guide comparing EN8 (080M40) and EN19 (708M40/709M40) engineering steels for shafts, pins, gears, and machine components in Zimbabwe.";
-    } else if (
-      currentPath === "/blog/hss-punches-how-to-choose-replacement" ||
-      currentPath === "/guides/hss-punches-how-to-choose-replacement" ||
-      currentPath === "/resources/hss-punches-how-to-choose-replacement" ||
-      currentPath === "/guides/hss-punches" ||
-      currentPath === "/blog/hss-punches"
-    ) {
-      title = "HSS Punches: 7 Replacement Mistakes to Avoid | Proquanic";
-      metaDescription =
-        "Learn how to identify HSS punches, verify dimensions and tooling compatibility, avoid common replacement mistakes and prepare a better industrial tooling enquiry.";
-    } else if (
-      currentPath === "/blog/why-metal-cutting-bandsaw-blade-breaks" ||
-      currentPath === "/guides/why-metal-cutting-bandsaw-blade-breaks" ||
-      currentPath === "/resources/why-metal-cutting-bandsaw-blade-breaks" ||
-      currentPath === "/blog/bandsaw-blade-breaking" ||
-      currentPath === "/guides/bandsaw-blade-breaking"
-    ) {
-      title = "Why Metal-Cutting Bandsaw Blades Break: 6 Causes | Proquanic";
-      metaDescription =
-        "Discover 6 critical causes of metal-cutting bandsaw blade breakage, tooth stripping, and cut wandering. Diagnostic guide and replacement ordering checklist for workshops.";
-    } else if (
-      currentPath === "/blog/why-drill-bits-burn-or-break" ||
-      currentPath === "/guides/why-drill-bits-burn-or-break" ||
-      currentPath === "/resources/why-drill-bits-burn-or-break" ||
-      currentPath === "/blog/drill-bits-burning-breaking" ||
-      currentPath === "/guides/drill-bits-burning-breaking"
-    ) {
-      title = "Why Drill Bits Burn or Break: 6 Causes | Proquanic";
-      metaDescription =
-        "Drill bits overheating, wearing quickly or breaking? Learn six possible causes, what to inspect and how to choose a suitable replacement for your workshop.";
-    } else if (
-      currentPath === "/blog/why-end-mills-break" ||
-      currentPath === "/guides/why-end-mills-break" ||
-      currentPath === "/resources/why-end-mills-break" ||
-      currentPath === "/blog/end-mills-breakage" ||
-      currentPath === "/guides/end-mills-breakage"
-    ) {
-      title = "Why End Mills Break: 7 Causes to Check | Proquanic";
-      metaDescription =
-        "End mills chipping or breaking during machining? Learn seven possible causes involving tool selection, cutting conditions, chip evacuation and machine setup.";
-    } else if (
-      currentPath === "/blog/how-to-choose-milling-machine-vice" ||
-      currentPath === "/guides/how-to-choose-milling-machine-vice" ||
-      currentPath === "/resources/how-to-choose-milling-machine-vice" ||
-      currentPath === "/blog/milling-machine-vice-guide"
-    ) {
-      title = "How to Choose a Milling Machine Vice | Proquanic";
-      metaDescription =
-        "Learn how to choose a milling machine vice by jaw width, opening capacity, clamping force, accuracy, mounting and machining requirements.";
-    } else if (
-      currentPath === "/blog/hss-cobalt-carbide-drills" ||
-      currentPath === "/guides/hss-cobalt-carbide-drills" ||
-      currentPath === "/resources/hss-cobalt-carbide-drills" ||
-      currentPath === "/blog/drill-selection-guide"
-    ) {
-      title = "HSS, Cobalt or Carbide Drills? Understanding the Differences and Choosing the Right Drill for Steel — Proquanic";
-      metaDescription =
-        "Understanding the differences between HSS, cobalt-alloyed, and solid carbide drills for industrial metalworking applications.";
-    } else if (
-      currentPath === "/blog/steel-buying-checklist-engineering-workshop" ||
-      currentPath === "/guides/steel-buying-checklist-engineering-workshop" ||
-      currentPath === "/resources/steel-buying-checklist-engineering-workshop" ||
-      currentPath === "/blog/steel-buying-checklist" ||
-      currentPath === "/guides/steel-buying-checklist"
-    ) {
-      title = "Buying Engineering Steel: 8 Checks Before You Order | Proquanic";
-      metaDescription =
-        "Buying engineering steel for your workshop? Check the grade, dimensions, material condition, certification and other details before confirming your order.";
-    } else if (
-      currentPath === "/blog/en8-en19-mild-steel-comparison" ||
-      currentPath === "/guides/en8-en19-mild-steel-comparison" ||
-      currentPath === "/resources/en8-en19-mild-steel-comparison" ||
-      currentPath === "/blog/en8-vs-en19-vs-mild-steel" ||
-      currentPath === "/guides/en8-vs-en19-vs-mild-steel"
-    ) {
-      title = "EN8 vs EN19 vs Mild Steel: Which Should You Choose? | Proquanic";
-      metaDescription =
-        "Compare EN8, EN19 and mild steel for engineering applications. Learn what to check before choosing a material for shafts, brackets and machined components.";
-    } else if (
-      currentPath === "/blog" ||
-      currentPath === "/guides" ||
-      currentPath === "/resources"
-    ) {
-      title = "Insights for Engineering and Industry | Proquanic Blog";
-      metaDescription =
-        "Practical technical insights, tooling troubleshooting, material selection guides, and procurement specifications for engineering workshops and manufacturing in Zimbabwe.";
-    }
+      tag.setAttribute("content", content);
+    };
 
-    document.title = title;
-    const metaTag = document.querySelector('meta[name="description"]');
-    if (metaTag) {
-      metaTag.setAttribute("content", metaDescription);
-    }
+    setOgTag("og:title", seo.title);
+    setOgTag("og:description", seo.description);
+    setOgTag("og:url", seo.canonical);
+    setOgTag("og:type", seo.ogType);
+    setOgTag("og:image", seo.ogImage);
+    setOgTag("og:site_name", "Proquanic (Pvt) Ltd");
 
-    // Prevent search engines from indexing the confirmation page
+    // 5. Twitter Card tags
+    const setTwitterTag = (name: string, content: string) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    setTwitterTag("twitter:title", seo.title);
+    setTwitterTag("twitter:description", seo.description);
+    setTwitterTag("twitter:image", seo.ogImage);
+    setTwitterTag("twitter:card", "summary_large_image");
+
+    // 6. Robots meta tag
     let robotsMeta = document.querySelector('meta[name="robots"]');
-    if (currentPath === "/thank-you") {
+    if (seo.noindex) {
       if (!robotsMeta) {
         robotsMeta = document.createElement("meta");
         robotsMeta.setAttribute("name", "robots");
@@ -200,6 +105,17 @@ const AppContent: React.FC = () => {
         robotsMeta.setAttribute("content", "index, follow");
       }
     }
+
+    // 7. Inject Schema.org JSON-LD Structured Data
+    const schemas = buildSchemaLdJson(seo);
+    let schemaScript = document.getElementById("proquanic-schema-ldjson") as HTMLScriptElement | null;
+    if (!schemaScript) {
+      schemaScript = document.createElement("script");
+      schemaScript.id = "proquanic-schema-ldjson";
+      schemaScript.type = "application/ld+json";
+      document.head.appendChild(schemaScript);
+    }
+    schemaScript.textContent = JSON.stringify(schemas);
   }, [currentPath]);
 
   // Route Resolver

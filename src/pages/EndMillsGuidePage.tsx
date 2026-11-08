@@ -24,6 +24,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { RelatedArticles } from "../components/RelatedArticles";
+import { ArticleHashtags } from "../components/ArticleHashtags";
 
 export const EndMillsGuidePage: React.FC = () => {
   const { navigate } = useRouter();
@@ -1033,6 +1034,79 @@ export const EndMillsGuidePage: React.FC = () => {
             </li>
           </ul>
         </section>
+
+        {/* Topic Hashtags Section */}
+        <div className="pt-2">
+          <ArticleHashtags
+            hashtags={[
+              "MetalCuttingTools",
+              "CNCMachining",
+              "SolidCarbide",
+              "EndMills",
+              "EngineeringSuppliesBulawayo",
+            ]}
+          />
+        </div>
+
+        {/* Cross-Category Navigation Links */}
+        <div className="p-6 bg-white border border-slate-200 rounded-xl space-y-4">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
+            <Wrench className="w-4 h-4 text-orange-600" />
+            <span>Related Catalogue Categories & Technical Resources</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <Link
+              href="/products/cutting-machining-tools"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  Cutting & Machining Tools
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  Solid carbide end mills, roughing cutters, ball nose tools, and indexable face mills.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                Explore Category <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+
+            <Link
+              href="/products/machine-tooling-workholding"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  Machine Tooling & Workholding
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  Precision milling machine vices, ER collet chucks, and clamping systems.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                Explore Category <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+
+            <Link
+              href="/blog/how-to-choose-milling-machine-vice"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  Milling Machine Vice Buying Guide
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  How to prevent jaw lift and maintain workpiece rigidity during heavy milling.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                Read Guide <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+          </div>
+        </div>
 
         {/* Related Technical Articles */}
         <RelatedArticles currentSlug="/blog/why-end-mills-break" />

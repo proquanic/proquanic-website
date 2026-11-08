@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /thank-you
 
-Sitemap: https://proquanic.netlify.app/sitemap.xml
+Sitemap: https://www.proquanic.co.zw/sitemap.xml

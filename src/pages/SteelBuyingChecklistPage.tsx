@@ -29,6 +29,7 @@ import {
   RotateCcw
 } from "lucide-react";
 import { RelatedArticles } from "../components/RelatedArticles";
+import { ArticleHashtags } from "../components/ArticleHashtags";
 
 export const SteelBuyingChecklistPage: React.FC = () => {
   const { navigate } = useRouter();
@@ -989,6 +990,79 @@ export const SteelBuyingChecklistPage: React.FC = () => {
             * Disclaimer: These references support general technical principles. Do not imply that they verify a particular product offered by Proquanic.
           </div>
         </section>
+
+        {/* Topic Hashtags Section */}
+        <div className="pt-2">
+          <ArticleHashtags
+            hashtags={[
+              "SteelSuppliersBulawayo",
+              "SteelProcurementZimbabwe",
+              "EngineeringSteels",
+              "WorkshopSupplies",
+              "MaterialCertification",
+            ]}
+          />
+        </div>
+
+        {/* Cross-Category Navigation Links */}
+        <div className="p-6 bg-white border border-slate-200 rounded-xl space-y-4">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
+            <Wrench className="w-4 h-4 text-orange-600" />
+            <span>Related Catalogue Categories & Engineering Guides</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <Link
+              href="/products/steel-products"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  Steel Products Category
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  EN8, EN19, EN24, mild steel rounds, hollow sections, and tool steel flats.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                Explore Category <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+
+            <Link
+              href="/blog/en8-en19-mild-steel-comparison"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  EN8 vs EN19 Comparison Guide
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  Carbon steel vs alloy steel for shafts, pinions, and high-stress pins.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                Read Comparison <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+
+            <Link
+              href="/products/sawing-products"
+              className="p-3.5 rounded-lg border border-slate-200 hover:border-orange-500 hover:bg-orange-50/30 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  Bandsaw Blades & Sawing
+                </div>
+                <p className="text-slate-500 mt-1 text-[11px]">
+                  M42 bi-metal blades for billet sectioning and cut-to-length steel processing.
+                </p>
+              </div>
+              <span className="text-orange-600 font-semibold mt-2 inline-flex items-center gap-1 text-[11px]">
+                Explore Sawing <ChevronRight className="w-3 h-3" />
+              </span>
+            </Link>
+          </div>
+        </div>
 
         {/* Related Technical Articles */}
         <RelatedArticles currentSlug="/blog/steel-buying-checklist-engineering-workshop" />
