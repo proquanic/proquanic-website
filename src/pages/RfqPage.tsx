@@ -21,7 +21,29 @@ import {
   User,
   MapPin,
   FileCheck,
+  Paperclip,
 } from "lucide-react";
+
+export interface AttachedFileItem {
+  id: string;
+  file: File;
+  name: string;
+  format: string;
+  size: number;
+  sizeFormatted: string;
+}
+
+const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB per file limit
+const ALLOWED_MIME_TYPES = ["application/pdf", "image/jpeg", "image/png"];
+const ALLOWED_EXTENSIONS = [".pdf", ".jpg", ".jpeg", ".png"];
+
+const formatFileSize = (bytes: number): string => {
+  if (bytes === 0) return "0 B";
+  const k = 1024;
+  const sizes = ["B", "KB", "MB", "GB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`;
+};
 
 export const RfqPage: React.FC = () => {
   const { navigate } = useRouter();
@@ -46,6 +68,10 @@ export const RfqPage: React.FC = () => {
     items: [],
   });
 
+  const [attachedFiles, setAttachedFiles] = useState<AttachedFileItem[]>([]);
+  const [fileError, setFileError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
@@ -54,6 +80,89 @@ export const RfqPage: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<"standard" | "multi">("standard");
   const hasTrackedConversionRef = useRef(false);
+
+  const totalAttachmentSize = attachedFiles.reduce((acc, curr) => acc + curr.size, 0);
+
+  const handleTriggerFileInput = () => {
+    setFileError(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+
+    setFileError(null);
+    const newAttachments: AttachedFileItem[] = [];
+    const errors: string[] = [];
+
+    Array.from(files).forEach((file) => {
+      const fileNameLower = file.name.toLowerCase();
+      const hasValidExt = ALLOWED_EXTENSIONS.some((ext) => fileNameLower.endsWith(ext));
+      const hasValidMime = ALLOWED_MIME_TYPES.includes(file.type) || hasValidExt;
+
+      if (!hasValidExt && !hasValidMime) {
+        errors.push(`"${file.name}" is not a supported format. Please attach PDF, JPEG, or PNG files only.`);
+        return;
+      }
+
+      if (file.size > MAX_FILE_SIZE_BYTES) {
+        errors.push(`"${file.name}" exceeds the 10 MB size limit (${formatFileSize(file.size)}). Please attach a smaller file.`);
+        return;
+      }
+
+      const isDuplicate = attachedFiles.some(
+        (existing) => existing.name === file.name && existing.size === file.size
+      );
+      if (isDuplicate) {
+        errors.push(`"${file.name}" has already been attached.`);
+        return;
+      }
+
+      let format = "FILE";
+      if (fileNameLower.endsWith(".pdf") || file.type === "application/pdf") format = "PDF";
+      else if (fileNameLower.endsWith(".jpg") || fileNameLower.endsWith(".jpeg") || file.type === "image/jpeg") format = "JPEG";
+      else if (fileNameLower.endsWith(".png") || file.type === "image/png") format = "PNG";
+
+      newAttachments.push({
+        id: `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
+        file,
+        name: file.name,
+        format,
+        size: file.size,
+        sizeFormatted: formatFileSize(file.size),
+      });
+    });
+
+    if (errors.length > 0) {
+      setFileError(errors.join(" "));
+    }
+
+    if (newAttachments.length > 0) {
+      setAttachedFiles((prev) => [...prev, ...newAttachments]);
+      setFormData((prev) => ({
+        ...prev,
+        hasDocument: true,
+      }));
+    }
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
+  const handleRemoveFile = (idToRemove: string) => {
+    setAttachedFiles((prev) => {
+      const updated = prev.filter((item) => item.id !== idToRemove);
+      if (updated.length === 0) {
+        setFormData((fd) => ({ ...fd, hasDocument: false }));
+      }
+      return updated;
+    });
+    setFileError(null);
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -178,9 +287,25 @@ export const RfqPage: React.FC = () => {
       `- Quantity Required: ${formData.quantity} ${formData.unitOfMeasure}`,
       `- Technical Specifications: ${formData.specifications || "Standard commercial"}`,
       `- Additional Notes: ${formData.additionalNotes || "None"}`,
-      `- Attached Reference / Drawing: ${formData.documentName || "None"}`,
-      ``,
+      `- Drawing / Reference Note: ${formData.documentName || "None"}`,
     ];
+
+    if (attachedFiles.length > 0) {
+      lines.push(
+        `- Attached Files (${attachedFiles.length}): ${attachedFiles.map((f) => `${f.name} [${f.format}, ${f.sizeFormatted}]`).join(", ")}`
+      );
+    }
+    lines.push(``);
+
+    if (attachedFiles.length > 0) {
+      lines.push(`ATTACHED DRAWINGS & SPECIFICATIONS (${attachedFiles.length} Files):`);
+      attachedFiles.forEach((fileItem, index) => {
+        lines.push(
+          `${index + 1}. ${fileItem.name} | Format: ${fileItem.format} | Size: ${fileItem.sizeFormatted}`
+        );
+      });
+      lines.push(``);
+    }
 
     if (cartItems.length > 0) {
       lines.push(`ITEMIZED BASKET REQUISITIONS (${cartItems.length} Items):`);
@@ -215,28 +340,64 @@ export const RfqPage: React.FC = () => {
 
     try {
       // 1. Prepare Netlify Forms POST submission
-      const formPayload = new URLSearchParams();
-      formPayload.append("form-name", "proquanic-rfq");
-      formPayload.append("fullName", formData.fullName);
-      formPayload.append("companyName", formData.companyName);
-      formPayload.append("email", formData.email);
-      formPayload.append("telephone", formData.telephone);
-      formPayload.append("location", formData.location);
-      formPayload.append("productRequired", formData.productRequired);
-      formPayload.append("brandOrManufacturer", formData.brandOrManufacturer);
-      formPayload.append("partNumberOrModel", formData.partNumberOrModel);
-      formPayload.append("specifications", formData.specifications);
-      formPayload.append("quantity", formData.quantity);
-      formPayload.append("unitOfMeasure", formData.unitOfMeasure);
-      formPayload.append("additionalNotes", formData.additionalNotes);
-      formPayload.append("requisitionSummary", summaryText);
-      formPayload.append("cartItemsCount", cartItems.length.toString());
+      let response: Response;
+      if (attachedFiles.length > 0) {
+        const formDataPayload = new FormData();
+        formDataPayload.append("form-name", "proquanic-rfq");
+        formDataPayload.append("fullName", formData.fullName);
+        formDataPayload.append("companyName", formData.companyName);
+        formDataPayload.append("email", formData.email);
+        formDataPayload.append("telephone", formData.telephone);
+        formDataPayload.append("location", formData.location);
+        formDataPayload.append("productRequired", formData.productRequired);
+        formDataPayload.append("brandOrManufacturer", formData.brandOrManufacturer);
+        formDataPayload.append("partNumberOrModel", formData.partNumberOrModel);
+        formDataPayload.append("specifications", formData.specifications);
+        formDataPayload.append("quantity", formData.quantity);
+        formDataPayload.append("unitOfMeasure", formData.unitOfMeasure);
+        formDataPayload.append("additionalNotes", formData.additionalNotes);
+        formDataPayload.append("documentName", formData.documentName || "");
+        formDataPayload.append("hasDocument", "true");
+        formDataPayload.append("requisitionSummary", summaryText);
+        formDataPayload.append("cartItemsCount", cartItems.length.toString());
+        formDataPayload.append(
+          "attachmentsManifest",
+          attachedFiles.map((f) => `${f.name} (${f.format}, ${f.sizeFormatted})`).join("; ")
+        );
 
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formPayload.toString(),
-      });
+        attachedFiles.forEach((item) => {
+          formDataPayload.append("attachments", item.file, item.name);
+        });
+
+        response = await fetch("/", {
+          method: "POST",
+          body: formDataPayload,
+        });
+      } else {
+        const formPayload = new URLSearchParams();
+        formPayload.append("form-name", "proquanic-rfq");
+        formPayload.append("fullName", formData.fullName);
+        formPayload.append("companyName", formData.companyName);
+        formPayload.append("email", formData.email);
+        formPayload.append("telephone", formData.telephone);
+        formPayload.append("location", formData.location);
+        formPayload.append("productRequired", formData.productRequired);
+        formPayload.append("brandOrManufacturer", formData.brandOrManufacturer);
+        formPayload.append("partNumberOrModel", formData.partNumberOrModel);
+        formPayload.append("specifications", formData.specifications);
+        formPayload.append("quantity", formData.quantity);
+        formPayload.append("unitOfMeasure", formData.unitOfMeasure);
+        formPayload.append("additionalNotes", formData.additionalNotes);
+        formPayload.append("documentName", formData.documentName || "");
+        formPayload.append("requisitionSummary", summaryText);
+        formPayload.append("cartItemsCount", cartItems.length.toString());
+
+        response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formPayload.toString(),
+        });
+      }
 
       // On Netlify and production servers: 200, 302, or opaqueredirect confirms backend acceptance
       const isAccepted = response.ok || response.status === 200 || response.type === "opaqueredirect";
@@ -256,6 +417,8 @@ export const RfqPage: React.FC = () => {
                 contactName: formData.fullName,
                 summary: summaryText,
                 requiresTracking: true,
+                attachedFilesCount: attachedFiles.length,
+                attachedFileNames: attachedFiles.map((f) => f.name),
               })
             );
           } catch (storageErr) {
@@ -263,8 +426,9 @@ export const RfqPage: React.FC = () => {
           }
         }
 
-        // Clear shopping basket items
+        // Clear shopping basket items and attachments
         clearItems();
+        setAttachedFiles([]);
 
         // Redirect customer to dedicated /thank-you page
         navigate("/thank-you");
@@ -417,6 +581,7 @@ export const RfqPage: React.FC = () => {
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
+              encType="multipart/form-data"
               onSubmit={handleSubmit}
               className="space-y-8"
             >
@@ -774,7 +939,101 @@ export const RfqPage: React.FC = () => {
                       placeholder="e.g., Drawing #DWG-8821 available on request or will be sent via email"
                       className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded shadow-2xs focus:outline-none focus:ring-1 focus:ring-amber-500"
                     />
-                    <span className="text-[11px] text-slate-500">
+
+                    {/* File Upload Button & Management Area */}
+                    <div className="pt-1.5 space-y-2">
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        name="attachments"
+                        multiple
+                        accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                        onChange={handleFileSelect}
+                        className="hidden"
+                      />
+
+                      <div className="flex flex-wrap items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={handleTriggerFileInput}
+                          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 border border-slate-300 rounded shadow-2xs transition-colors cursor-pointer"
+                        >
+                          <Paperclip className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                          <span>Attach Drawing / PDF Specification</span>
+                        </button>
+
+                        <span className="text-[11px] text-slate-500">
+                          Accepted formats: PDF, JPEG, PNG (up to 10 MB each)
+                        </span>
+                      </div>
+
+                      {/* File Validation Error Message */}
+                      {fileError && (
+                        <div className="p-2.5 bg-red-50 border border-red-200 rounded text-xs text-red-700 flex items-start gap-2">
+                          <AlertTriangle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                          <div className="flex-1 text-[11px] leading-relaxed">{fileError}</div>
+                          <button
+                            type="button"
+                            onClick={() => setFileError(null)}
+                            className="text-red-500 hover:text-red-700 text-xs font-bold px-1"
+                            aria-label="Dismiss error"
+                          >
+                            ×
+                          </button>
+                        </div>
+                      )}
+
+                      {/* Clear Indication of Attached Files & List */}
+                      {attachedFiles.length > 0 && (
+                        <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 space-y-2.5">
+                          <div className="flex items-center justify-between text-xs">
+                            <span className="font-semibold text-slate-800 flex items-center gap-1.5 text-[11px]">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                              <span>
+                                {attachedFiles.length} file{attachedFiles.length > 1 ? "s" : ""} attached (
+                                {formatFileSize(totalAttachmentSize)})
+                              </span>
+                            </span>
+                            <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+                              Ready for transmission
+                            </span>
+                          </div>
+
+                          <ul className="space-y-1.5">
+                            {attachedFiles.map((fileItem) => (
+                              <li
+                                key={fileItem.id}
+                                className="flex items-center justify-between bg-white border border-slate-200 rounded px-2.5 py-1.5 text-xs text-slate-800"
+                              >
+                                <div className="flex items-center gap-2 min-w-0 pr-2">
+                                  <FileText className="w-4 h-4 text-amber-600 shrink-0" />
+                                  <span className="font-medium truncate max-w-[200px] sm:max-w-xs text-slate-900" title={fileItem.name}>
+                                    {fileItem.name}
+                                  </span>
+                                  <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 shrink-0">
+                                    {fileItem.format}
+                                  </span>
+                                  <span className="text-[11px] text-slate-500 font-mono shrink-0">
+                                    {fileItem.sizeFormatted}
+                                  </span>
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={() => handleRemoveFile(fileItem.id)}
+                                  className="text-slate-400 hover:text-red-600 p-1 transition-colors shrink-0 rounded cursor-pointer"
+                                  title={`Remove ${fileItem.name}`}
+                                  aria-label={`Remove ${fileItem.name}`}
+                                >
+                                  <Trash2 className="w-3.5 h-3.5" />
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+
+                    <span className="text-[11px] text-slate-500 block pt-1">
                       You can also reply to the quotation confirmation email directly with CAD drawings or PDF spec sheets.
                     </span>
                   </div>

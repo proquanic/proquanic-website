@@ -69,6 +69,30 @@
     </script>
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-orange-500 selection:text-white">
+    <!-- Static form declaration for Netlify Forms & attachment support -->
+    <form name="proquanic-rfq" data-netlify="true" netlify-honeypot="bot-field" encType="multipart/form-data" hidden>
+      <input type="hidden" name="form-name" value="proquanic-rfq" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="fullName" />
+      <input type="text" name="companyName" />
+      <input type="email" name="email" />
+      <input type="tel" name="telephone" />
+      <input type="text" name="location" />
+      <input type="text" name="productRequired" />
+      <input type="text" name="brandOrManufacturer" />
+      <input type="text" name="partNumberOrModel" />
+      <textarea name="specifications"></textarea>
+      <input type="text" name="quantity" />
+      <input type="text" name="unitOfMeasure" />
+      <textarea name="additionalNotes"></textarea>
+      <input type="text" name="documentName" />
+      <input type="text" name="hasDocument" />
+      <textarea name="requisitionSummary"></textarea>
+      <input type="text" name="cartItemsCount" />
+      <textarea name="attachmentsManifest"></textarea>
+      <input type="file" name="attachments" multiple />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
