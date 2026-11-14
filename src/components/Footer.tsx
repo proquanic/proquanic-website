@@ -301,6 +301,33 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
+                  href="/blog/grinding-wheel-colours-specifications-buying-guide"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: Grinding Wheel Colours &amp; RFQ</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/k110-tool-steel-properties-applications"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: K110 Tool Steel (1.2379 / D2)</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/spring-steel-properties-grades-applications"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: Spring Steel Properties &amp; Grades</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog/supplier-you-want-vs-supplier-you-need"
                   className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
                 >

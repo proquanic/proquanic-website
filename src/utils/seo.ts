@@ -10,6 +10,7 @@ export interface PageSeoConfig {
   canonical: string;
   ogType: "website" | "article";
   ogImage: string;
+  keywords?: string;
   noindex?: boolean;
   breadcrumbs: { name: string; url: string }[];
   articleData?: {
@@ -274,6 +275,106 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
   // 13. Check all Articles by Slug
   const matchedArticle = getArticleBySlug(cleanPath);
   if (matchedArticle) {
+    if (matchedArticle.id === "grinding-wheel-colours-specifications-buying-guide") {
+      const seoDescription =
+        "Understand grinding wheel colour coding, abrasive types, grit, grade, bond and dimensions. Learn what to specify when requesting industrial grinding wheels.";
+      const grindingKeywords =
+        "grinding wheel colour coding, grinding wheel colours, grinding wheel specifications, grinding wheel selection, abrasive wheel colour codes, grinding wheel grit 60, industrial grinding wheels, grinding wheel dimensions, grinding wheel RFQ, grinding wheel safety, PFERD grinding wheel colour code, TYROLIT grinding wheel colour code, grinding wheel abrasive types, grinding wheel grade and bond, industrial grinding wheels Zimbabwe";
+      return {
+        title: "Grinding Wheel Colours, Specifications and How to Choose the Right Wheel",
+        description: seoDescription,
+        ogTitle: matchedArticle.title,
+        ogDescription: seoDescription,
+        canonical: `${BASE_URL}${matchedArticle.slug}`,
+        ogType: "article",
+        ogImage: `${BASE_URL}${matchedArticle.image}`,
+        keywords: grindingKeywords,
+        breadcrumbs: [
+          { name: "Home", url: `${BASE_URL}/` },
+          { name: "Blog", url: `${BASE_URL}/blog` },
+          { name: "Abrasives", url: `${BASE_URL}/products/abrasives` },
+          { name: matchedArticle.title, url: `${BASE_URL}${matchedArticle.slug}` },
+        ],
+        articleData: {
+          schemaType: "Article",
+          headline: matchedArticle.title,
+          datePublished: matchedArticle.publishDate,
+          dateModified: matchedArticle.publishDate,
+          author: "Proquanic Technical Desk",
+          image: `${BASE_URL}${matchedArticle.image}`,
+          description: seoDescription,
+          articleSection: "Abrasives",
+          keywords: grindingKeywords,
+        },
+      };
+    }
+
+    if (matchedArticle.id === "k110-tool-steel-properties-applications") {
+      const seoDescription =
+        "Understand K110 tool steel, its properties, applications and material designations. Learn what to confirm before purchasing K110 for industrial tooling.";
+      const k110Keywords =
+        "K110 tool steel, K110 steel properties, 1.2379 tool steel, X153CrMoV12 steel, D2 tool steel, Cold work tool steel, Tool steel for punches, Tool steel for dies, Industrial knife steel, Engineering steel suppliers Zimbabwe, Tool steel Zimbabwe";
+      return {
+        title: "K110 Tool Steel: Properties, Applications and Buying Guide",
+        description: seoDescription,
+        ogTitle: matchedArticle.title,
+        ogDescription: seoDescription,
+        canonical: `${BASE_URL}${matchedArticle.slug}`,
+        ogType: "article",
+        ogImage: `${BASE_URL}${matchedArticle.image}`,
+        keywords: k110Keywords,
+        breadcrumbs: [
+          { name: "Home", url: `${BASE_URL}/` },
+          { name: "Blog", url: `${BASE_URL}/blog` },
+          { name: "Steel Products", url: `${BASE_URL}/products/steel-products` },
+          { name: matchedArticle.title, url: `${BASE_URL}${matchedArticle.slug}` },
+        ],
+        articleData: {
+          schemaType: "Article",
+          headline: matchedArticle.title,
+          datePublished: matchedArticle.publishDate,
+          dateModified: matchedArticle.publishDate,
+          author: "Proquanic Technical Desk",
+          image: `${BASE_URL}${matchedArticle.image}`,
+          description: seoDescription,
+          articleSection: "Steel Products",
+          keywords: k110Keywords,
+        },
+      };
+    }
+
+    if (matchedArticle.id === "spring-steel-properties-grades-applications") {
+      const seoDescription =
+        "Understand spring steel grades, properties, applications and supply conditions. Learn what to check before ordering spring steel for industrial and engineering work.";
+      return {
+        title: "Spring Steel: Grades, Properties and Industrial Applications | Proquanic",
+        description: seoDescription,
+        ogTitle: matchedArticle.title,
+        ogDescription: seoDescription,
+        canonical: `${BASE_URL}${matchedArticle.slug}`,
+        ogType: "article",
+        ogImage: `${BASE_URL}${matchedArticle.image}`,
+        breadcrumbs: [
+          { name: "Home", url: `${BASE_URL}/` },
+          { name: "Blog", url: `${BASE_URL}/blog` },
+          { name: "Steel Products", url: `${BASE_URL}/products/steel-products` },
+          { name: matchedArticle.title, url: `${BASE_URL}${matchedArticle.slug}` },
+        ],
+        articleData: {
+          schemaType: "BlogPosting",
+          headline: matchedArticle.title,
+          datePublished: matchedArticle.publishDate,
+          dateModified: matchedArticle.publishDate,
+          author: "Proquanic Technical Desk",
+          image: `${BASE_URL}${matchedArticle.image}`,
+          description: seoDescription,
+          articleSection: "Steel Products",
+          keywords:
+            "spring steel, spring steel properties, spring steel grades, spring steel flat bar, spring steel applications, spring steel material, spring steel dimensions, hardened and tempered spring steel, spring steel for engineering, industrial steel suppliers Zimbabwe, spring steel Bulawayo, engineering steel procurement, spring steel material specifications",
+        },
+      };
+    }
+
     if (matchedArticle.id === "supplier-you-want-vs-supplier-you-need") {
       return {
         title: "Choosing the Right Industrial Supplier: Beyond the Cheapest Quote | Proquanic",

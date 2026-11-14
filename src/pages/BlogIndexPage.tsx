@@ -5,6 +5,8 @@ import {
   BookOpen,
   ArrowRight,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   Calendar,
   Clock,
   Search,
@@ -23,6 +25,7 @@ export const BlogIndexPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [selectedHashtag, setSelectedHashtag] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [topicsExpanded, setTopicsExpanded] = useState<boolean>(false);
 
   useEffect(() => {
     // Read query params from URL (e.g. ?tag=SteelProductsZimbabwe or ?category=Steel Products)
@@ -122,23 +125,23 @@ export const BlogIndexPage: React.FC = () => {
 
       {/* Hero / Header Section */}
       <div className="bg-slate-900 text-white border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-7 sm:py-11 space-y-4 sm:space-y-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-mono font-bold uppercase tracking-wider">
             <BookOpen className="w-3.5 h-3.5" />
             <span>Proquanic Technical Knowledge Hub</span>
           </div>
 
-          <div className="max-w-3xl space-y-3">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <div className="max-w-3xl space-y-2">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               Insights for Engineering and Industry
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-base text-slate-300 leading-relaxed">
               Practical technical insights, tooling troubleshooting, material selection guides, and procurement specifications prepared for engineers, machinists, maintenance teams, and manufacturing professionals across Zimbabwe.
             </p>
           </div>
 
-          {/* Search Bar & Stats */}
-          <div className="pt-2 max-w-2xl">
+          {/* Search Bar */}
+          <div className="pt-1 max-w-2xl">
             <div className="relative flex items-center">
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
               <input
@@ -146,7 +149,7 @@ export const BlogIndexPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search articles by title, tooling type, steel grade, or keyword..."
-                className="w-full pl-10 pr-10 py-3 bg-slate-800/90 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                className="w-full pl-10 pr-10 py-2.5 sm:py-3 bg-slate-800/90 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
               />
               {searchQuery && (
                 <button
@@ -163,11 +166,11 @@ export const BlogIndexPage: React.FC = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-10 space-y-8">
-        {/* Category Filters Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-2 hidden md:inline">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-5 sm:pt-7 space-y-4 sm:space-y-6">
+        {/* Category Filters Bar — Single Horizontal Scrollable Row */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2.5 border-b border-slate-200 pb-3 sm:pb-4">
+          <div className="flex items-center gap-1.5 overflow-x-auto flex-nowrap pb-1 -mx-1 px-1 [scrollbar-width:thin]">
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mr-1.5 hidden lg:inline shrink-0">
               Categories:
             </span>
             {BLOG_CATEGORIES.map((cat) => {
@@ -181,7 +184,7 @@ export const BlogIndexPage: React.FC = () => {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 whitespace-nowrap cursor-pointer ${
                     isSelected
                       ? "bg-orange-600 text-white shadow-xs font-semibold"
                       : "bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-100"
@@ -202,37 +205,59 @@ export const BlogIndexPage: React.FC = () => {
             })}
           </div>
 
-          <div className="text-xs text-slate-500 shrink-0 font-mono">
+          <div className="text-[11px] sm:text-xs text-slate-500 shrink-0 font-mono">
             Showing {filteredArticles.length} of {ARTICLES.length} articles
           </div>
         </div>
 
-        {/* Topic Hashtags Cloud Bar */}
-        <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-2 shadow-2xs">
-          <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-            <span className="flex items-center gap-1.5 text-orange-600">
-              <Hash className="w-3.5 h-3.5" />
-              <span>Explore Technical Topics & Focus Areas:</span>
-            </span>
-            {selectedHashtag && (
+        {/* Compact Collapsible Explore Topics Bar */}
+        <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-slate-200 space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="flex items-center gap-1.5 text-xs font-mono font-bold text-orange-600 uppercase tracking-wider">
+                <Hash className="w-3.5 h-3.5 shrink-0" />
+                <span>Explore Topics</span>
+              </span>
+              {selectedHashtag && (
+                <button
+                  onClick={() => handleSelectHashtag(null)}
+                  className="text-[11px] text-orange-600 hover:text-orange-700 underline font-sans font-semibold cursor-pointer truncate"
+                >
+                  Clear Filter
+                </button>
+              )}
+            </div>
+
+            {allHashtags.length > 6 && (
               <button
-                onClick={() => handleSelectHashtag(null)}
-                className="text-[11px] text-orange-600 hover:text-orange-700 underline font-sans font-semibold cursor-pointer"
+                type="button"
+                onClick={() => setTopicsExpanded((prev) => !prev)}
+                aria-expanded={topicsExpanded}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-700 hover:text-orange-600 bg-slate-100 hover:bg-orange-50 border border-slate-200 hover:border-orange-200 transition-colors shrink-0 cursor-pointer"
               >
-                Clear Topic Filter
+                <span>{topicsExpanded ? "Collapse Topics" : "View All Topics"}</span>
+                <span className="text-[10px] font-mono text-slate-500">
+                  ({allHashtags.length})
+                </span>
+                {topicsExpanded ? (
+                  <ChevronUp className="w-3.5 h-3.5" />
+                ) : (
+                  <ChevronDown className="w-3.5 h-3.5" />
+                )}
               </button>
             )}
           </div>
-          <div className="flex flex-wrap gap-1.5 items-center pt-1">
-            {allHashtags.map(({ tag, count }) => {
+
+          <div className="flex flex-wrap gap-1.5 items-center">
+            {(topicsExpanded ? allHashtags : allHashtags.slice(0, 6)).map(({ tag, count }) => {
               const isActive = selectedHashtag?.toLowerCase() === tag.toLowerCase();
               return (
                 <button
                   key={tag}
                   onClick={() => handleSelectHashtag(isActive ? null : tag)}
-                  className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                  className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-mono transition-all cursor-pointer ${
                     isActive
-                      ? "bg-slate-900 text-white font-bold shadow-xs scale-105"
+                      ? "bg-slate-900 text-white font-bold shadow-xs"
                       : "bg-slate-100 hover:bg-orange-50 text-slate-700 hover:text-orange-700 border border-slate-200 hover:border-orange-300"
                   }`}
                   title={`Filter articles by #${tag}`}

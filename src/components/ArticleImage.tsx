@@ -33,6 +33,8 @@ export const ArticleImage: React.FC<ArticleImageProps> = ({
     if (!cat) return "/images/categories/steel-products.jpg";
     const lower = cat.toLowerCase();
     if (lower.includes("steel")) return "/images/categories/steel-products.jpg";
+    if (lower.includes("abrasive") || lower.includes("grind"))
+      return "/images/categories/abrasives.jpg";
     if (lower.includes("saw")) return "/images/categories/sawing-products.jpg";
     if (lower.includes("drill") || lower.includes("milling") || lower.includes("cutting"))
       return "/images/categories/cutting-machining-tools.jpg";

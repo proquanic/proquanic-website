@@ -25,6 +25,9 @@ import { BlogIndexPage } from "./pages/BlogIndexPage";
 import { DrillSelectionGuidePage } from "./pages/DrillSelectionGuidePage";
 import { MillingViceGuidePage } from "./pages/MillingViceGuidePage";
 import { SupplierSelectionGuidePage } from "./pages/SupplierSelectionGuidePage";
+import { SpringSteelGuidePage } from "./pages/SpringSteelGuidePage";
+import { K110ToolSteelGuidePage } from "./pages/K110ToolSteelGuidePage";
+import { GrindingWheelGuidePage } from "./pages/GrindingWheelGuidePage";
 import { ThankYouPage } from "./pages/ThankYouPage";
 import { CATEGORIES } from "./data/categories";
 
@@ -101,6 +104,19 @@ const AppContent: React.FC = () => {
     }
     robotsMeta.setAttribute("content", seo.noindex ? "noindex, nofollow" : "index, follow");
 
+    // 6b. Keywords meta tag (when specified)
+    let keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (seo.keywords) {
+      if (!keywordsMeta) {
+        keywordsMeta = document.createElement("meta");
+        keywordsMeta.setAttribute("name", "keywords");
+        document.head.appendChild(keywordsMeta);
+      }
+      keywordsMeta.setAttribute("content", seo.keywords);
+    } else if (keywordsMeta) {
+      keywordsMeta.remove();
+    }
+
     // 7. Inject Schema.org JSON-LD Structured Data
     const schemas = buildSchemaLdJson(seo);
     let schemaScript = document.getElementById("proquanic-schema-ldjson") as HTMLScriptElement | null;
@@ -145,6 +161,18 @@ const AppContent: React.FC = () => {
       currentPath === "/blog/hss-punches"
     ) {
       return <HssPunchesGuidePage />;
+    }
+
+    if (currentPath === "/blog/grinding-wheel-colours-specifications-buying-guide") {
+      return <GrindingWheelGuidePage />;
+    }
+
+    if (currentPath === "/blog/k110-tool-steel-properties-applications") {
+      return <K110ToolSteelGuidePage />;
+    }
+
+    if (currentPath === "/blog/spring-steel-properties-grades-applications") {
+      return <SpringSteelGuidePage />;
     }
 
     if (currentPath === "/blog/supplier-you-want-vs-supplier-you-need") {
