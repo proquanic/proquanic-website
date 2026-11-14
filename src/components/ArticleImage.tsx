@@ -60,11 +60,15 @@ export const ArticleImage: React.FC<ArticleImageProps> = ({
     );
   }
 
+  const resolvedClassName = src.includes("proquanic-industrial-procurement")
+    ? `${className} object-top`
+    : className;
+
   return (
     <img
       src={currentSrc}
       alt={alt}
-      className={className}
+      className={resolvedClassName}
       loading={loading}
       onError={handleError}
     />

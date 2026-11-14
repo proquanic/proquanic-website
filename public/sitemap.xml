@@ -99,10 +99,16 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Engineering Knowledge Hub & 9 Technical Guides -->
+  <!-- Engineering Knowledge Hub & Technical Guides -->
   <url>
     <loc>https://www.proquanic.co.zw/blog</loc>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.proquanic.co.zw/blog/supplier-you-want-vs-supplier-you-need</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>

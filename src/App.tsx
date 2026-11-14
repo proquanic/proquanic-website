@@ -24,6 +24,7 @@ import { SteelComparisonPage } from "./pages/SteelComparisonPage";
 import { BlogIndexPage } from "./pages/BlogIndexPage";
 import { DrillSelectionGuidePage } from "./pages/DrillSelectionGuidePage";
 import { MillingViceGuidePage } from "./pages/MillingViceGuidePage";
+import { SupplierSelectionGuidePage } from "./pages/SupplierSelectionGuidePage";
 import { ThankYouPage } from "./pages/ThankYouPage";
 import { CATEGORIES } from "./data/categories";
 
@@ -68,8 +69,8 @@ const AppContent: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    setOgTag("og:title", seo.title);
-    setOgTag("og:description", seo.description);
+    setOgTag("og:title", seo.ogTitle || seo.title);
+    setOgTag("og:description", seo.ogDescription || seo.description);
     setOgTag("og:url", seo.canonical);
     setOgTag("og:type", seo.ogType);
     setOgTag("og:image", seo.ogImage);
@@ -86,25 +87,19 @@ const AppContent: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    setTwitterTag("twitter:title", seo.title);
-    setTwitterTag("twitter:description", seo.description);
+    setTwitterTag("twitter:title", seo.ogTitle || seo.title);
+    setTwitterTag("twitter:description", seo.ogDescription || seo.description);
     setTwitterTag("twitter:image", seo.ogImage);
     setTwitterTag("twitter:card", "summary_large_image");
 
     // 6. Robots meta tag
     let robotsMeta = document.querySelector('meta[name="robots"]');
-    if (seo.noindex) {
-      if (!robotsMeta) {
-        robotsMeta = document.createElement("meta");
-        robotsMeta.setAttribute("name", "robots");
-        document.head.appendChild(robotsMeta);
-      }
-      robotsMeta.setAttribute("content", "noindex, nofollow");
-    } else {
-      if (robotsMeta) {
-        robotsMeta.setAttribute("content", "index, follow");
-      }
+    if (!robotsMeta) {
+      robotsMeta = document.createElement("meta");
+      robotsMeta.setAttribute("name", "robots");
+      document.head.appendChild(robotsMeta);
     }
+    robotsMeta.setAttribute("content", seo.noindex ? "noindex, nofollow" : "index, follow");
 
     // 7. Inject Schema.org JSON-LD Structured Data
     const schemas = buildSchemaLdJson(seo);
@@ -150,6 +145,10 @@ const AppContent: React.FC = () => {
       currentPath === "/blog/hss-punches"
     ) {
       return <HssPunchesGuidePage />;
+    }
+
+    if (currentPath === "/blog/supplier-you-want-vs-supplier-you-need") {
+      return <SupplierSelectionGuidePage />;
     }
 
     if (

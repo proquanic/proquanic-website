@@ -5,17 +5,23 @@ import { COMPANY } from "../config/company";
 export interface PageSeoConfig {
   title: string;
   description: string;
+  ogTitle?: string;
+  ogDescription?: string;
   canonical: string;
   ogType: "website" | "article";
   ogImage: string;
   noindex?: boolean;
   breadcrumbs: { name: string; url: string }[];
   articleData?: {
+    schemaType?: "Article" | "BlogPosting";
     headline: string;
     datePublished: string;
+    dateModified?: string;
     author: string;
     image: string;
     description: string;
+    articleSection?: string;
+    keywords?: string;
   };
 }
 
@@ -265,9 +271,43 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
     };
   }
 
-  // 13. Check all 9 Articles by Slug
+  // 13. Check all Articles by Slug
   const matchedArticle = getArticleBySlug(cleanPath);
   if (matchedArticle) {
+    if (matchedArticle.id === "supplier-you-want-vs-supplier-you-need") {
+      return {
+        title: "Choosing the Right Industrial Supplier: Beyond the Cheapest Quote | Proquanic",
+        description:
+          "The cheapest industrial supplier isn't always the best choice. Discover how engineering and manufacturing businesses can assess supplier value, reliability and procurement decisions.",
+        ogTitle: matchedArticle.title,
+        ogDescription: matchedArticle.description,
+        canonical: `${BASE_URL}${matchedArticle.slug}`,
+        ogType: "article",
+        ogImage: `${BASE_URL}${matchedArticle.image}`,
+        breadcrumbs: [
+          { name: "Home", url: `${BASE_URL}/` },
+          { name: "Blog", url: `${BASE_URL}/blog` },
+          {
+            name: "Procurement Insights",
+            url: `${BASE_URL}/blog?category=Procurement%20Insights`,
+          },
+          { name: matchedArticle.title, url: `${BASE_URL}${matchedArticle.slug}` },
+        ],
+        articleData: {
+          schemaType: "BlogPosting",
+          headline: matchedArticle.title,
+          datePublished: matchedArticle.publishDate,
+          dateModified: matchedArticle.publishDate,
+          author: "Proquanic Technical Desk",
+          image: `${BASE_URL}${matchedArticle.image}`,
+          description: matchedArticle.description,
+          articleSection: matchedArticle.category,
+          keywords:
+            "choosing the right industrial supplier, industrial supplier selection, supplier evaluation, procurement best practices, supplier reliability, cheapest supplier vs best supplier, industrial procurement Zimbabwe, engineering supplies Zimbabwe, manufacturing procurement, supplier performance, procurement cost management, industrial sourcing, Bulawayo industrial supplies",
+        },
+      };
+    }
+
     let customTitle = `${matchedArticle.title} | Proquanic`;
     if (customTitle.length > 65) {
       if (matchedArticle.id === "how-to-choose-milling-machine-vice") {
@@ -389,16 +429,20 @@ export function buildSchemaLdJson(seo: PageSeoConfig): object[] {
     });
   }
 
-  // 3. Article Schema (if article)
+  // 3. Article / BlogPosting Schema (if article)
   if (seo.ogType === "article" && seo.articleData) {
     schemas.push({
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": seo.articleData.schemaType || "Article",
       "headline": seo.articleData.headline,
       "description": seo.articleData.description,
       "image": [seo.articleData.image],
       "datePublished": seo.articleData.datePublished,
-      "dateModified": seo.articleData.datePublished,
+      "dateModified": seo.articleData.dateModified || seo.articleData.datePublished,
+      ...(seo.articleData.articleSection
+        ? { "articleSection": seo.articleData.articleSection }
+        : {}),
+      ...(seo.articleData.keywords ? { "keywords": seo.articleData.keywords } : {}),
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": seo.canonical,
@@ -411,9 +455,10 @@ export function buildSchemaLdJson(seo: PageSeoConfig): object[] {
       "publisher": {
         "@type": "Organization",
         "name": "Proquanic (Pvt) Ltd",
+        "url": BASE_URL,
         "logo": {
           "@type": "ImageObject",
-          "url": `${BASE_URL}/images/hero/hero-industrial.jpg`,
+          "url": `${BASE_URL}/favicon.png`,
         },
       },
     });

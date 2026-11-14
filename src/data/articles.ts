@@ -19,6 +19,43 @@ export interface ArticleRecord {
 
 export const ARTICLES: ArticleRecord[] = [
   {
+    id: "supplier-you-want-vs-supplier-you-need",
+    title: "What If the Supplier You Want Isn't the Supplier Your Business Needs?",
+    slug: "/blog/supplier-you-want-vs-supplier-you-need",
+    category: "Procurement Insights",
+    categorySlug: "/products",
+    description:
+      "The suppliers we chase, the value we overlook, and why the cheapest quotation doesn't always lead to the best business decision.",
+    readTime: "5 min read",
+    date: "14 November 2026",
+    publishDate: "2026-11-14",
+    image:
+      "/assets/aistudio/proquanic-industrial-procurement-supplier-selection-zimbabwe_96b08ed3.png",
+    imageAlt:
+      "Industrial procurement professional reviewing a purchasing document in an engineering supply environment.",
+    tags: [
+      "Supplier Selection",
+      "Industrial Procurement",
+      "Supplier Reliability",
+      "Procurement Best Practices",
+      "Engineering Supplies Zimbabwe",
+      "Bulawayo Industrial Supplies",
+    ],
+    hashtags: [
+      "IndustrialProcurementZimbabwe",
+      "SupplierSelection",
+      "EngineeringSuppliesZimbabwe",
+      "ProcurementBestPractices",
+      "BulawayoIndustrialSupplies",
+    ],
+    featured: false,
+    relatedSlugs: [
+      "/blog/steel-buying-checklist-engineering-workshop",
+      "/blog/how-to-choose-milling-machine-vice",
+      "/blog/hss-cobalt-carbide-drills",
+    ],
+  },
+  {
     id: "how-to-choose-milling-machine-vice",
     title: "How to Choose the Right Milling Machine Vice: A Practical Buying Guide",
     slug: "/blog/how-to-choose-milling-machine-vice",
@@ -390,6 +427,7 @@ export const ARTICLES: ArticleRecord[] = [
 
 export const BLOG_CATEGORIES = [
   "All",
+  "Procurement Insights",
   "Cutting and Machining Tools",
   "Machine Tooling and Workholding",
   "Sawing Products",

@@ -301,6 +301,15 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
+                  href="/blog/supplier-you-want-vs-supplier-you-need"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Insight: Choosing the Right Supplier</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog"
                   className="text-white hover:text-orange-400 font-semibold transition-colors flex items-center gap-1.5"
                 >

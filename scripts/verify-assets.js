@@ -55,6 +55,7 @@ const REQUIRED_IMAGES = [
   'images/sawing/segmental-saw-blades.jpg',
   'images/sawing/m42-27mm-bandsaw-blade-loop.jpg',
   // Blog article featured images
+  'assets/aistudio/proquanic-industrial-procurement-supplier-selection-zimbabwe_96b08ed3.png',
   'images/blog/hss-cobalt-carbide-drills.jpg',
   'images/blog/en8-en19-mild-steel-comparison.jpg',
   'images/blog/steel-buying-checklist.jpg',
