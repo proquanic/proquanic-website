@@ -282,7 +282,7 @@ export const ARTICLES: ArticleRecord[] = [
     date: "March 2026",
     publishDate: "2026-03-12",
     image: "/images/blog/why-metal-cutting-bandsaw-blade-breaks.jpg",
-    imageAlt: "Horizontal metal-cutting bandsaw blade tooth pitch and guide roller inspection",
+    imageAlt: "Macro failure analysis of a broken bi-metal bandsaw blade showing fatigue crack across backing steel and chipped variable-pitch teeth",
     tags: [
       "Bandsaw Blades",
       "Tooth Pitch (TPI)",

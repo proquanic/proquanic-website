@@ -129,6 +129,12 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
               <span className="font-mono text-amber-400 text-[10px]">Inserts · End Mills · Drills · Taps · Reamers</span>
             </div>
           )}
+          {category.slug === "sawing-products" && (
+            <div className="absolute bottom-3 left-3 right-3 bg-slate-900/90 backdrop-blur-xs text-white text-[11px] p-2.5 rounded border border-slate-700/80 flex items-center justify-between shadow-sm">
+              <span className="font-semibold text-slate-100">Industrial Metal-Cutting Saw Blades</span>
+              <span className="font-mono text-amber-400 text-[10px]">M42/M51 Bandsaws · HSS · TCT · Segmental</span>
+            </div>
+          )}
         </div>
 
         <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
@@ -392,6 +398,11 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
               Photographic Tooling Scope · 6 Precision Machining Families
             </span>
           )}
+          {category.slug === "sawing-products" && (
+            <span className="text-xs font-mono text-slate-500">
+              Photographic Blade Scope · 4 Metal-Cutting Blade Families
+            </span>
+          )}
         </div>
 
         <div className={`grid grid-cols-1 ${category.families.length <= 4 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"} gap-6 sm:gap-8`}>
@@ -474,6 +485,11 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ slug }) => {
             {category.slug === "cutting-machining-tools" && (
               <span className="text-xs font-mono text-slate-500">
                 Precision Tool Geometry · No Generic Stock Photos
+              </span>
+            )}
+            {category.slug === "sawing-products" && (
+              <span className="text-xs font-mono text-slate-500">
+                Authentic Metal-Cutting Blade Geometry · No Generic Photos
               </span>
             )}
           </div>

@@ -47,6 +47,13 @@ const REQUIRED_IMAGES = [
   'images/cutting-tools/hss-co5-drill-din338.jpg',
   'images/cutting-tools/machine-taps-din371-376.jpg',
   'images/cutting-tools/machine-reamer-din212.jpg',
+  // Sawing Products specific photography
+  'images/sawing/sawing-products-hero.jpg',
+  'images/sawing/bimetal-m42-bandsaw-blades.jpg',
+  'images/sawing/hss-circular-cold-saw-blades.jpg',
+  'images/sawing/tct-circular-saw-blades.jpg',
+  'images/sawing/segmental-saw-blades.jpg',
+  'images/sawing/m42-27mm-bandsaw-blade-loop.jpg',
   // Blog article featured images
   'images/blog/hss-cobalt-carbide-drills.jpg',
   'images/blog/en8-en19-mild-steel-comparison.jpg',

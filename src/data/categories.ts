@@ -406,8 +406,9 @@ export const CATEGORIES: Category[] = [
         slug: "bimetal-bandsaw-blades",
         description:
           "Continuous loops featuring 8% cobalt high-speed steel tooth tips electron-beam welded to spring alloy backing steel for general and production cutting.",
-        representativeItems: ["M42 Variable Pitch Bandsaw Blades (4/6 TPI, 3/4 TPI, 2/3 TPI)", "Bandsaw Blades for Structural Tubing & Channels", "Heavy Section Solid Bar Cut-off Blades"],
+        representativeItems: ["M42 Variable Pitch Bandsaw Blades (4/6 TPI, 3/4 TPI, 2/3 TPI)", "M51 High-Alloy & Carbide-Tipped Bandsaw Blades", "Bandsaw Blades for Structural Tubing & Channels", "Heavy Section Solid Bar Cut-off Blades"],
         typicalSpecs: "Widths 13mm, 20mm, 27mm, 34mm, 41mm, 54mm; custom length welds.",
+        image: "/images/sawing/bimetal-m42-bandsaw-blades.jpg",
       },
       {
         id: "circular-cold-saw-blades",
@@ -415,8 +416,29 @@ export const CATEGORIES: Category[] = [
         slug: "circular-cold-saw-blades",
         description:
           "High-speed steel (DMo5 / M2) circular saw blades with vapor-treated (VAPO) or TiN coatings for burr-free cut-off of tubes, profiles, and solid bars.",
-        representativeItems: ["HSS DMo5 Cold Saw Blades (250mm to 400mm)", "TCT Ferrous Metal Cutting Blades", "Segmental Saw Blades & Spare Segments"],
+        representativeItems: ["HSS DMo5 Cold Saw Blades (250mm to 400mm)", "VAPO Black-Oxide & TiN Coated Blades", "DIN 1837 / DIN 1838 Metal Slitting & Cold Saw Blades"],
         typicalSpecs: "Drive pin hole patterns: 32mm, 40mm, 50mm center bore.",
+        image: "/images/sawing/hss-circular-cold-saw-blades.jpg",
+      },
+      {
+        id: "tct-circular-saw-blades",
+        name: "Carbide-Tipped Circular Saw Blades",
+        slug: "tct-circular-saw-blades",
+        description:
+          "Tungsten carbide-tipped (TCT) circular saw blades engineered for high-speed dry and semi-dry cutting of ferrous steel pipes, channels, and solid structural sections.",
+        representativeItems: ["TCT Ferrous Metal Cutting Blades", "Dry-Cut Steel & Stainless Profile Blades", "Heavy-Duty Tube & Channel Cut-Off Blades"],
+        typicalSpecs: "Diameters 185mm to 400mm; negative rake brazed carbide teeth; laser-cut expansion slots.",
+        image: "/images/sawing/tct-circular-saw-blades.jpg",
+      },
+      {
+        id: "segmental-saw-blades",
+        name: "Segmental Saw Blades",
+        slug: "segmental-saw-blades",
+        description:
+          "Heavy-duty circular saw blades built with replaceable high-speed steel cutting segments riveted onto a toughened chrome-vanadium core disc for large-section steel cutting.",
+        representativeItems: ["Segmental Circular Saw Blades", "Individual Spare HSS Replacement Segments", "Re-segmentable Heavy Bar & Billet Blades"],
+        typicalSpecs: "Diameters 315mm to 1,000mm+; replaceable multi-tooth riveted segments for heavy billet sawing.",
+        image: "/images/sawing/segmental-saw-blades.jpg",
       },
     ],
     sampleProducts: [
@@ -428,6 +450,7 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sawing-products",
         shortDescription:
           "Premium industrial welded bandsaw blade with M42 cobalt tooth tips for cutting solid engineering steels, stainless bars, and structural sections.",
+        image: "/images/sawing/m42-27mm-bandsaw-blade-loop.jpg",
         specifications: {
           "Blade Width": "27mm (1-1/16\")",
           "Thickness": "0.9mm (0.035\")",
