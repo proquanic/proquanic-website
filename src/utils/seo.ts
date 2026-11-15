@@ -239,6 +239,22 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
     };
   }
 
+  // 10b. Cookie Policy
+  if (cleanPath === "/cookie-policy") {
+    return {
+      title: "Cookie Policy | Privacy & Consent Preferences | Proquanic (Pvt) Ltd",
+      description:
+        "Details of essential browser storage, optional website analytics and marketing technologies, consent duration, and preference controls at Proquanic (Pvt) Ltd.",
+      canonical: `${BASE_URL}/cookie-policy`,
+      ogType: "website",
+      ogImage: DEFAULT_IMAGE,
+      breadcrumbs: [
+        { name: "Home", url: `${BASE_URL}/` },
+        { name: "Cookie Policy", url: `${BASE_URL}/cookie-policy` },
+      ],
+    };
+  }
+
   // 11. Thank You (Conversion page - Noindex)
   if (cleanPath === "/thank-you") {
     return {
@@ -275,6 +291,77 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
   // 13. Check all Articles by Slug
   const matchedArticle = getArticleBySlug(cleanPath);
   if (matchedArticle) {
+    if (matchedArticle.id === "pneumatic-connectors-types-sizes-buying-guide") {
+      const seoDescription =
+        "Looking for pneumatic connectors in Zimbabwe? Learn about pneumatic fittings, tube sizes, thread types, materials and the details to confirm before ordering.";
+      const pneumaticKeywords =
+        "Pneumatic connectors, Pneumatic connectors Zimbabwe, Pneumatic fittings Zimbabwe, Compressed air fittings, Air hose connectors, Pneumatic tube fittings, Pneumatic pipe fittings, Push-in fittings, Pneumatic adapters, Pneumatic quick couplings, Industrial pneumatic components, Pneumatic connectors Bulawayo, Pneumatic fittings suppliers Zimbabwe";
+      return {
+        title: "Pneumatic Connectors Zimbabwe | Types, Sizes & Buying Guide",
+        description: seoDescription,
+        ogTitle: matchedArticle.title,
+        ogDescription: seoDescription,
+        canonical: `${BASE_URL}${matchedArticle.slug}`,
+        ogType: "article",
+        ogImage: `${BASE_URL}${matchedArticle.image}`,
+        keywords: pneumaticKeywords,
+        breadcrumbs: [
+          { name: "Home", url: `${BASE_URL}/` },
+          { name: "Blog", url: `${BASE_URL}/blog` },
+          {
+            name: "Mechanical Components",
+            url: `${BASE_URL}/products/mechanical-components`,
+          },
+          { name: matchedArticle.title, url: `${BASE_URL}${matchedArticle.slug}` },
+        ],
+        articleData: {
+          schemaType: "Article",
+          headline: matchedArticle.title,
+          datePublished: matchedArticle.publishDate,
+          dateModified: matchedArticle.publishDate,
+          author: "Proquanic Technical Desk",
+          image: `${BASE_URL}${matchedArticle.image}`,
+          description: seoDescription,
+          articleSection: "Mechanical Components",
+          keywords: pneumaticKeywords,
+        },
+      };
+    }
+
+    if (matchedArticle.id === "brass-plate-grades-sizes-applications") {
+      const seoDescription =
+        "Buying brass plate for an engineering or manufacturing job? Understand brass grades, dimensions, material specifications and what to include in your quotation request.";
+      const brassKeywords =
+        "brass plate, brass plate Zimbabwe, brass plate suppliers, brass plate sizes, brass plate thickness, brass sheet metal, brass plate grades, engineering brass plate, brass metal plate, brass plate for machining, brass plate Bulawayo, industrial brass suppliers Zimbabwe, brass plate dimensions, brass plate for engineering, industrial brass plate, brass metal suppliers Zimbabwe";
+      return {
+        title: "Brass Plate: Grades, Sizes, Thickness and Buying Guide",
+        description: seoDescription,
+        ogTitle: matchedArticle.title,
+        ogDescription: seoDescription,
+        canonical: `${BASE_URL}${matchedArticle.slug}`,
+        ogType: "article",
+        ogImage: `${BASE_URL}${matchedArticle.image}`,
+        keywords: brassKeywords,
+        breadcrumbs: [
+          { name: "Home", url: `${BASE_URL}/` },
+          { name: "Blog", url: `${BASE_URL}/blog` },
+          { name: "Steel Products", url: `${BASE_URL}/products/steel-products` },
+          { name: matchedArticle.title, url: `${BASE_URL}${matchedArticle.slug}` },
+        ],
+        articleData: {
+          schemaType: "Article",
+          headline: matchedArticle.title,
+          datePublished: matchedArticle.publishDate,
+          dateModified: matchedArticle.publishDate,
+          author: "Proquanic Technical Desk",
+          image: `${BASE_URL}${matchedArticle.image}`,
+          description: seoDescription,
+          articleSection: "Steel Products",
+          keywords: brassKeywords,
+        },
+      };
+    }
+
     if (matchedArticle.id === "grinding-wheel-colours-specifications-buying-guide") {
       const seoDescription =
         "Looking for grinding stones? Understand colours, grit sizes, abrasive types, grades, bonds and dimensions before ordering the right grinding stone for your workshop.";

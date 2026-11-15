@@ -56,6 +56,8 @@ const REQUIRED_IMAGES = [
   'images/sawing/m42-27mm-bandsaw-blade-loop.jpg',
   // Blog article featured images
   'assets/aistudio/proquanic-industrial-procurement-supplier-selection-zimbabwe_96b08ed3.png',
+  'images/blog/pneumatic-connectors-types-sizes-buying-guide.jpg',
+  'images/blog/brass-plate-grades-sizes-applications.jpg',
   'images/blog/grinding-stones-buying-guide.jpg',
   'images/blog/k110-tool-steel-properties-applications.jpg',
   'images/blog/spring-steel-properties-grades-applications.jpg',

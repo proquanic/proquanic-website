@@ -3,6 +3,7 @@ import { Link } from "../utils/router";
 import { BrandWordmark } from "./BrandWordmark";
 import { COMPANY } from "../config/company";
 import { CATEGORIES } from "../data/categories";
+import { useConsent } from "../context/ConsentContext";
 import {
   MapPin,
   Phone,
@@ -40,6 +41,7 @@ const WhatsAppOfficialGlyph = () => (
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { openPreferences } = useConsent();
 
   const rfqEmailSubject = encodeURIComponent("Industrial Products and Equipment — Quotation Request");
   const rfqEmailBody = encodeURIComponent(
@@ -301,6 +303,24 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
+                  href="/blog/pneumatic-connectors-types-sizes-buying-guide"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: Pneumatic Connectors &amp; Sizes</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/brass-plate-grades-sizes-applications"
+                  className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-orange-500 text-[10px]">›</span>
+                  <span>Guide: Brass Plate Grades &amp; Sizes</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog/grinding-wheel-colours-specifications-buying-guide"
                   className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
                 >
@@ -486,10 +506,22 @@ export const Footer: React.FC = () => {
             Proudly serving businesses across Zimbabwe and Southern Africa
           </div>
 
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs">
             <Link href="/privacy-policy" className="hover:text-orange-400 transition-colors">
               Privacy Policy
             </Link>
+            <span className="text-slate-600">·</span>
+            <Link href="/cookie-policy" className="hover:text-orange-400 transition-colors">
+              Cookie Policy
+            </Link>
+            <span className="text-slate-600">·</span>
+            <button
+              type="button"
+              onClick={openPreferences}
+              className="hover:text-orange-400 transition-colors cursor-pointer underline underline-offset-2"
+            >
+              Cookie Preferences
+            </button>
             <span className="text-slate-600">·</span>
             <Link href="/request-a-quotation" className="hover:text-orange-400 transition-colors">
               RFQ Terms

@@ -1,4 +1,5 @@
 import { GOOGLE_ADS_CONFIG } from "../config/analytics";
+import { hasMarketingConsent } from "./consent";
 
 declare global {
   interface Window {
@@ -42,7 +43,7 @@ export interface TrackRfqConversionOptions {
 }
 
 export interface TrackConversionResult {
-  status: "fired" | "skipped_duplicate" | "skipped_no_label" | "skipped_no_gtag";
+  status: "fired" | "skipped_duplicate" | "skipped_no_label" | "skipped_no_gtag" | "skipped_no_consent";
   sendTo?: string;
   message: string;
 }
@@ -62,6 +63,14 @@ export const trackRfqConversion = (
   options: TrackRfqConversionOptions = {}
 ): TrackConversionResult => {
   const { submissionId, transactionValue, currency = "USD", customLabel, forceTest } = options;
+
+  // 0. Enforce visitor Marketing consent before recording conversion events
+  if (!hasMarketingConsent()) {
+    return {
+      status: "skipped_no_consent",
+      message: "Marketing consent has not been granted. Google Ads conversion tracking skipped.",
+    };
+  }
 
   // 1. Duplicate check via sessionStorage if submissionId is provided
   const dedupKey = submissionId ? `proquanic_rfq_converted_${submissionId}` : null;

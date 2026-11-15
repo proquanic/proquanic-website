@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18472318190"></script>
+    <!-- Google Consent Mode v2 Defaults (Optional tracking blocked until explicit consent) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18472318190');
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied'
+      });
     </script>
 
     <!-- Favicon -->
@@ -73,7 +76,6 @@
       "areaServed": "ZW"
     }
     </script>
-    <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"4e577ab6a41fb23d97b8232025e682d5"})});</script>
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-orange-500 selection:text-white">
     <!-- Static form declaration for Netlify Forms & attachment support -->

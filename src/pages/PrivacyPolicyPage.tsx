@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "../utils/router";
 import { COMPANY } from "../config/company";
+import { useConsent } from "../context/ConsentContext";
 import { ShieldCheck, FileText, Lock, Mail, ChevronRight } from "lucide-react";
 
 export const PrivacyPolicyPage: React.FC = () => {
+  const { openPreferences } = useConsent();
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10">
       {/* Breadcrumb */}
@@ -80,7 +82,26 @@ export const PrivacyPolicyPage: React.FC = () => {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base font-bold text-slate-900">7. Contact Information</h2>
+          <h2 className="text-base font-bold text-slate-900">7. Cookies &amp; Consent Preferences</h2>
+          <p>
+            For details on essential browser storage, optional analytics or marketing scripts, and how to manage or withdraw consent at any time, please view our{" "}
+            <Link href="/cookie-policy" className="text-amber-700 font-semibold hover:underline">
+              Cookie Policy
+            </Link>{" "}
+            or open{" "}
+            <button
+              type="button"
+              onClick={openPreferences}
+              className="text-amber-700 font-semibold hover:underline cursor-pointer"
+            >
+              Cookie Preferences
+            </button>
+            .
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-base font-bold text-slate-900">8. Contact Information</h2>
           <p>
             If you have questions regarding this Privacy Policy or wish to request the update or deletion of your business contact information, please contact our data desk at:
           </p>
@@ -93,11 +114,16 @@ export const PrivacyPolicyPage: React.FC = () => {
         </section>
       </div>
 
-      <div className="pt-6 border-t border-slate-200 flex justify-between items-center text-xs text-slate-500">
+      <div className="pt-6 border-t border-slate-200 flex flex-wrap justify-between items-center gap-4 text-xs text-slate-500">
         <Link href="/" className="text-amber-700 font-semibold hover:underline">
           ← Back to Homepage
         </Link>
-        <span>Proquanic (Pvt) Ltd · Bulawayo, Zimbabwe</span>
+        <div className="flex items-center gap-4">
+          <Link href="/cookie-policy" className="text-amber-700 font-semibold hover:underline">
+            Cookie Policy
+          </Link>
+          <span>Proquanic (Pvt) Ltd · Bulawayo, Zimbabwe</span>
+        </div>
       </div>
     </div>
   );

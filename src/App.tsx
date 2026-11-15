@@ -4,6 +4,9 @@ import { RfqProvider } from "./context/RfqContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
+import { CookieConsentBanner } from "./components/CookieConsentBanner";
+import { ConsentProvider } from "./context/ConsentContext";
+import { trackAnalyticsPageViewIfConsented } from "./utils/consent";
 import { HomePage } from "./pages/HomePage";
 import { ProductsPage } from "./pages/ProductsPage";
 import { CategoryPage } from "./pages/CategoryPage";
@@ -12,6 +15,7 @@ import { RfqPage } from "./pages/RfqPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
+import { CookiePolicyPage } from "./pages/CookiePolicyPage";
 import { IndustriesPage } from "./pages/IndustriesPage";
 import { SiteDeliveryPage } from "./pages/SiteDeliveryPage";
 import { En8VsEn19GuidePage } from "./pages/En8VsEn19GuidePage";
@@ -28,6 +32,8 @@ import { SupplierSelectionGuidePage } from "./pages/SupplierSelectionGuidePage";
 import { SpringSteelGuidePage } from "./pages/SpringSteelGuidePage";
 import { K110ToolSteelGuidePage } from "./pages/K110ToolSteelGuidePage";
 import { GrindingWheelGuidePage } from "./pages/GrindingWheelGuidePage";
+import { BrassPlateGuidePage } from "./pages/BrassPlateGuidePage";
+import { PneumaticConnectorsGuidePage } from "./pages/PneumaticConnectorsGuidePage";
 import { ThankYouPage } from "./pages/ThankYouPage";
 import { CATEGORIES } from "./data/categories";
 
@@ -127,6 +133,9 @@ const AppContent: React.FC = () => {
       document.head.appendChild(schemaScript);
     }
     schemaScript.textContent = JSON.stringify(schemas);
+
+    // 8. Notify Analytics tracker on SPA navigation only if Analytics consent is granted
+    trackAnalyticsPageViewIfConsented();
   }, [currentPath]);
 
   // Route Resolver
@@ -161,6 +170,14 @@ const AppContent: React.FC = () => {
       currentPath === "/blog/hss-punches"
     ) {
       return <HssPunchesGuidePage />;
+    }
+
+    if (currentPath === "/blog/pneumatic-connectors-types-sizes-buying-guide") {
+      return <PneumaticConnectorsGuidePage />;
+    }
+
+    if (currentPath === "/blog/brass-plate-grades-sizes-applications") {
+      return <BrassPlateGuidePage />;
     }
 
     if (currentPath === "/blog/grinding-wheel-colours-specifications-buying-guide") {
@@ -283,6 +300,10 @@ const AppContent: React.FC = () => {
       return <PrivacyPolicyPage />;
     }
 
+    if (currentPath === "/cookie-policy") {
+      return <CookiePolicyPage />;
+    }
+
     if (currentPath === "/thank-you") {
       return <ThankYouPage />;
     }
@@ -311,6 +332,7 @@ const AppContent: React.FC = () => {
       <main className="flex-1">{renderCurrentView()}</main>
       <FloatingWhatsApp />
       <Footer />
+      <CookieConsentBanner />
     </div>
   );
 };
@@ -318,9 +340,11 @@ const AppContent: React.FC = () => {
 export default function App() {
   return (
     <RouterProvider>
-      <RfqProvider>
-        <AppContent />
-      </RfqProvider>
+      <ConsentProvider>
+        <RfqProvider>
+          <AppContent />
+        </RfqProvider>
+      </ConsentProvider>
     </RouterProvider>
   );
 }
