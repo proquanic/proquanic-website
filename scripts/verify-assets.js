@@ -56,7 +56,7 @@ const REQUIRED_IMAGES = [
   'images/sawing/m42-27mm-bandsaw-blade-loop.jpg',
   // Blog article featured images
   'assets/aistudio/proquanic-industrial-procurement-supplier-selection-zimbabwe_96b08ed3.png',
-  'images/blog/grinding-wheel-colours-specifications-buying-guide.jpg',
+  'images/blog/grinding-stones-buying-guide.jpg',
   'images/blog/k110-tool-steel-properties-applications.jpg',
   'images/blog/spring-steel-properties-grades-applications.jpg',
   'images/blog/hss-cobalt-carbide-drills.jpg',

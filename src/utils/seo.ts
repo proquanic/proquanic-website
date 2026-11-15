@@ -277,11 +277,11 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
   if (matchedArticle) {
     if (matchedArticle.id === "grinding-wheel-colours-specifications-buying-guide") {
       const seoDescription =
-        "Understand grinding wheel colour coding, abrasive types, grit, grade, bond and dimensions. Learn what to specify when requesting industrial grinding wheels.";
+        "Looking for grinding stones? Understand colours, grit sizes, abrasive types, grades, bonds and dimensions before ordering the right grinding stone for your workshop.";
       const grindingKeywords =
-        "grinding wheel colour coding, grinding wheel colours, grinding wheel specifications, grinding wheel selection, abrasive wheel colour codes, grinding wheel grit 60, industrial grinding wheels, grinding wheel dimensions, grinding wheel RFQ, grinding wheel safety, PFERD grinding wheel colour code, TYROLIT grinding wheel colour code, grinding wheel abrasive types, grinding wheel grade and bond, industrial grinding wheels Zimbabwe";
+        "grinding stones, grinding stones Zimbabwe, industrial grinding stones, grinding stone suppliers, grinding stone colours, grinding stone specifications, grinding stone grit sizes, grinding stones for metal, grinding stones for steel, bench grinding stones, grinding stone dimensions, abrasive stones for engineering workshops, grinding stones for metalworking, grinding stones Bulawayo";
       return {
-        title: "Grinding Wheel Colours, Specifications and How to Choose the Right Wheel",
+        title: "Grinding Stones: Colours, Grit Sizes and Buying Guide",
         description: seoDescription,
         ogTitle: matchedArticle.title,
         ogDescription: seoDescription,
@@ -298,8 +298,8 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
         articleData: {
           schemaType: "Article",
           headline: matchedArticle.title,
-          datePublished: matchedArticle.publishDate,
-          dateModified: matchedArticle.publishDate,
+          datePublished: "2026-11-14",
+          dateModified: "2026-11-15",
           author: "Proquanic Technical Desk",
           image: `${BASE_URL}${matchedArticle.image}`,
           description: seoDescription,

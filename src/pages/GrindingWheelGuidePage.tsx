@@ -48,16 +48,18 @@ export const GrindingWheelGuidePage: React.FC = () => {
   };
 
   const directWhatsAppUrl = `https://wa.me/${COMPANY.contact.whatsappNumber}?text=${encodeURIComponent(
-    "Hello Proquanic, I am reading your grinding wheel colours and specification guide and would like to submit a grinding wheel RFQ."
+    "Hello Proquanic, I am reading your grinding stones specification guide and would like to submit a grinding stone RFQ."
   )}`;
 
   const articleHashtags = [
-    "GrindingWheels",
-    "GrindingWheelSelection",
-    "AbrasiveProducts",
-    "IndustrialAbrasives",
-    "Metalworking",
-    "EngineeringWorkshop",
+    "GrindingStones",
+    "GrindingStonesZimbabwe",
+    "IndustrialGrindingStones",
+    "GrindingStoneSuppliers",
+    "GrindingStoneColours",
+    "GrindingStoneSpecifications",
+    "Abrasives",
+    "EngineeringSupplies",
     "ManufacturingZimbabwe",
     "Proquanic",
   ];
@@ -103,7 +105,7 @@ export const GrindingWheelGuidePage: React.FC = () => {
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
             <span className="text-slate-900 font-semibold truncate max-w-[200px] sm:max-w-xs">
-              Grinding Wheel Colours Explained
+              Grinding Stones: Colours, Grit Sizes &amp; Specifications
             </span>
           </nav>
 
@@ -148,17 +150,17 @@ export const GrindingWheelGuidePage: React.FC = () => {
                   href="/products/abrasives"
                   className="bg-orange-100 text-orange-800 hover:bg-orange-200 font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded transition-colors"
                 >
-                  Abrasives · Grinding Products · Grinding Wheels
+                  Abrasives · Grinding Products · Grinding Stones
                 </Link>
                 <span className="text-slate-300">|</span>
                 <span className="inline-flex items-center gap-1.5 text-slate-500">
                   <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                  <time dateTime="2026-11-14">14 November 2026</time>
+                  <time dateTime="2026-11-15">Updated 15 November 2026</time>
                 </span>
                 <span className="text-slate-300">|</span>
                 <span className="inline-flex items-center gap-1.5 text-slate-500">
                   <Clock className="w-3.5 h-3.5 text-slate-400" />
-                  <span>10 min read</span>
+                  <span>9 min read</span>
                 </span>
                 <span className="text-slate-300">|</span>
                 <span className="inline-flex items-center gap-1.5 text-slate-600 font-medium">
@@ -168,7 +170,7 @@ export const GrindingWheelGuidePage: React.FC = () => {
               </div>
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950 tracking-tight leading-tight">
-                Grinding Wheel Colours Explained: What Buyers Must Check Before Sending an RFQ
+                Grinding Stones: Colours, Grit Sizes, Specifications and How to Choose the Right One
               </h1>
             </header>
 
@@ -176,361 +178,295 @@ export const GrindingWheelGuidePage: React.FC = () => {
             <figure className="max-w-3xl mx-auto">
               <div className="relative aspect-16/9 bg-slate-100 rounded-xl overflow-hidden border border-slate-200">
                 <img
-                  src="/images/blog/grinding-wheel-colours-specifications-buying-guide.jpg"
-                  alt="Industrial grinding wheels with different manufacturer identification markings arranged on an engineering inspection bench."
+                  src="/images/blog/grinding-stones-buying-guide.jpg"
+                  alt="Different industrial grinding stones arranged on an engineering workshop inspection bench, showing their colours, thicknesses and centre bores."
                   className="w-full h-full object-cover"
                   loading="eager"
+                  referrerPolicy="no-referrer"
                 />
               </div>
             </figure>
 
-            {/* Complete Original Article Body */}
+            {/* Complete Revised Article Body */}
             <div className="max-w-3xl mx-auto space-y-5 text-slate-800 text-base sm:text-[17px] leading-[1.8]">
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-2">
-                A grinding wheel's colour can tell you something important. But it cannot tell you everything.
+                Choosing a grinding stone involves more than checking its size
               </h2>
               <p>
-                When requesting a grinding wheel, many buyers concentrate on the dimensions, grit size and price.
+                When an engineering workshop needs a replacement grinding stone, the first details that usually come to mind are its dimensions and grit size.
               </p>
               <p>
-                Those details matter. However, there is another detail that should not be overlooked:{" "}
-                <strong className="text-slate-950">the colour identification used by the manufacturer.</strong>
+                But those details alone do not establish whether the stone is suitable for the job.
               </p>
               <p>
-                Industrial abrasive manufacturers use colour coding on certain product ranges to help identify the materials for which their wheels are intended.
+                The colour, abrasive material, grade, bond, structure, machine speed and material being ground can all influence the correct selection.
               </p>
               <p>
-                For example, PFERD uses colour coding to distinguish applications such as steel, stainless steel, cast iron and non-ferrous metals in specified product lines.
+                A grinding stone that fits the machine may still be unsuitable for the application.
               </p>
               <p>
-                But there is an important warning: colour codes are not universal across all manufacturers and product ranges.
+                For procurement professionals, workshop managers, machinists and maintenance teams, understanding these details helps prevent incorrect orders, unnecessary replacement costs and avoidable workshop interruptions.
               </p>
               <p>
-                A blue wheel from one manufacturer does not automatically have the same specification or application as a blue wheel from another.
-              </p>
-              <p>
-                For procurement professionals, workshop managers and engineers, understanding this distinction can help prevent incomplete enquiries and incorrect product orders.
+                This guide explains what to check when identifying and purchasing grinding stones.
               </p>
 
+              {/* Section 1 */}
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                1. What do grinding wheel colours mean?
+                1. Why do grinding stones come in different colours?
               </h2>
               <p>
-                Colour coding is a visual identification system used by abrasive manufacturers to indicate the intended material application of particular products.
+                Grinding stones are available in different colours, including grey, white, pink and green.
               </p>
-              <p>The following examples are taken from published manufacturer information.</p>
+              <p>
+                These colours can be associated with different abrasive materials, manufacturing formulations and product specifications.
+              </p>
+              <p>
+                However, there is no universal colour code that allows buyers to identify every grinding stone by colour alone.
+              </p>
+              <p>
+                For example, conventional vitrified grinding stones may use different colours to distinguish abrasive formulations. A white stone is commonly associated with white aluminium oxide, while green stones are commonly associated with silicon carbide products.
+              </p>
+              <p>
+                But colour is not sufficient proof of the abrasive type or intended application. Manufacturers may use different formulations, shades and identification systems.
+              </p>
+              <p>
+                Always confirm the manufacturer&apos;s product designation and technical information.
+              </p>
 
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 pt-2">
-                PFERD colour coding
+                Common grinding stone colours
               </h3>
-              <p>
-                PFERD's product literature uses the following colour identification for specified grinding wheel product lines:
-              </p>
 
               <div className="overflow-x-auto border border-slate-200 rounded-lg shadow-2xs my-4">
                 <table className="w-full text-left text-xs sm:text-sm">
                   <thead className="bg-[#0B192C] text-white font-semibold">
                     <tr>
-                      <th className="p-3.5">Colour</th>
-                      <th className="p-3.5">Material/application indicated</th>
+                      <th className="p-3.5">Colour commonly encountered</th>
+                      <th className="p-3.5">Possible association</th>
+                      <th className="p-3.5">What to verify</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
                     <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Black</td>
-                      <td className="p-3.5">Steel</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Grey</td>
+                      <td className="p-3.5">Conventional aluminium oxide products</td>
+                      <td className="p-3.5">Exact abrasive and application</td>
                     </tr>
                     <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Blue</td>
-                      <td className="p-3.5">Stainless steel (INOX)</td>
+                      <td className="p-3.5 font-semibold text-slate-900">White</td>
+                      <td className="p-3.5">White aluminium oxide products</td>
+                      <td className="p-3.5">Manufacturer&apos;s grade and intended material</td>
                     </tr>
                     <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Red</td>
-                      <td className="p-3.5">Cast iron or specified steel/cast-iron applications</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Pink</td>
+                      <td className="p-3.5">Specialised aluminium oxide formulations</td>
+                      <td className="p-3.5">Exact abrasive specification</td>
                     </tr>
                     <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Silver</td>
-                      <td className="p-3.5">Non-ferrous metals, including aluminium</td>
-                    </tr>
-                    <tr>
                       <td className="p-3.5 font-semibold text-slate-900">Green</td>
-                      <td className="p-3.5">Stone in specified product lines</td>
+                      <td className="p-3.5">Commonly associated with silicon carbide stones</td>
+                      <td className="p-3.5">Workpiece material and manufacturer&apos;s recommendation</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
               <p>
-                The exact coding depends on the PFERD product line. Some products also use combinations of colours.
+                These are general market associations, not a universal colour standard or a substitute for the manufacturer&apos;s catalogue.
               </p>
-              <p>
-                For example, PFERD's SG-ELASTIC range identifies steel with black, stainless steel with blue, cast iron with red, and certain combined applications with two-colour markings.
-              </p>
-              <p>
-                <strong className="text-slate-950">Manufacturer reference:</strong> PFERD Grinding and Cut-Off Wheels Catalogue
-                <br />
-                <a
-                  href="https://dg4mbxs1iwj25.cloudfront.net/userfiles/documents/products/pferd_61026_brochure.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
-                >
-                  <span>https://dg4mbxs1iwj25.cloudfront.net/userfiles/documents/products/pferd_61026_brochure.pdf</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                </a>
-              </p>
-
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 pt-2">
-                TYROLIT colour coding
-              </h3>
-              <p>
-                TYROLIT publishes a different colour identification system for specified grinding wheel products:
-              </p>
-
-              <div className="overflow-x-auto border border-slate-200 rounded-lg shadow-2xs my-4">
-                <table className="w-full text-left text-xs sm:text-sm">
-                  <thead className="bg-[#0B192C] text-white font-semibold">
-                    <tr>
-                      <th className="p-3.5">Colour</th>
-                      <th className="p-3.5">Material/application indicated</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
-                    <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Blue</td>
-                      <td className="p-3.5">Steel</td>
-                    </tr>
-                    <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Red</td>
-                      <td className="p-3.5">Stainless steel</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Orange</td>
-                      <td className="p-3.5">Non-ferrous metals</td>
-                    </tr>
-                    <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Purple</td>
-                      <td className="p-3.5">Cast iron</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Green</td>
-                      <td className="p-3.5">Stone</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="bg-orange-50/80 border-l-4 border-orange-500 p-4 rounded-r-lg text-sm sm:text-base text-slate-800">
+                <strong className="text-slate-950">Important:</strong> If your workshop requires a particular colour, communicate that requirement to the supplier. Where possible, provide a photograph of the original grinding stone and its markings.
               </div>
 
-              <p>
-                This is an important example of why buyers should never assume that a colour has the same meaning across different manufacturers.
-              </p>
-              <p>
-                <strong className="text-slate-950">Manufacturer reference:</strong> TYROLIT – Grinding Wheels
-                <br />
-                <a
-                  href="https://www.tyrolit.com/ca-en/products?subApplications=GRWH&type=T"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
-                >
-                  <span>https://www.tyrolit.com/ca-en/products?subApplications=GRWH&amp;type=T</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                </a>
-              </p>
-              <p>
-                <strong className="text-slate-950">Procurement rule:</strong> Always confirm the colour identification against the specific manufacturer's catalogue and product range. Do not order a wheel based on colour alone.
-              </p>
-
+              {/* Section 2 */}
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                2. Does the colour of the actual abrasive wheel matter?
+                2. What abrasive material is used in grinding stones?
               </h2>
               <p>
-                Yes, when the manufacturer uses colour as part of its product identification system.
-              </p>
-              <p>However, buyers must distinguish between:</p>
-              <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
-                <li>The colour coding printed on the product label.</li>
-                <li>A coloured identification marking on the wheel.</li>
-                <li>The actual colour or appearance of the abrasive material.</li>
-                <li>The technical specification of the wheel.</li>
-              </ul>
-              <p>These are not necessarily the same thing.</p>
-              <p>
-                A wheel may have a manufacturer's coloured label or marking without the entire abrasive body being that colour.
-              </p>
-              <p>
-                When a customer requests a particular wheel colour, establish whether they mean the manufacturer's application colour code, the physical colour of the wheel, or a particular product specification.
-              </p>
-              <p>
-                If the original wheel is available, photographs of its face, side markings and label can help identify the requirement.
-              </p>
-
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                3. Colour is not a substitute for the grinding wheel specification
-              </h2>
-              <p>This is where many incomplete enquiries begin.</p>
-              <p>
-                Two wheels may have the same colour but differ in abrasive grain, grit size, grade, structure, bond, dimensions and permitted operating speed.
-              </p>
-              <p>A proper grinding wheel specification contains several important elements.</p>
-
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 pt-2">
-                Abrasive type
-              </h3>
-              <p>
-                The abrasive grain determines the cutting characteristics and suitability for different materials.
+                The abrasive material determines important characteristics of the grinding stone, including its suitability for particular workpieces.
               </p>
               <p>Common abrasive types include:</p>
 
+              <p className="font-bold text-slate-950 pt-1">Aluminium oxide</p>
+              <p>
+                Commonly used for grinding various ferrous metals, including steel. Different aluminium oxide formulations are available for different grinding applications.
+              </p>
+
+              <p className="font-bold text-slate-950 pt-1">White aluminium oxide</p>
+              <p>
+                A refined aluminium oxide abrasive used in applications where its particular cutting characteristics are required, including certain tool and precision grinding operations.
+              </p>
+
+              <p className="font-bold text-slate-950 pt-1">Silicon carbide</p>
+              <p>
+                A hard, sharp abrasive commonly used for grinding selected non-ferrous metals, cast iron, carbide and other suitable materials.
+              </p>
+
+              <p>
+                The exact selection depends on the workpiece, operation and manufacturer&apos;s recommendations.
+              </p>
+              <p>
+                Do not assume that every grinding stone of the same colour contains the same abrasive.
+              </p>
+
+              {/* Section 3 */}
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
+                3. What does grit size mean?
+              </h2>
+              <p>
+                Grit size refers to the relative size of the abrasive particles.
+              </p>
+              <p>
+                It influences the grinding action and the finish produced.
+              </p>
+
               <div className="overflow-x-auto border border-slate-200 rounded-lg shadow-2xs my-4">
                 <table className="w-full text-left text-xs sm:text-sm">
                   <thead className="bg-[#0B192C] text-white font-semibold">
                     <tr>
-                      <th className="p-3.5">Abrasive</th>
-                      <th className="p-3.5">General description</th>
+                      <th className="p-3.5">Grit selection</th>
+                      <th className="p-3.5">General application</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
                     <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Aluminium oxide</td>
-                      <td className="p-3.5">Commonly used for grinding various steels</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Coarse grit</td>
+                      <td className="p-3.5">Faster stock removal and rough grinding</td>
                     </tr>
                     <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Silicon carbide</td>
-                      <td className="p-3.5">Used for selected non-ferrous materials, cast iron and other applications</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Medium grit</td>
+                      <td className="p-3.5">General-purpose grinding and sharpening</td>
                     </tr>
                     <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Zirconia alumina</td>
-                      <td className="p-3.5">Used in certain demanding grinding applications</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Fine grit</td>
+                      <td className="p-3.5">Finer finishing and more controlled material removal</td>
                     </tr>
                     <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Ceramic abrasive</td>
-                      <td className="p-3.5">Used in specialised products designed for particular grinding performance requirements</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Diamond</td>
-                      <td className="p-3.5">Used for suitable hard, non-metallic and other specialised materials</td>
-                    </tr>
-                    <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Cubic boron nitride (CBN)</td>
-                      <td className="p-3.5">Used for selected demanding grinding applications, including hardened ferrous materials</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Very fine grit</td>
+                      <td className="p-3.5">Specialised finishing and precision applications</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
+              <p>Different grit sizes are available for different workshop requirements.</p>
               <p>
-                These are broad descriptions. The manufacturer's product recommendations must determine suitability for the actual workpiece and grinding operation.
+                For example, grit 60 is one of the available specifications used in grinding applications. It is not the only grit suitable for engineering workshops.
+              </p>
+              <p>
+                The correct grit depends on the workpiece, material removal required, surface finish and grinding operation.
+              </p>
+              <p>
+                <strong className="text-slate-950">Do not order a grinding stone based on grit alone.</strong> The abrasive type, grade, structure and bond must also be considered.
               </p>
 
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 pt-2">
-                Grit size
-              </h3>
-              <p>Grit describes the relative size of the abrasive particles.</p>
-              <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
-                <li>Coarse grit is generally associated with faster stock removal.</li>
-                <li>Medium grit is used in many general-purpose grinding applications.</li>
-                <li>Fine grit is generally used where a finer finish or more controlled material removal is required.</li>
-              </ul>
-              <p>
-                A grit 60 wheel, for example, identifies a particular abrasive particle-size range. It does not independently establish the abrasive type, grade or bond.
-              </p>
-
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 pt-2">
-                Wheel grade
-              </h3>
-              <p>
-                Grade describes the relative strength with which the bond holds the abrasive grains.
-              </p>
-              <p>It is not the same as abrasive hardness.</p>
-              <p>
-                The appropriate grade depends on factors such as the workpiece material, grinding contact, operating conditions and wheel design.
-              </p>
-
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 pt-2">
-                Structure
-              </h3>
-              <p>
-                Structure relates to the spacing and distribution of abrasive grains within the wheel.
-              </p>
-              <p>It influences the wheel's porosity and grinding characteristics.</p>
-
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 pt-2">
-                Bond
-              </h3>
-              <p>The bond holds the abrasive grains together.</p>
-              <p>Common bond types include:</p>
-              <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
-                <li>Vitrified bond.</li>
-                <li>Resinoid bond.</li>
-                <li>Rubber bond.</li>
-              </ul>
-              <p>The correct bond depends on the product design and intended operation.</p>
-              <p>
-                <strong className="text-slate-950">Technical reference:</strong> Norton Abrasives – Grinding Wheel Basics
-                <br />
-                <a
-                  href="https://www.nortonabrasives.com/en-us/grinding-wheel-basics"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
-                >
-                  <span>https://www.nortonabrasives.com/en-us/grinding-wheel-basics</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                </a>
-              </p>
-
+              {/* Section 4 */}
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                4. How to read grinding wheel dimensions
+                4. What is grinding stone grade?
               </h2>
-              <p>Grinding wheels are commonly described using three principal dimensions:</p>
               <p>
-                <strong className="text-slate-950">Outside diameter × Thickness × Bore</strong>
+                The grade describes how firmly the bond holds the abrasive grains.
               </p>
-              <p>Consider this example:</p>
               <p>
-                <strong className="text-slate-950">250 × 40 × 39 mm</strong>
+                It does not describe the hardness of the abrasive particles themselves.
               </p>
-              <p>It means:</p>
+              <p>
+                During grinding, abrasive grains gradually become blunt. The stone must release grains at an appropriate rate to expose fresh cutting edges.
+              </p>
+              <p>
+                A stone that holds its grains too firmly for the application may become glazed. A stone that releases grains too easily may wear away unnecessarily quickly.
+              </p>
+              <p>The correct grade depends on factors such as:</p>
+              <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
+                <li>Workpiece material and hardness.</li>
+                <li>Grinding pressure.</li>
+                <li>Contact area.</li>
+                <li>Grinding operation.</li>
+                <li>Machine conditions.</li>
+                <li>Required finish.</li>
+              </ul>
+              <p>
+                The grade designation should be confirmed against the manufacturer&apos;s specification.
+              </p>
+
+              {/* Section 5 */}
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
+                5. What is the bond in a grinding stone?
+              </h2>
+              <p>
+                The bond holds the abrasive grains together.
+              </p>
+              <p>
+                Different bond systems influence the stone&apos;s strength, rigidity and grinding characteristics.
+              </p>
+
+              <p className="font-bold text-slate-950 pt-1">Vitrified bond</p>
+              <p>
+                A ceramic bond commonly used in conventional grinding stones. It is widely used in bench grinding and precision grinding applications.
+              </p>
+
+              <p className="font-bold text-slate-950 pt-1">Resinoid bond</p>
+              <p>
+                A resin-based bond used in selected grinding applications. Its characteristics differ from those of vitrified products.
+              </p>
+
+              <p>Other bond systems are available for specialised applications.</p>
+              <p>
+                The correct bond depends on the operation and the manufacturer&apos;s product design.
+              </p>
+
+              {/* Section 6 */}
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
+                6. How to read grinding stone dimensions
+              </h2>
+              <p>Grinding stones are commonly specified using three principal dimensions:</p>
+              <p className="font-bold text-slate-950">Outside diameter × Thickness × Bore</p>
+              <p>For example:</p>
+              <p className="font-bold text-slate-950 font-mono">250 × 40 × 39 mm</p>
+              <p>This means:</p>
               <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
                 <li>Outside diameter: 250 mm</li>
                 <li>Thickness: 40 mm</li>
                 <li>Bore diameter: 39 mm</li>
               </ul>
-              <p>These measurements identify the physical dimensions of the wheel.</p>
               <p>
-                They do not tell you whether the wheel is suitable for the material being ground or the machine on which it will operate.
+                These dimensions describe the physical size of the stone. They do not establish the abrasive type, grit, grade, bond or machine suitability.
               </p>
               <p>
-                Also confirm the wheel shape and mounting arrangement. A straight wheel, cup wheel and depressed-centre wheel are not interchangeable simply because some dimensions appear similar.
+                Before ordering, check the existing machine requirements and confirm that the replacement stone is suitable for the mounting arrangement.
               </p>
+              <p>Never force a grinding stone onto a spindle or modify its bore to make it fit.</p>
 
+              {/* Section 7 */}
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                5. Why machine speed must be confirmed
+                7. Check the machine speed before ordering
               </h2>
-              <p>Grinding wheels operate under significant rotational forces.</p>
-              <p>Every wheel must be suitable for the operating speed of the machine.</p>
+              <p>
+                Grinding stones must be suitable for the rotational speed of the machine.
+              </p>
+              <p>Every product has a maximum permitted operating speed.</p>
               <p>Before ordering, establish:</p>
               <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
-                <li>Machine manufacturer and model.</li>
+                <li>Grinder manufacturer and model.</li>
                 <li>Spindle speed in revolutions per minute (RPM).</li>
-                <li>Required wheel diameter.</li>
-                <li>Maximum operating speed marked on the proposed wheel.</li>
-                <li>Required wheel shape and mounting arrangement.</li>
+                <li>Required stone diameter.</li>
+                <li>Maximum operating speed marked on the stone.</li>
+                <li>Mounting and flange requirements.</li>
               </ul>
               <p>
-                The wheel's maximum permitted operating speed must not be lower than the machine's operating speed.
+                The machine must never operate a stone beyond its marked maximum permitted speed.
               </p>
-              <p>
-                Never assume that a wheel is suitable simply because it fits the spindle.
-              </p>
+              <p>A stone that fits the machine is not automatically safe or suitable for use.</p>
 
+              {/* Section 8 */}
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                6. What information should you include in a grinding wheel RFQ?
+                8. What information should you provide when requesting grinding stones?
               </h2>
               <p>
-                A request for quotation should provide enough information for the supplier to identify the correct product.
+                A request such as &ldquo;I need grinding stones&rdquo; is a starting point, but it does not provide enough information to identify the correct product.
               </p>
-              <p>Use this checklist:</p>
+              <p>A useful enquiry should include:</p>
 
               <div className="overflow-x-auto border border-slate-200 rounded-lg shadow-2xs my-4">
                 <table className="w-full text-left text-xs sm:text-sm">
@@ -543,31 +479,15 @@ export const GrindingWheelGuidePage: React.FC = () => {
                   <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
                     <tr>
                       <td className="p-3.5 font-semibold text-slate-900">Product</td>
-                      <td className="p-3.5">Grinding wheel</td>
+                      <td className="p-3.5">Grinding stone</td>
                     </tr>
                     <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Manufacturer/brand</td>
-                      <td className="p-3.5">Required brand, if specified</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Product range</td>
-                      <td className="p-3.5">Exact range or product reference, if known</td>
-                    </tr>
-                    <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Colour identification</td>
-                      <td className="p-3.5">Required manufacturer's colour code or original wheel marking, if applicable</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Application</td>
-                      <td className="p-3.5">What operation the wheel will perform</td>
-                    </tr>
-                    <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Workpiece material</td>
-                      <td className="p-3.5">Steel, stainless steel, cast iron, aluminium or another material</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Colour</td>
+                      <td className="p-3.5">Required colour or original manufacturer&apos;s marking, if specified</td>
                     </tr>
                     <tr>
                       <td className="p-3.5 font-semibold text-slate-900">Abrasive type</td>
-                      <td className="p-3.5">Required abrasive, if established</td>
+                      <td className="p-3.5">Aluminium oxide, silicon carbide or other specified abrasive</td>
                     </tr>
                     <tr className="bg-slate-50/70">
                       <td className="p-3.5 font-semibold text-slate-900">Grit</td>
@@ -575,306 +495,268 @@ export const GrindingWheelGuidePage: React.FC = () => {
                     </tr>
                     <tr>
                       <td className="p-3.5 font-semibold text-slate-900">Grade</td>
-                      <td className="p-3.5">Required wheel grade, if established</td>
+                      <td className="p-3.5">Required grade, if known</td>
                     </tr>
                     <tr className="bg-slate-50/70">
                       <td className="p-3.5 font-semibold text-slate-900">Structure</td>
-                      <td className="p-3.5">Required structure, if established</td>
+                      <td className="p-3.5">Required structure, if specified</td>
                     </tr>
                     <tr>
                       <td className="p-3.5 font-semibold text-slate-900">Bond</td>
-                      <td className="p-3.5">Required bond, if established</td>
+                      <td className="p-3.5">Vitrified, resinoid or another specified bond</td>
                     </tr>
                     <tr className="bg-slate-50/70">
                       <td className="p-3.5 font-semibold text-slate-900">Dimensions</td>
                       <td className="p-3.5">Outside diameter × thickness × bore</td>
                     </tr>
                     <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Shape</td>
-                      <td className="p-3.5">Required wheel shape</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Application</td>
+                      <td className="p-3.5">Grinding, sharpening, tool grinding or another operation</td>
                     </tr>
                     <tr className="bg-slate-50/70">
-                      <td className="p-3.5 font-semibold text-slate-900">Machine</td>
-                      <td className="p-3.5">Manufacturer, model and spindle speed</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Workpiece</td>
+                      <td className="p-3.5">Material being ground</td>
                     </tr>
                     <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Maximum speed</td>
-                      <td className="p-3.5">Required operating-speed compatibility</td>
+                      <td className="p-3.5 font-semibold text-slate-900">Machine</td>
+                      <td className="p-3.5">Grinder make, model and spindle speed</td>
                     </tr>
                     <tr className="bg-slate-50/70">
                       <td className="p-3.5 font-semibold text-slate-900">Quantity</td>
-                      <td className="p-3.5">Number of wheels required</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3.5 font-semibold text-slate-900">Certification</td>
-                      <td className="p-3.5">Applicable product documentation and traceability requirements</td>
+                      <td className="p-3.5">Number of stones required</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <p>Not every buyer will know all these technical details.</p>
+              <p>You do not need to guess technical details that you do not know.</p>
               <p>
-                Where the specification is incomplete, provide the original wheel's markings and clear photographs, the machine details, the workpiece material and the intended operation.
+                If the original stone is available, send clear photographs showing its face, side markings, label and dimensions.
               </p>
               <p>
-                Ask the manufacturer or technically competent supplier to confirm the correct specification before placing an order.
-              </p>
-              <p>
-                <strong className="text-slate-950">Do not invent a colour, grade, bond or abrasive type to complete an RFQ.</strong>
+                The supplier can then use the information to identify the product and confirm the specification with the manufacturer where necessary.
               </p>
 
+              {/* Section 9 */}
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                7. A practical example: why an incomplete enquiry creates problems
+                9. Why a complete specification matters
               </h2>
-              <p>Consider a workshop requesting:</p>
+              <p>
+                Consider a workshop requesting a grinding stone measuring 250 × 40 × 39 mm with grit 60.
+              </p>
+              <p>That information identifies the dimensions and one part of the specification.</p>
+              <p>However, it does not establish:</p>
               <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
-                <li>Grinding wheel</li>
-                <li>Dimensions: 250 × 40 × 39 mm</li>
-                <li>Grit: 60</li>
+                <li>The required colour.</li>
+                <li>The abrasive material.</li>
+                <li>The grade.</li>
+                <li>The structure.</li>
+                <li>The bond.</li>
+                <li>The intended workpiece material.</li>
+                <li>The machine&apos;s permitted operating speed.</li>
               </ul>
               <p>
-                This is useful information, but it does not establish the complete product requirement.
-              </p>
-              <p>The supplier may still need to confirm:</p>
-              <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
-                <li>Intended workpiece material.</li>
-                <li>Manufacturer and product range.</li>
-                <li>Colour identification, where applicable.</li>
-                <li>Abrasive type.</li>
-                <li>Grade.</li>
-                <li>Structure.</li>
-                <li>Bond.</li>
-                <li>Machine operating speed.</li>
-                <li>Wheel shape and mounting requirements.</li>
-              </ul>
-              <p>
-                A supplier could quote a wheel matching the dimensions and grit while missing another important requirement.
+                A quotation that matches only the dimensions and grit may therefore describe a different product from the one the workshop actually needs.
               </p>
               <p>
-                That is why procurement should not treat dimensions and grit as a complete specification.
+                The best procurement practice is to establish the complete requirement before comparing supplier quotations.
               </p>
 
+              {/* Section 10 */}
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                8. Grinding wheel safety and inspection
+                10. Grinding stone safety
               </h2>
               <p>
-                Abrasive wheels must be handled, mounted and operated according to the manufacturer's instructions and applicable safety requirements.
+                Grinding stones must be selected, mounted and operated according to the manufacturer&apos;s instructions and applicable workplace safety requirements.
               </p>
               <p>Important precautions include:</p>
               <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
-                <li>Check the wheel for damage before use.</li>
+                <li>Inspect the stone for damage before mounting.</li>
                 <li>Verify its markings and maximum operating speed.</li>
-                <li>Confirm compatibility with the machine.</li>
+                <li>Confirm machine compatibility.</li>
                 <li>Ensure correct mounting and guarding.</li>
-                <li>Use the appropriate personal protective equipment.</li>
-                <li>Follow the manufacturer's storage and handling instructions.</li>
-                <li>Ensure workers are appropriately trained.</li>
+                <li>Use appropriate personal protective equipment.</li>
+                <li>Follow manufacturer instructions for handling and storage.</li>
+                <li>Ensure operators are appropriately trained.</li>
+                <li>Never use a damaged stone or modify it to fit a machine.</li>
               </ul>
-              <p>Do not use a damaged wheel or modify it to fit a machine.</p>
               <p>
-                A ring test is applicable only to suitable wheel types and must be performed according to the manufacturer's instructions. It is not a universal test for every abrasive product.
+                A ring test is only appropriate for certain types of grinding stones and must be performed according to the manufacturer&apos;s instructions. It is not a universal test for every abrasive product.
               </p>
               <p>Useful safety references:</p>
-              <p>
-                <strong className="text-slate-950">FEPA – Safety Instructions for Abrasive Products</strong>
-                <br />
-                <a
-                  href="https://fepa-abrasives.org/safety/safety-publications/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
-                >
-                  <span>https://fepa-abrasives.org/safety/safety-publications/</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                </a>
-              </p>
-              <p>
-                <strong className="text-slate-950">FEPA – Use of Bonded Wheels on Angle Grinders</strong>
-                <br />
-                <a
-                  href="https://fepa-abrasives.org/safety/safety-publications/leaflet-for-bonded-abrasives/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
-                >
-                  <span>https://fepa-abrasives.org/safety/safety-publications/leaflet-for-bonded-abrasives/</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                </a>
-              </p>
-              <p>
-                <strong className="text-slate-950">SafeWork NSW – Safe Use of Abrasive Wheels</strong>
-                <br />
-                <a
-                  href="https://www.safework.nsw.gov.au/resource-library/manufacturing/abrasive-wheels-fact-sheet"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
-                >
-                  <span>https://www.safework.nsw.gov.au/resource-library/manufacturing/abrasive-wheels-fact-sheet</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                </a>
-              </p>
+              <div className="space-y-3 text-sm bg-slate-50 border border-slate-200 rounded-xl p-5">
+                <div>
+                  <strong className="text-slate-950">FEPA – Safety Publications</strong>
+                  <br />
+                  <a
+                    href="https://fepa-abrasives.org/safety/safety-publications/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
+                  >
+                    <span>https://fepa-abrasives.org/safety/safety-publications/</span>
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  </a>
+                </div>
+                <div>
+                  <strong className="text-slate-950">
+                    OSHA – Abrasive Wheel Machinery, 29 CFR 1910.215
+                  </strong>
+                  <br />
+                  <a
+                    href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.215"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
+                  >
+                    <span>https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.215</span>
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  </a>
+                </div>
+              </div>
 
+              {/* Section 11 */}
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-4 border-t border-slate-100">
-                9. Source the correct grinding wheels for your workshop
+                11. Source grinding stones for your workshop
               </h2>
               <p>
                 Proquanic (Pvt) Ltd supplies industrial products and engineering requirements to businesses in Zimbabwe.
               </p>
               <p>
-                Our product scope includes{" "}
-                <Link
-                  href="/products/abrasives"
-                  className="text-orange-600 hover:text-orange-700 font-medium underline decoration-orange-300 underline-offset-2 transition-colors"
-                >
-                  grinding wheels
-                </Link>
-                , cutting wheels and other abrasive products, subject to the specific product and technical requirements.
+                Our abrasive product scope includes grinding stones in different specifications to suit varying workshop requirements.
               </p>
               <p>
-                When requesting a quotation, provide the wheel dimensions, grit, intended application, workpiece material, machine details and any manufacturer-specific colour identification.
+                Requirements may differ by colour, abrasive type, grit size, grade, bond, dimensions and intended application. The correct product must be established from the customer&apos;s actual technical requirements.
               </p>
               <p>
-                Where the original wheel is available, photographs of its markings and label can help establish the required product.
+                When requesting a quotation, provide the dimensions, required colour where applicable, grit, workpiece material, machine details and quantity.
+              </p>
+              <p>
+                Where available, photographs of the existing grinding stone help clarify the requirement.
               </p>
 
-              <p>
-                <strong className="text-slate-950">Contact Proquanic (Pvt) Ltd</strong>
-              </p>
-              <ul className="list-disc pl-6 space-y-1.5 text-slate-800">
-                <li>
-                  Website:{" "}
-                  <Link
-                    href="/"
-                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2"
-                  >
-                    https://www.proquanic.co.zw
-                  </Link>
-                </li>
-                <li>
-                  Email:{" "}
-                  <a
-                    href={`mailto:${COMPANY.contact.email}`}
-                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2"
-                  >
-                    sales@proquanic.co.zw
-                  </a>
-                </li>
-                <li>
-                  WhatsApp:{" "}
-                  <a
-                    href="https://wa.me/263790420836"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 break-all"
-                  >
-                    https://wa.me/263790420836
-                  </a>
-                </li>
-                <li>Location: 7010 Gwabalanda, Bulawayo, Zimbabwe</li>
-              </ul>
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-2.5 text-sm sm:text-base">
+                <p className="font-bold text-slate-950">Contact Proquanic (Pvt) Ltd</p>
+                <ul className="list-disc pl-5 space-y-1.5 text-slate-800">
+                  <li>
+                    Website:{" "}
+                    <a
+                      href="https://www.proquanic.co.zw"
+                      className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2"
+                    >
+                      https://www.proquanic.co.zw
+                    </a>
+                  </li>
+                  <li>
+                    Email:{" "}
+                    <a
+                      href="mailto:sales@proquanic.co.zw"
+                      className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2"
+                    >
+                      sales@proquanic.co.zw
+                    </a>
+                  </li>
+                  <li>
+                    WhatsApp:{" "}
+                    <a
+                      href="https://wa.me/263790420836"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2"
+                    >
+                      https://wa.me/263790420836
+                    </a>
+                  </li>
+                  <li>Location: 7010 Gwabalanda, Bulawayo, Zimbabwe</li>
+                </ul>
+                <p className="font-bold text-slate-950 pt-1">If you need it. We will find it.</p>
+              </div>
 
-              <p>
-                <strong className="text-slate-950">If you need it. We will find it.</strong>
-              </p>
-
+              {/* FAQs */}
               <hr className="border-slate-200 my-6" />
 
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
                 Frequently asked questions
               </h2>
 
-              <h3 className="text-lg font-bold text-slate-900 pt-1">
-                What do the colours on grinding wheels mean?
-              </h3>
-              <p>
-                Some manufacturers use colour coding to identify the intended material application of particular product ranges. The meaning varies by manufacturer and product line.
-              </p>
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-slate-950">
+                    What are grinding stones used for?
+                  </h3>
+                  <p>
+                    Grinding stones are used for removing material, sharpening tools, cleaning surfaces and performing various grinding operations in engineering and manufacturing workshops.
+                  </p>
+                </div>
 
-              <h3 className="text-lg font-bold text-slate-900 pt-1">
-                Is a blue grinding wheel always for stainless steel?
-              </h3>
-              <p>
-                No. PFERD uses blue for stainless steel in specified product lines, while TYROLIT uses blue for steel in its published colour coding for specified grinding wheels. Always check the manufacturer's catalogue.
-              </p>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-slate-950">
+                    Why are grinding stones different colours?
+                  </h3>
+                  <p>
+                    Different colours may identify abrasive materials, formulations or manufacturer product ranges. Colour meanings are not universal, so always confirm the manufacturer&apos;s specification.
+                  </p>
+                </div>
 
-              <h3 className="text-lg font-bold text-slate-900 pt-1">
-                Does a grinding wheel's colour identify its grit?
-              </h3>
-              <p>
-                No. Colour coding and grit size serve different purposes. Grit must be established from the product specification or manufacturer documentation.
-              </p>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-slate-950">
+                    What is the difference between grey, white and green grinding stones?
+                  </h3>
+                  <p>
+                    These colours are commonly associated with different abrasive formulations. Grey and white products are often associated with aluminium oxide, while green products are commonly associated with silicon carbide. The exact specification must be confirmed with the manufacturer.
+                  </p>
+                </div>
 
-              <h3 className="text-lg font-bold text-slate-900 pt-1">
-                What does grit 60 mean?
-              </h3>
-              <p>
-                It identifies the abrasive particle-size designation. It does not independently identify the abrasive type, grade, structure or bond.
-              </p>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-slate-950">
+                    What does grit 60 mean on a grinding stone?
+                  </h3>
+                  <p>
+                    Grit 60 identifies the abrasive particle-size designation. It does not establish the abrasive material, grade, bond or complete product specification.
+                  </p>
+                </div>
 
-              <h3 className="text-lg font-bold text-slate-900 pt-1">
-                What do the dimensions 250 × 40 × 39 mm mean?
-              </h3>
-              <p>
-                They indicate the outside diameter, thickness and bore diameter, respectively.
-              </p>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-slate-950">
+                    What do grinding stone dimensions 250 × 40 × 39 mm mean?
+                  </h3>
+                  <p>
+                    They indicate the outside diameter, thickness and bore diameter, respectively.
+                  </p>
+                </div>
 
-              <h3 className="text-lg font-bold text-slate-900 pt-1">
-                Can two grinding wheels of the same colour be different?
-              </h3>
-              <p>
-                Yes. They may have different abrasive grains, grit sizes, grades, structures, bonds, dimensions and operating-speed ratings.
-              </p>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-slate-950">
+                    Are all grinding stones suitable for steel?
+                  </h3>
+                  <p>
+                    No. Different grinding stones are designed for different materials and operations. Confirm the abrasive type and manufacturer&apos;s application recommendations before ordering.
+                  </p>
+                </div>
 
-              <h3 className="text-lg font-bold text-slate-900 pt-1">
-                What should I send a supplier when requesting a grinding wheel quotation?
-              </h3>
-              <p>
-                Provide the dimensions, grit, material being ground, application, machine details, quantity and any known manufacturer or colour identification. Include photographs of the original wheel where possible.
-              </p>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-slate-950">
+                    What should I provide when requesting a grinding stone quotation?
+                  </h3>
+                  <p>
+                    Provide the colour or manufacturer&apos;s marking where relevant, dimensions, grit, intended application, workpiece material, machine details and quantity. Photographs of the original stone can also help identify the correct product.
+                  </p>
+                </div>
+              </div>
 
+              {/* Technical References */}
               <hr className="border-slate-200 my-6" />
 
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight pt-2 flex items-center gap-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-orange-600 shrink-0" />
-                <span>Professional references</span>
+                <span>Professional technical references</span>
               </h2>
-              <ol className="list-decimal pl-5 space-y-3 text-sm sm:text-base">
-                <li>
-                  <strong className="text-slate-950">PFERD – Grinding and Cut-Off Wheels Catalogue</strong>
-                  <br />
-                  <span>Manufacturer catalogue explaining product specifications, ordering information and colour coding.</span>
-                  <br />
-                  <a
-                    href="https://dg4mbxs1iwj25.cloudfront.net/userfiles/documents/products/pferd_61026_brochure.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
-                  >
-                    <span>https://dg4mbxs1iwj25.cloudfront.net/userfiles/documents/products/pferd_61026_brochure.pdf</span>
-                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                  </a>
-                </li>
-                <li>
-                  <strong className="text-slate-950">TYROLIT – Grinding Wheels</strong>
-                  <br />
-                  <span>Manufacturer product information, applications and colour identification.</span>
-                  <br />
-                  <a
-                    href="https://www.tyrolit.com/ca-en/products?subApplications=GRWH&type=T"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
-                  >
-                    <span>https://www.tyrolit.com/ca-en/products?subApplications=GRWH&amp;type=T</span>
-                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                  </a>
-                </li>
+
+              <ol className="list-decimal pl-6 space-y-4 text-sm sm:text-base text-slate-700">
                 <li>
                   <strong className="text-slate-950">Norton Abrasives – Grinding Wheel Basics</strong>
                   <br />
-                  <span>Technical explanation of abrasive grains, grit, grade, structure and bond.</span>
+                  <span>Explains abrasive grains, grit size, grade, structure and bond.</span>
                   <br />
                   <a
                     href="https://www.nortonabrasives.com/en-us/grinding-wheel-basics"
@@ -887,9 +769,45 @@ export const GrindingWheelGuidePage: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <strong className="text-slate-950">FEPA – Safety Instructions</strong>
+                  <strong className="text-slate-950">
+                    Norton Abrasives – Seven Factors Used to Determine a Grinding Wheel Specification
+                  </strong>
                   <br />
-                  <span>Industry safety guidance for bonded, coated and superabrasive products.</span>
+                  <span>Explains the factors involved in selecting a suitable grinding product.</span>
+                  <br />
+                  <a
+                    href="https://www.nortonabrasives.com/en-us/resources/expertise/7-factors-used-determine-grinding-wheel-specification"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
+                  >
+                    <span>
+                      https://www.nortonabrasives.com/en-us/resources/expertise/7-factors-used-determine-grinding-wheel-specification
+                    </span>
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  </a>
+                </li>
+                <li>
+                  <strong className="text-slate-950">TYROLIT – Bench Grinding Stones</strong>
+                  <br />
+                  <span>
+                    Manufacturer technical information on abrasive types, grit sizes, grade and bond designations for bench grinding products.
+                  </span>
+                  <br />
+                  <a
+                    href="https://www.tyrolit.com/in-en/products/tools/floor-stand-grinding"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
+                  >
+                    <span>https://www.tyrolit.com/in-en/products/tools/floor-stand-grinding</span>
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  </a>
+                </li>
+                <li>
+                  <strong className="text-slate-950">FEPA – Safety Publications</strong>
+                  <br />
+                  <span>Industry safety guidance for abrasive products.</span>
                   <br />
                   <a
                     href="https://fepa-abrasives.org/safety/safety-publications/"
@@ -902,17 +820,17 @@ export const GrindingWheelGuidePage: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <strong className="text-slate-950">SafeWork NSW – Safe Use of Abrasive Wheels</strong>
+                  <strong className="text-slate-950">OSHA – Abrasive Wheel Machinery</strong>
                   <br />
-                  <span>Workplace safety guidance covering selection, compatibility, mounting and operation.</span>
+                  <span>Workplace requirements concerning abrasive wheel machinery.</span>
                   <br />
                   <a
-                    href="https://www.safework.nsw.gov.au/resource-library/manufacturing/abrasive-wheels-fact-sheet"
+                    href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.215"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-orange-600 hover:text-orange-700 font-medium underline underline-offset-2 inline-flex items-center gap-1 break-all"
                   >
-                    <span>https://www.safework.nsw.gov.au/resource-library/manufacturing/abrasive-wheels-fact-sheet</span>
+                    <span>https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.215</span>
                     <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                   </a>
                 </li>
@@ -970,10 +888,10 @@ export const GrindingWheelGuidePage: React.FC = () => {
                 Proquanic (Pvt) Ltd · Bulawayo, Zimbabwe
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                Submit a Grinding Wheel or Abrasive RFQ
+                Submit a Grinding Stone or Abrasive RFQ
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Provide wheel dimensions (OD × thickness × bore), grit, workpiece material, machine speed (RPM), and markings or photos for formal quotation. &ldquo;{COMPANY.tagline}&rdquo;
+                Provide grinding stone dimensions (OD × thickness × bore), colour where applicable, grit, workpiece material, machine speed (RPM), and markings or photos for formal quotation. &ldquo;{COMPANY.tagline}&rdquo;
               </p>
             </div>
 

@@ -305,7 +305,7 @@ export const Footer: React.FC = () => {
                   className="text-orange-400 hover:text-orange-300 font-medium transition-colors flex items-center gap-1.5"
                 >
                   <span className="text-orange-500 text-[10px]">›</span>
-                  <span>Guide: Grinding Wheel Colours &amp; RFQ</span>
+                  <span>Guide: Grinding Stones &amp; Specifications</span>
                 </Link>
               </li>
               <li>
