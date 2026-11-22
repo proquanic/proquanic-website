@@ -19,11 +19,24 @@ const getBasePath = () => {
     : "";
 };
 
+const normalizeRoutePath = (rawPath: string): string => {
+  const withoutHash = (rawPath || "/").split("#")[0];
+  const withoutQuery = withoutHash.split("?")[0];
+  let clean = withoutQuery.trim() || "/";
+  if (!clean.startsWith("/")) clean = `/${clean}`;
+  if (clean.length > 1) {
+    clean = clean.replace(/\/+$/, "") || "/";
+  }
+  return clean;
+};
+
 const getRoute = () => {
   if (typeof window === "undefined") return "/";
 
   const hash = window.location.hash;
-  if (hash.startsWith("#/")) return hash.slice(1);
+  if (hash.startsWith("#/")) {
+    return normalizeRoutePath(hash.slice(1));
+  }
 
   let path = window.location.pathname;
   const base = getBasePath();
@@ -32,9 +45,7 @@ const getRoute = () => {
     path = path.slice(base.length) || "/";
   }
 
-  if (!path.startsWith("/")) path = `/${path}`;
-
-  return path;
+  return normalizeRoutePath(path);
 };
 
 export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -57,18 +68,35 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   const navigate = (path: string) => {
-    if (currentPath === path) return;
-
+    const rawTarget = path.startsWith("/") ? path : `/${path}`;
+    const normalizedTarget = normalizeRoutePath(rawTarget);
+    const hashPart = rawTarget.includes("#") ? rawTarget.slice(rawTarget.indexOf("#")) : "";
     const base = getBasePath();
-    const destination = `${base}${path.startsWith("/") ? path : `/${path}`}`;
+    const destination = `${base}${rawTarget}`;
+    const currentBrowserTarget = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+    if (currentBrowserTarget === destination && currentPath === normalizedTarget && !hashPart) {
+      return;
+    }
 
     try {
       window.history.pushState(null, "", destination);
-      setCurrentPath(path.startsWith("/") ? path : `/${path}`);
-      window.scrollTo({ top: 0, behavior: "instant" });
+      setCurrentPath(normalizedTarget);
+      if (hashPart && hashPart.length > 1) {
+        window.setTimeout(() => {
+          const el = document.getElementById(hashPart.slice(1));
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          } else {
+            window.scrollTo({ top: 0, behavior: "instant" });
+          }
+        }, 50);
+      } else {
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
     } catch {
-      window.location.hash = path;
-      setCurrentPath(path.startsWith("/") ? path : `/${path}`);
+      window.location.hash = rawTarget;
+      setCurrentPath(normalizedTarget);
       window.scrollTo({ top: 0, behavior: "instant" });
     }
   };

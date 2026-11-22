@@ -227,6 +227,32 @@ export const MachineryPage: React.FC = () => {
           manufacturers and trusted distribution channels in South Africa and overseas for engineering, mining, and
           manufacturing operations across Bulawayo and Zimbabwe.
         </p>
+        <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
+          <Link
+            href="/request-a-quotation"
+            className="w-full sm:w-auto px-6 py-3.5 bg-orange-600 hover:bg-orange-500 text-white text-sm font-bold rounded-lg shadow-sm transition-colors inline-flex items-center justify-center gap-2"
+          >
+            <FileText className="w-4 h-4" />
+            <span>Request a Machinery Quotation</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <a
+            href="#machinery-catalogue"
+            className="w-full sm:w-auto px-5 py-3.5 bg-[#0B192C] hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm transition-colors inline-flex items-center justify-center gap-2"
+          >
+            <span>Browse Machinery Catalogue ({MACHINERY_CATEGORIES.length})</span>
+            <ChevronRight className="w-4 h-4 text-orange-400" />
+          </a>
+          <a
+            href={generalMachineryWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 text-xs sm:text-sm font-semibold rounded-lg transition-colors inline-flex items-center justify-center gap-2"
+          >
+            <MessageSquare className="w-4 h-4 text-emerald-600" />
+            <span>WhatsApp Machinery Desk</span>
+          </a>
+        </div>
       </div>
 
       {/* Sourcing Transparency & Procurement Model Box */}
@@ -810,7 +836,7 @@ export const MachineryPage: React.FC = () => {
       </section>
 
       {/* Machinery Catalogue Filters & Search */}
-      <section className="space-y-6">
+      <section id="machinery-catalogue" className="space-y-6 scroll-mt-24">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-4">
           <div>
             <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">
@@ -1236,10 +1262,11 @@ export const MachineryPage: React.FC = () => {
         <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/request-a-quotation"
-            className="w-full sm:w-auto px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded shadow transition-colors flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-3.5 bg-orange-600 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold rounded-lg shadow transition-colors flex items-center justify-center gap-2"
           >
-            <span>Submit Custom Machinery Enquiry</span>
-            <ArrowRight className="w-4 h-4 text-orange-400" />
+            <FileText className="w-4 h-4" />
+            <span>Request a Machinery Quotation</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
           <a
             href={generalMachineryWhatsAppUrl}
