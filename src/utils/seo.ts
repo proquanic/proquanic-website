@@ -34,10 +34,14 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
 
   // 1. Homepage
   if (cleanPath === "/") {
+    const homepageTitle = "Proquanic (Pvt) Ltd | Industrial Supplies & Machinery Zimbabwe";
+    const homepageDescription =
+      "B2B industrial supplies and machinery procurement across Zimbabwe: engineering steels, cutting tools, workshop equipment, and abrasives.";
     return {
-      title: "Proquanic (Pvt) Ltd | Industrial Suppliers & Machinery Bulawayo",
-      description:
-        "B2B industrial procurement & supply in Bulawayo, Zimbabwe: engineering steels, cutting tools, machinery, abrasives, and workshop equipment.",
+      title: homepageTitle,
+      description: homepageDescription,
+      ogTitle: homepageTitle,
+      ogDescription: homepageDescription,
       canonical: `${BASE_URL}/`,
       ogType: "website",
       ogImage: DEFAULT_IMAGE,
