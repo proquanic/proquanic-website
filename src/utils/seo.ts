@@ -171,6 +171,35 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
     };
   }
 
+  // 5b. Mining & Mineral Processing Landing Page
+  if (cleanPath === "/industries/mining-mineral-processing") {
+    const miningTitle =
+      "Mining Supplies Zimbabwe | Engineering Materials, Tools & Machinery | Proquanic";
+    const miningDescription =
+      "Proquanic supplies engineering materials, industrial tools, maintenance components and machinery to mining and mineral processing businesses in Zimbabwe.";
+    const miningKeywords =
+      "Mining Supplies Zimbabwe, Mining engineering supplies Zimbabwe, mining maintenance supplies, mining consumables suppliers, mining machinery suppliers, industrial supplies for mines, engineering materials for mining, mining equipment procurement";
+
+    return {
+      title: miningTitle,
+      description: miningDescription,
+      ogTitle: miningTitle,
+      ogDescription: miningDescription,
+      keywords: miningKeywords,
+      canonical: `${BASE_URL}/industries/mining-mineral-processing`,
+      ogType: "website",
+      ogImage: DEFAULT_IMAGE,
+      breadcrumbs: [
+        { name: "Home", url: `${BASE_URL}/` },
+        { name: "Industries We Serve", url: `${BASE_URL}/industries` },
+        {
+          name: "Mining & Mineral Processing",
+          url: `${BASE_URL}/industries/mining-mineral-processing`,
+        },
+      ],
+    };
+  }
+
   // 6. About Proquanic
   if (cleanPath === "/about") {
     return {

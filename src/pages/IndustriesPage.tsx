@@ -41,6 +41,10 @@ const INDUSTRY_DETAILS: IndustryDetail[] = [
       "Illustrative mining engineering supplies and equipment include heavy wear plates, engineering and alloy steels including EN19 and EN24 for high-torque shafts and pins, spherical roller bearings, conveyor drive chains, slurry pump seals, and industrial valves, alongside relevant machinery and equipment procurement such as heavy-duty centre lathes, horizontal bandsaws, and hydraulic workshop presses.",
     links: [
       {
+        href: "/industries/mining-mineral-processing",
+        label: "Mining Supplies Zimbabwe Guide",
+      },
+      {
         href: "/products/steel-products",
         label: "Heavy Wear Plates & EN19 / EN24 Steels",
       },
