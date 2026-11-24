@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "verify-assets": "node scripts/verify-assets.js",
-    "build": "node scripts/verify-assets.js && vite build && tsx scripts/generate-static-routes.ts",
+    "build": "node scripts/verify-assets.js && tsx scripts/generate-sitemap.ts && vite build && tsx scripts/generate-static-routes.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"
