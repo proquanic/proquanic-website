@@ -97,6 +97,10 @@ const INDUSTRY_DETAILS: IndustryDetail[] = [
       "Illustrative examples include solid carbide end mills, ISO turning and milling inserts, machine vises, ER collet sets, digital calipers, micrometers, and lathe chucks, plus CNC and conventional machine tools.",
     links: [
       {
+        href: "/industries/engineering-machine-shops",
+        label: "Engineering Supplies Zimbabwe Guide",
+      },
+      {
         href: "/products/cutting-machining-tools",
         label: "Carbide End Mills & ISO Turning Inserts",
       },

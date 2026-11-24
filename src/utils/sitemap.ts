@@ -26,6 +26,7 @@ const CORE_PUBLIC_ROUTES: CoreRouteDefinition[] = [
   { path: "/industries", changefreq: "monthly", priority: "0.85" },
   { path: "/industries/mining-mineral-processing", changefreq: "weekly", priority: "0.9" },
   { path: "/industries/manufacturing-industrial-production", changefreq: "weekly", priority: "0.9" },
+  { path: "/industries/engineering-machine-shops", changefreq: "weekly", priority: "0.9" },
   { path: "/about", changefreq: "monthly", priority: "0.8" },
   { path: "/contact", changefreq: "monthly", priority: "0.85" },
   { path: "/site-delivery", changefreq: "monthly", priority: "0.75" },

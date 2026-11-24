@@ -240,6 +240,41 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
     };
   }
 
+  // 5d. Engineering & Machine Shops Landing Page
+  if (cleanPath === "/industries/engineering-machine-shops") {
+    const engTitle =
+      "Engineering Supplies Zimbabwe | Machine Shop Tools & Materials | Proquanic";
+    const engDescription =
+      "Engineering supplies for Zimbabwean machine shops, including engineering steels, machining tools, cutting tools, workshop equipment and machinery procurement.";
+    const engKeywords =
+      "Engineering Supplies Zimbabwe, Engineering Tools Suppliers Zimbabwe, Machine Shop Supplies Zimbabwe, Machining Tools Zimbabwe, Engineering Steel Suppliers Zimbabwe, Precision Machining Tools, Workshop Tools Suppliers Zimbabwe, Industrial Engineering Supplies, Engineering Machinery Procurement";
+
+    return {
+      title: engTitle,
+      description: engDescription,
+      ogTitle: engTitle,
+      ogDescription: engDescription,
+      keywords: engKeywords,
+      canonical: `${BASE_URL}/industries/engineering-machine-shops`,
+      ogType: "website",
+      ogImage: `${BASE_URL}/images/machinery/zim_machinist_lathe.jpg`,
+      breadcrumbs: [
+        { name: "Home", url: `${BASE_URL}/` },
+        { name: "Industries We Serve", url: `${BASE_URL}/industries` },
+        {
+          name: "Engineering & Machine Shops",
+          url: `${BASE_URL}/industries/engineering-machine-shops`,
+        },
+      ],
+      serviceSchema: {
+        name: "Engineering Supplies & Machine Shop Procurement Zimbabwe",
+        description: engDescription,
+        serviceType: "B2B Engineering Supplies & Machine Shop Procurement",
+        audienceType: "Engineering Workshops and Machine Shops",
+      },
+    };
+  }
+
   // 6. About Proquanic
   if (cleanPath === "/about") {
     return {
