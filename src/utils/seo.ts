@@ -149,10 +149,18 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
 
   // 5. Industries We Serve
   if (cleanPath === "/industries") {
+    const industriesTitle = "Industries We Serve | Industrial & Mining Supplies Zimbabwe";
+    const industriesDescription =
+      "Industrial supplies, engineering materials, precision tools and machinery procurement for mining, manufacturing and engineering sectors across Zimbabwe.";
+    const industriesKeywords =
+      "industrial supplies in Zimbabwe, engineering supplies in Zimbabwe, mining engineering supplies, industrial machinery and equipment, industrial procurement, engineering materials and components, industrial maintenance supplies, Proquanic Bulawayo";
+
     return {
-      title: "Industries We Serve | Mining, Manufacturing & Engineering Zimbabwe",
-      description:
-        "Supplying precision machine shops, mining operations, structural fabricators, foundries, and agricultural processing plants across Zimbabwe from Bulawayo.",
+      title: industriesTitle,
+      description: industriesDescription,
+      ogTitle: industriesTitle,
+      ogDescription: industriesDescription,
+      keywords: industriesKeywords,
       canonical: `${BASE_URL}/industries`,
       ogType: "website",
       ogImage: DEFAULT_IMAGE,
