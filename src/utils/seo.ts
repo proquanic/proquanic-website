@@ -24,6 +24,12 @@ export interface PageSeoConfig {
     articleSection?: string;
     keywords?: string;
   };
+  serviceSchema?: {
+    name: string;
+    description: string;
+    serviceType: string;
+    audienceType: string;
+  };
 }
 
 const BASE_URL = "https://www.proquanic.co.zw";
@@ -197,6 +203,40 @@ export function getSeoForPath(currentPath: string): PageSeoConfig {
           url: `${BASE_URL}/industries/mining-mineral-processing`,
         },
       ],
+    };
+  }
+
+  // 5c. Manufacturing & Industrial Production Landing Page
+  if (cleanPath === "/industries/manufacturing-industrial-production") {
+    const mfgTitle = "Manufacturing & Industrial Supplies Zimbabwe | Proquanic";
+    const mfgDescription =
+      "Industrial supplies, engineering materials, steel products, machining tools and machinery procurement for manufacturing and industrial production businesses across Zimbabwe.";
+    const mfgKeywords =
+      "Manufacturing Supplies Zimbabwe, Industrial Supplies Zimbabwe, Industrial Engineering Supplies Zimbabwe, Manufacturing Engineering Supplies, Industrial Components Suppliers Zimbabwe, Industrial Machinery Procurement Zimbabwe, Steel Suppliers Zimbabwe, Machining Tools Suppliers Zimbabwe, Industrial Maintenance Supplies Zimbabwe";
+
+    return {
+      title: mfgTitle,
+      description: mfgDescription,
+      ogTitle: mfgTitle,
+      ogDescription: mfgDescription,
+      keywords: mfgKeywords,
+      canonical: `${BASE_URL}/industries/manufacturing-industrial-production`,
+      ogType: "website",
+      ogImage: `${BASE_URL}/images/categories/cutting-machining-tools.jpg`,
+      breadcrumbs: [
+        { name: "Home", url: `${BASE_URL}/` },
+        { name: "Industries We Serve", url: `${BASE_URL}/industries` },
+        {
+          name: "Manufacturing & Industrial Production",
+          url: `${BASE_URL}/industries/manufacturing-industrial-production`,
+        },
+      ],
+      serviceSchema: {
+        name: "Manufacturing & Industrial Production Supplies Zimbabwe",
+        description: mfgDescription,
+        serviceType: "B2B Industrial Procurement & Engineering Supply",
+        audienceType: "Manufacturing and Industrial Production Businesses",
+      },
     };
   }
 
@@ -689,6 +729,31 @@ export function buildSchemaLdJson(seo: PageSeoConfig): object[] {
           "@type": "ImageObject",
           "url": `${BASE_URL}/favicon.png`,
         },
+      },
+    });
+  }
+
+  // 4. Optional Industry / Service Schema
+  if (seo.serviceSchema) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": seo.serviceSchema.name,
+      "description": seo.serviceSchema.description,
+      "serviceType": seo.serviceSchema.serviceType,
+      "url": seo.canonical,
+      "provider": {
+        "@type": "Organization",
+        "name": "Proquanic (Pvt) Ltd",
+        "url": BASE_URL,
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Zimbabwe",
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": seo.serviceSchema.audienceType,
       },
     });
   }

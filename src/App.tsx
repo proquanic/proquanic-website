@@ -18,6 +18,7 @@ import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { CookiePolicyPage } from "./pages/CookiePolicyPage";
 import { IndustriesPage } from "./pages/IndustriesPage";
 import { MiningMineralProcessingPage } from "./pages/MiningMineralProcessingPage";
+import { ManufacturingIndustrialProductionPage } from "./pages/ManufacturingIndustrialProductionPage";
 import { SiteDeliveryPage } from "./pages/SiteDeliveryPage";
 import { En8VsEn19GuidePage } from "./pages/En8VsEn19GuidePage";
 import { HssPunchesGuidePage } from "./pages/HssPunchesGuidePage";
@@ -287,6 +288,10 @@ const AppContent: React.FC = () => {
 
     if (currentPath === "/industries/mining-mineral-processing") {
       return <MiningMineralProcessingPage />;
+    }
+
+    if (currentPath === "/industries/manufacturing-industrial-production") {
+      return <ManufacturingIndustrialProductionPage />;
     }
 
     if (currentPath === "/site-delivery") {

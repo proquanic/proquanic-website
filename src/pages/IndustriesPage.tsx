@@ -71,6 +71,10 @@ const INDUSTRY_DETAILS: IndustryDetail[] = [
       "Illustrative examples include V-belts, precision bearings, pneumatic valves, machine tool spares, transmission sprockets, electric motor couplings, workshop consumables, and production equipment.",
     links: [
       {
+        href: "/industries/manufacturing-industrial-production",
+        label: "Manufacturing Supplies Zimbabwe Guide",
+      },
+      {
         href: "/products/bearings-power-transmission",
         label: "Bearings, V-Belts, Sprockets & Couplings",
       },
